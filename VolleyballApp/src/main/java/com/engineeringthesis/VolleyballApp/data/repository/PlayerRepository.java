@@ -1,16 +1,17 @@
 package com.engineeringthesis.VolleyballApp.data.repository;
 
 import com.engineeringthesis.VolleyballApp.data.model.PlayerEntity;
+import com.engineeringthesis.VolleyballApp.data.model.TeamEntity;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
 public interface PlayerRepository extends AbstractRepository<PlayerEntity> {
-    public List<PlayerEntity> findByTeam(String teamId);
+    List<PlayerEntity> findByTeam(TeamEntity team);
 
-    public PlayerEntity findByName(String name);
+    PlayerEntity findByName(String name);
 
-    public PlayerEntity findBySurname(String surname);
+    PlayerEntity findBySurname(String surname);
 
 }

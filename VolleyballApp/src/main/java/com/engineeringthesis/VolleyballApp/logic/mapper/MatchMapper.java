@@ -22,6 +22,7 @@ public class MatchMapper extends AbstractMapper<MatchDto, MatchEntity> {
         MatchEntity entity = new MatchEntity();
         super.mapToEntity(dto, entity);
         entity.setHostTeam(dto.getHostTeamId());
+        entity.setGuestTeam(dto.getGuestTeamId());
         entity.setMatchDate(dto.getMatchDate());
         entity.setResult(dto.getResult());
         return entity;

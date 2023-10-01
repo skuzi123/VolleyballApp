@@ -6,5 +6,5 @@ import com.engineeringthesis.VolleyballApp.logic.dto.SetDto;
 import java.util.List;
 
 public interface SetService extends AbstractModelService<SetDto, SetEntity> {
-    public List<SetDto> findByMatch(String matchId);
+    List<SetDto> findByMatch(String matchId);
 }

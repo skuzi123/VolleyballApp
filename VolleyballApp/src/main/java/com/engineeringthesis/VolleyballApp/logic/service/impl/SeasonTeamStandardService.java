@@ -36,7 +36,7 @@ public class SeasonTeamStandardService implements SeasonTeamService {
     }
 
     @Override
-    public SeasonTeamDto getById(String id) {
+    public SeasonTeamDto getById(SeasonTeamId id) {
         Objects.requireNonNull(id);
 
         return seasonTeamMapper.mapToDto(seasonTeamRepository.findById(id).get());
@@ -48,7 +48,7 @@ public class SeasonTeamStandardService implements SeasonTeamService {
     }
 
     @Override
-    public void deleteById(String id) {
+    public void deleteById(SeasonTeamId id) {
         Objects.requireNonNull(id);
 
         seasonTeamRepository.deleteById(id);

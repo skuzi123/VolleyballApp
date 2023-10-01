@@ -6,13 +6,13 @@ import com.engineeringthesis.VolleyballApp.logic.dto.SeasonTeamDto;
 import java.util.List;
 
 public interface SeasonTeamService {
-    public SeasonTeamDto add(final SeasonTeamDto dto);
+    SeasonTeamDto add(final SeasonTeamDto dto);
 
-    public SeasonTeamDto getById(final String id);
+    SeasonTeamDto getById(final SeasonTeamId id);
 
-    public List<SeasonTeamDto> getAll();
+    List<SeasonTeamDto> getAll();
 
-    public void deleteById(final String id);
+    void deleteById(final SeasonTeamId id);
 
-    public SeasonTeamDto update(final SeasonTeamDto dto, final SeasonTeamId id);
+    SeasonTeamDto update(final SeasonTeamDto dto, final SeasonTeamId id);
 }

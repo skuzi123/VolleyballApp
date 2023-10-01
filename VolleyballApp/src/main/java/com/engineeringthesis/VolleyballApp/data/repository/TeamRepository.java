@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TeamRepository extends AbstractRepository<TeamEntity> {
-    public TeamEntity findByTeamName(String teamName);
+    TeamEntity findByTeamName(String teamName);
 }

@@ -6,9 +6,9 @@ import com.engineeringthesis.VolleyballApp.logic.dto.PlayerDto;
 import java.util.List;
 
 public interface PlayerService extends AbstractModelService<PlayerDto, PlayerEntity> {
-    public List<PlayerDto> findByTeam(String teamId);
+    List<PlayerDto> findByTeam(String teamId);
 
-    public PlayerDto findByName(String name);
+    PlayerDto findByName(String name);
 
-    public PlayerDto findBySurname(String surname);
+    PlayerDto findBySurname(String surname);
 }

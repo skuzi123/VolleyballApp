@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface SeasonRepository extends AbstractRepository<SeasonEntity> {
-    public SeasonEntity findBySeasonName(String seasonName);
+    SeasonEntity findBySeasonName(String seasonName);
 }
