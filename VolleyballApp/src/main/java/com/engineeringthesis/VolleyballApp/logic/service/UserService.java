@@ -5,4 +5,5 @@ import com.engineeringthesis.VolleyballApp.logic.dto.UserDto;
 
 public interface UserService extends AbstractModelService<UserDto, UserEntity> {
     UserDto findByUsername(String username);
+    boolean existsByUsername(String username);
 }

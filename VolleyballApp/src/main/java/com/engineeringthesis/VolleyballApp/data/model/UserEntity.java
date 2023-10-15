@@ -21,5 +21,15 @@ public class UserEntity extends AbstractEntity {
     @Column(name = "role", nullable = false)
     private ERole role;
 
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private TrainerEntity trainer;
 
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private PlayerEntity player;
+
+    public UserEntity(String username, String password, ERole role) {
+        this.username = username;
+        this.password = password;
+        this.role = role;
+    }
 }

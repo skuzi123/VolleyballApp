@@ -25,4 +25,11 @@ public class UserStandardService extends AbstractStandardService<UserDto, UserEn
     public UserDto findByUsername(String username) {
         return userMapper.mapToDto(userRepository.findByUsername(username));
     }
+
+    @Override
+    public boolean existsByUsername(String username) {
+        return userRepository.existsByUsername(username);
+    }
+
+
 }

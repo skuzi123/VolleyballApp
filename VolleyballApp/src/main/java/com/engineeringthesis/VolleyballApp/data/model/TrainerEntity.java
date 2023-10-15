@@ -1,20 +1,18 @@
 package com.engineeringthesis.VolleyballApp.data.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Table(name = "trainers")
 @Getter
 @Setter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class TrainerEntity extends AbstractEntity {
 
-    @ManyToOne(cascade = CascadeType.REMOVE)
+    @OneToOne
     @JoinColumn(name = "user_id")
     private UserEntity user;
     @Column(name = "work_history"

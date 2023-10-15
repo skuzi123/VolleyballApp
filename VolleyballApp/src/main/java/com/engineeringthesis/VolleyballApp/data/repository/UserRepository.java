@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 public interface UserRepository extends AbstractRepository<UserEntity> {
     UserEntity findByUsername(String username);
 
+    Boolean existsByUsername(String username);
 }
