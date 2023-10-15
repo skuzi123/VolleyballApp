@@ -42,27 +42,6 @@ public class WebSecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
-//    @Bean
-//    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-//        http.csrf(csrf -> csrf.disable())
-//                .authorizeHttpRequests(requests -> requests
-//                .requestMatchers("/api/auth/**").permitAll()
-//                .anyRequest().authenticated()
-//        )
-//                .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
-//                .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-//                .authenticationProvider(authenticationProvider()).addFilterBefore(
-//                       authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
-////                .authorizeRequests().requestMatchers("/api/auth/**").permitAll()
-////                .requestMatchers("/api/test/**").permitAll()
-////                .anyRequest().authenticated();
-//
-////        http.authenticationProvider(authenticationProvider());
-//
-////        http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
-//
-//        return http.build();
-//    }
 @Bean
 public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
     http.csrf(csrf -> csrf.disable())
