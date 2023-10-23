@@ -1,0 +1,103 @@
+.heading {
+  font-weight: 500;
+}
+
+.head {
+  position: relative;
+}
+
+.sticky {
+  z-index: 9999;
+  background-color: #f7f6e7;
+}
+
+.no-sticky {
+  z-index: 100;
+}
+
+.fixed {
+  position: fixed;
+  width: 100%;
+  transition: 1ms linear;
+  top: 0;
+}
+
+.no-fixed {
+  position: static;
+  width: 100%;
+  transition: 1ms linear;
+  top: -50px;
+}
+
+
+.heading {
+  font-size: 1.6em;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.4;
+  letter-spacing: 1em;
+  align-self: center;
+  color: #314E52;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.loginHeader {
+  font-size: 2em;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.4;
+  letter-spacing: 1em;
+  align-self: center;
+  color: #314E52;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+//only navbar styles
+.upper-bar {
+  height: 6rem;
+  align-items: center;
+
+}
+
+.btn-logout {
+  //padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10rem;
+  height: 2rem;
+  font-size: 1.15rem;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  text-align: center;
+  line-height: 1.5;
+  letter-spacing: 0.15em;
+  background-color: #f7f6e7;
+  border: #F2A154 2px solid;
+  border-radius: 2em;
+  color: #314E52;
+}
+.btn:hover{
+  background-color: #F2A154;
+  color:black;
+
+}
+
+// vertical line
+.vr {
+  height: 24px;
+  align-self: center;
+}
+
+
+

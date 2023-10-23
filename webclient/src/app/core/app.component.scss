@@ -1,0 +1,35 @@
+.background {
+  //background-image: linear-gradient(to bottom, rgba(231, 230, 225,0.92), rgba(231, 230, 225,0.92)), url(/assets/tlo.jpg);
+  background-size: cover;
+  background-repeat: repeat;
+  height: 125%;
+  z-index: 0;
+}
+
+#elipsa-1 {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1440px;
+  height: 300px;
+  z-index: 1;
+  border-radius: 50%;
+  background-color: #F2A154;
+  opacity: 20%;
+  filter: blur(200px);
+}
+
+#elipsa-2 {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 50%);
+  width: 1440px;
+  height: 300px;
+  z-index: 1;
+  border-radius: 50%;
+  background-color: #F2A154;
+  opacity: 30%;
+  filter: blur(200px);
+}
