@@ -9,6 +9,8 @@ import { HeaderComponent } from './core/header/header.component';
 import { FooterComponent } from './core/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterComponent } from './core/register/register.component';
+import { MainPageComponent } from './feature/main-page/main-page.component';
+import {JWT_OPTIONS, JwtHelperService} from "@auth0/angular-jwt";
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import { RegisterComponent } from './core/register/register.component';
     LoginComponent,
     HeaderComponent,
     FooterComponent,
-    RegisterComponent
+    RegisterComponent,
+    MainPageComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +27,7 @@ import { RegisterComponent } from './core/register/register.component';
     ReactiveFormsModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [  JwtHelperService,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
