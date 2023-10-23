@@ -1,1 +1,92 @@
-<p>register works!</p>
+<div class="mx-auto my-5 login-container">
+  <div class="Header-text">
+  </div>
+  <form class="login-screen" [formGroup]="registerForm">
+    <div *ngIf="incorrectCredentials"
+         class="border-danger validator-border mb-3">
+      <p class="text-danger validator-text">
+        {{ messages.incorrectCredentials }}
+      </p>
+    </div>
+    <div class="form-group group-input">
+      <label for="username" [ngClass]="{
+          'text-danger':
+            registerForm.get('username')?.hasError('required') &&
+            registerForm.get('username')?.pristine
+        }">{{messages.username}} </label>
+      <input
+        type="username"
+        id="username"
+        formControlName="username"
+        class="form-control"
+      >
+      <div
+        *ngIf="
+          registerForm.get('username')?.hasError('required') &&
+          registerForm.get('username')?.pristine
+        "
+        class="form-text text-danger field-required"
+      >
+        {{ messages.fieldRequired }}
+      </div>
+    </div>
+    <div class="form-group group-input">
+      <label for="password" [ngClass]="{
+          'text-danger':
+            registerForm.get('password')?.hasError('required') &&
+            registerForm.get('password')?.pristine
+        }"
+      >{{messages.password}} </label>
+      <input
+        type="password"
+        id="password"
+        formControlName="password"
+        class="form-control"
+      >
+      <div
+        *ngIf="
+          registerForm.get('password')?.hasError('required') &&
+          registerForm.get('password')?.pristine
+        "
+        class="form-text text-danger field-required"
+      >
+        {{ messages.fieldRequired }}
+      </div>
+    </div>
+    <div class="form-group group-input">
+      <label for="role" [ngClass]="{
+          'text-danger':
+            registerForm.get('role')?.hasError('required') &&
+            registerForm.get('role')?.pristine
+        }">{{messages.role}} </label>
+      <input
+        type="role"
+        id="role"
+        formControlName="role"
+        class="form-control"
+      >
+      <div
+        *ngIf="
+          registerForm.get('role')?.hasError('required') &&
+          registerForm.get('role')?.pristine
+        "
+        class="form-text text-danger field-required"
+      >
+        {{ messages.fieldRequired }}
+      </div>
+    </div>
+    <div>
+      <button
+        type="submit"
+        class="btn btn-primary float-end"
+        (click)="onSubmit()"
+      >
+        {{ messages.signUp }}
+      </button>
+    </div>
+  </form>
+</div>
+
+
+
+
