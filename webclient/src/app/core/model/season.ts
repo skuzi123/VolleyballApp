@@ -1,12 +1,20 @@
+
+
 export class Season {
+  private _id: string;
   private _seasonName: string;
   private _startDate: Date;
   private _endDate: Date;
 
-  constructor(seasonName: string, startDate: Date, endDate: Date) {
+  constructor(id:string, seasonName: string, startDate: Date, endDate: Date) {
+    this._id = id;
     this._seasonName = seasonName;
     this._startDate = startDate;
     this._endDate = endDate;
+  }
+
+  get id(): string {
+    return this._id;
   }
 
   get seasonName(): string {

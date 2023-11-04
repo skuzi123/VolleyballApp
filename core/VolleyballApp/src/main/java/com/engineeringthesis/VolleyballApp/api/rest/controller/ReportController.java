@@ -24,4 +24,6 @@ public class ReportController extends AbstractController<ReportDto, ReportEntity
     public ResponseEntity<List<ReportDto>> findByCreatedByUser(@PathVariable String userId) {
         return ResponseEntity.ok(reportService.findByCreatedByUser(userId));
     }
+
+
 }

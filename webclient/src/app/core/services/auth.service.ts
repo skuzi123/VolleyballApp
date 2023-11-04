@@ -1,9 +1,8 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpHeaders, HttpResponse} from '@angular/common/http';
+import {BehaviorSubject, Observable} from 'rxjs';
 import {JwtHelperService} from "@auth0/angular-jwt";
 import {UserRole} from "../enums/user-role";
-
 
 
 const AUTH_API = 'http://localhost:8081/api/auth/';
@@ -26,7 +25,8 @@ export class AuthService {
     this.messageSource.next(message);
   }
 
-  constructor(private http: HttpClient, private jwtService: JwtHelperService) {}
+  constructor(private http: HttpClient, private jwtService: JwtHelperService) {
+  }
 
   public isAuthenticated(): boolean {
     const token = localStorage.getItem('token');
@@ -49,7 +49,7 @@ export class AuthService {
       },
       {
         observe: 'response',
-        headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+        headers: new HttpHeaders({'Content-Type': 'application/json'}),
       }
     );
   }
@@ -68,7 +68,7 @@ export class AuthService {
       },
       {
         observe: 'response',
-        headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+        headers: new HttpHeaders({'Content-Type': 'application/json'}),
       }
     );
   }

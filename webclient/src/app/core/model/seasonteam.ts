@@ -2,7 +2,7 @@ import {SeasonTeamId} from "./seasonteamid";
 import {Season} from "./season";
 import {Team} from "./team";
 
-export class SeasonTeamEntity {
+export class SeasonTeam {
   private _id: SeasonTeamId;
   private _points: number;
   private _season: Season;

@@ -1,6 +1,6 @@
 import {Match} from "./match";
 
-export class SetEntity {
+export class Set {
   private _id: string;
   private _match: Match;
   private _setNumber: number;

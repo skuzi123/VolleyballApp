@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterComponent } from './core/register/register.component';
 import { MainPageComponent } from './feature/main-page/main-page.component';
 import {JWT_OPTIONS, JwtHelperService} from "@auth0/angular-jwt";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {JWT_OPTIONS, JwtHelperService} from "@auth0/angular-jwt";
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule,
   ],
   providers: [  JwtHelperService,],
   bootstrap: [AppComponent]
