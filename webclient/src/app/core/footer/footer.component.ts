@@ -9,7 +9,8 @@ export class FooterComponent implements OnInit {
   currentTimestamp!: Date;
   time!: string;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
     this.time = 'Deloitte'

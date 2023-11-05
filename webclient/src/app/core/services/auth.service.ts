@@ -34,7 +34,7 @@ export class AuthService {
     return !this.jwtService.isTokenExpired(token);
   }
 
-  public getUser(): Observable<User>{
+  public getUser(): Observable<User> {
     return this.http.get<User>(AUTH_API + 'user')
   }
 
@@ -50,7 +50,7 @@ export class AuthService {
       },
       {
         observe: 'response',
-        headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+        headers: new HttpHeaders({'Content-Type': 'application/json'}),
       }
     );
   }

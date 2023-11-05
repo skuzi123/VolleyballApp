@@ -1,6 +1,6 @@
-export enum UserRole{
- ADMIN,
- PLAYER,
- TRAINER
+export enum UserRole {
+  ADMIN,
+  PLAYER,
+  TRAINER
 
 }

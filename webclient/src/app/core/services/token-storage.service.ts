@@ -46,6 +46,7 @@ export class TokenStorageService {
 
     return {};
   }
+
   public removeUser(): void {
     window.localStorage.removeItem(USER_KEY);
   }

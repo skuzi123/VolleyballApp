@@ -1,7 +1,6 @@
 package com.engineeringthesis.VolleyballApp.logic.security.jwt;
 
 import com.engineeringthesis.VolleyballApp.logic.security.service.UserDetailsImpl;
-
 import io.jsonwebtoken.*;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;

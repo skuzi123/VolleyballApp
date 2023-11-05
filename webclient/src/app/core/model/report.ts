@@ -1,10 +1,10 @@
 import {User} from "./user";
 
-export class Report{
-private _id: string;
+export class Report {
+  private _id: string;
   private _reportName: string;
 
- private _reportText: string;
+  private _reportText: string;
 
   private _createdByUser: User;
 

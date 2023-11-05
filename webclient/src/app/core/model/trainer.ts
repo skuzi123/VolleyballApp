@@ -1,12 +1,12 @@
 import {User} from "./user";
 
-export class Trainer{
+export class Trainer {
   private _id: string;
   private _user: User;
   private _workHistory: string;
   private _achievements: string;
 
-  constructor(id: string,user: User, workHistory: string, achievements: string) {
+  constructor(id: string, user: User, workHistory: string, achievements: string) {
     this._id = id;
     this._user = user;
     this._workHistory = workHistory;
@@ -17,7 +17,7 @@ export class Trainer{
     return this._id;
   }
 
-  get user(): User{
+  get user(): User {
     return this._user;
   }
 

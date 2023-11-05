@@ -1,6 +1,6 @@
 export class SeasonTeamId {
- private _seasonId: string;
- private _teamId: string;
+  private _seasonId: string;
+  private _teamId: string;
 
   constructor(seasonId: string, teamId: string) {
     this._seasonId = seasonId;

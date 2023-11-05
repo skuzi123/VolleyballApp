@@ -35,7 +35,7 @@ public abstract class AbstractController<T extends AbstractDto, E extends Abstra
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<T> update(@RequestBody final T t,@PathVariable final String id) {
+    public ResponseEntity<T> update(@RequestBody final T t, @PathVariable final String id) {
         return ResponseEntity.ok(service.update(t, id));
     }
 

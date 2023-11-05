@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 import {FormBuilder, FormControl, Validators} from "@angular/forms";
 import {UserRole} from "../enums/user-role";
@@ -16,12 +16,14 @@ export class RegisterComponent {
   registerForm = this.fb.group({
     username: new FormControl('', {validators: [Validators.required]}),
     password: new FormControl('', {validators: Validators.required}),
-    role: new FormControl('', { validators: [Validators.required, (control) => {
+    role: new FormControl('', {
+      validators: [Validators.required, (control) => {
         if (!Object.values(UserRole).includes(control.value)) {
-          return { invalidRole: true };
+          return {invalidRole: true};
         }
         return null;
-      }] })
+      }]
+    })
   })
   incorrectCredentials = false;
 
@@ -30,14 +32,16 @@ export class RegisterComponent {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.registerForm.get('username')?.markAsDirty();
     this.registerForm.get('password')?.markAsDirty();
     this.registerForm.get('role')?.markAsDirty();
   }
-  onSubmit(){
+
+  onSubmit() {
     const username = this.registerForm.value.username;
     const password = this.registerForm.value.password;
     const role = this.registerForm.value.role;

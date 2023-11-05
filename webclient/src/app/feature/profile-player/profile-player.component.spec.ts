@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ProfilePlayerComponent } from './profile-player.component';
+import {ProfilePlayerComponent} from './profile-player.component';
 
 describe('ProfilePlayerComponent', () => {
   let component: ProfilePlayerComponent;

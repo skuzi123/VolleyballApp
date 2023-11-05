@@ -1,12 +1,10 @@
-
-
 export class Season {
   private _id: string;
   private _seasonName: string;
   private _startDate: Date;
   private _endDate: Date;
 
-  constructor(id:string, seasonName: string, startDate: Date, endDate: Date) {
+  constructor(id: string, seasonName: string, startDate: Date, endDate: Date) {
     this._id = id;
     this._seasonName = seasonName;
     this._startDate = startDate;
@@ -25,7 +23,7 @@ export class Season {
     this._seasonName = value;
   }
 
-  get startDate(): Date  {
+  get startDate(): Date {
     return this._startDate;
   }
 
@@ -33,11 +31,11 @@ export class Season {
     this._startDate = value;
   }
 
-  get endDate(): Date  {
+  get endDate(): Date {
     return this._endDate;
   }
 
-  set endDate(value: Date ) {
+  set endDate(value: Date) {
     this._endDate = value;
   }
 }

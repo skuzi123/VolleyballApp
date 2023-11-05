@@ -8,7 +8,7 @@ export enum ERole {
 
 }
 
-export class User{
+export class User {
   private _id: string;
   private _username: string;
   private _password: string;
@@ -17,7 +17,7 @@ export class User{
   private _player?: Player;
 
   constructor(id: string, username: string, password: string, role: ERole, trainer?: Trainer, player?: Player) {
-   this._id = id;
+    this._id = id;
     this._username = username;
     this._password = password;
     this._role = role;

@@ -1,0 +1,35 @@
+/* style.css */
+.custom-header th {
+  background-color: #F2A154; /* Green background for headers */
+  color: white; /* White text color */
+}
+
+/* Additional styles for table positioning */
+.container > .row {
+  justify-content: flex-end; /* Aligns the row content to the end (right) */
+}
+
+.col-6.ml-auto {
+  /* This class is for the div containing the table, making it take up half the width and auto-margin on the left */
+  max-width: 50%;
+}
+
+/* Add additional custom styles below */
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(0,0,0,.05); /* For striped tables */
+}
+
+/* Example media query to handle responsive table behaviors */
+@media screen and (max-width: 768px) {
+  .table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .col-6.ml-auto {
+    max-width: 100%;
+    margin-left: 0;
+  }
+}

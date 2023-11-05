@@ -1,6 +1,4 @@
-
-
-export class Team{
+export class Team {
   private _id: string;
   private _name: string;
 

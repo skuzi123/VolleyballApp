@@ -1,6 +1,6 @@
 import {Team} from "./team";
 
-export class Match{
+export class Match {
   private _id: string;
   private _hostTeam: Team;
   private _guestTeam: Team;

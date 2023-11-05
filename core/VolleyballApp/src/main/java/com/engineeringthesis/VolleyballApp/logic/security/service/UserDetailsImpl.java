@@ -15,14 +15,14 @@ import java.util.List;
 public class UserDetailsImpl implements UserDetails {
     private static final long serialVersionUID = 1L;
 
-    private String id;
+    private final String id;
 
-    private String username;
+    private final String username;
 
     @JsonIgnore
-    private String password;
+    private final String password;
 
-    private Collection<? extends GrantedAuthority> authorities;
+    private final Collection<? extends GrantedAuthority> authorities;
 
     public UserDetailsImpl(String id, String username, String password,
                            Collection<? extends GrantedAuthority> authorities) {
@@ -41,10 +41,12 @@ public class UserDetailsImpl implements UserDetails {
                 user.getPassword(),
                 authorities);
     }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return authorities;
     }
+
     @Override
     public String getPassword() {
         return password;

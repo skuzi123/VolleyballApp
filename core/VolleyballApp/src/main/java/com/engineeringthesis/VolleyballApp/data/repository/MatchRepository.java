@@ -9,6 +9,6 @@ import java.util.List;
 @Repository
 public interface MatchRepository extends AbstractRepository<MatchEntity> {
 
-public List<MatchEntity> findByHostTeamOrGuestTeam(TeamEntity hostTeam, TeamEntity guestTeam);
+    List<MatchEntity> findByHostTeamOrGuestTeam(TeamEntity hostTeam, TeamEntity guestTeam);
 
 }

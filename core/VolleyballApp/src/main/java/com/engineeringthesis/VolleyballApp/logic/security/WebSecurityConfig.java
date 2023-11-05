@@ -4,12 +4,11 @@ import com.engineeringthesis.VolleyballApp.logic.security.jwt.AuthEntryPointJwt;
 import com.engineeringthesis.VolleyballApp.logic.security.jwt.AuthTokenFilter;
 import com.engineeringthesis.VolleyballApp.logic.security.service.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.*;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -42,22 +41,21 @@ public class WebSecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
-@Bean
-public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-    http.csrf(csrf -> csrf.disable())
-            .authorizeHttpRequests(requests -> requests
-                    .requestMatchers("/api/auth/**").permitAll()
-                    .requestMatchers("/api/test/**").permitAll()
-                    )
-            .authenticationProvider(authenticationProvider())
-            .addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class)
-            .exceptionHandling(exceptions -> exceptions
-                    .authenticationEntryPoint(unauthorizedHandler))
-            .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http.csrf(csrf -> csrf.disable())
+                .authorizeHttpRequests(requests -> requests
+                        .requestMatchers("/api/auth/**").permitAll()
+                        .requestMatchers("/api/test/**").permitAll()
+                )
+                .authenticationProvider(authenticationProvider())
+                .addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class)
+                .exceptionHandling(exceptions -> exceptions
+                        .authenticationEntryPoint(unauthorizedHandler))
+                .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
-    return http.build();
-}
-
+        return http.build();
+    }
 
 
     @Bean

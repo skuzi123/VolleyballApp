@@ -1,13 +1,13 @@
 import {User} from "./user";
 import {Team} from "./team";
 
-export class Player{
- private _id: string;
-  private _user: User ;
+export class Player {
+  private _id: string;
+  private _user: User;
 
-  private _name: string ;
+  private _name: string;
 
-  private _surname: string ;
+  private _surname: string;
 
   private _age: number;
 
@@ -23,7 +23,7 @@ export class Player{
 
   private _attackRange: number;
 
-  private _blockRange:  number;
+  private _blockRange: number;
 
 
   private _team: Team;

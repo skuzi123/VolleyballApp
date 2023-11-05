@@ -27,17 +27,17 @@ public class MatchStandardService extends AbstractStandardService<MatchDto, Matc
         this.matchMapper = matchMapper;
     }
 
-@Override
-public List<MatchDto> findByHostTeamOrGuestTeam(String hostTeamId, String guestTeamId) {
-    Objects.requireNonNull(hostTeamId);
-    Objects.requireNonNull(guestTeamId);
+    @Override
+    public List<MatchDto> findByHostTeamOrGuestTeam(String hostTeamId, String guestTeamId) {
+        Objects.requireNonNull(hostTeamId);
+        Objects.requireNonNull(guestTeamId);
 
-    TeamEntity hostTeam = teamRepository.findById(hostTeamId).orElse(null);
-    TeamEntity guestTeam = teamRepository.findById(guestTeamId).orElse(null);
+        TeamEntity hostTeam = teamRepository.findById(hostTeamId).orElse(null);
+        TeamEntity guestTeam = teamRepository.findById(guestTeamId).orElse(null);
 
-    List<MatchEntity> matches = matchRepository.findByHostTeamOrGuestTeam(hostTeam, guestTeam);
+        List<MatchEntity> matches = matchRepository.findByHostTeamOrGuestTeam(hostTeam, guestTeam);
 
-    return matchMapper.mapToDtoList(matches);
-}
+        return matchMapper.mapToDtoList(matches);
+    }
 
 }

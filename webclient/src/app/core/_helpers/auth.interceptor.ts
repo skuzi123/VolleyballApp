@@ -1,12 +1,7 @@
-import {
-  HttpEvent,
-  HttpHandler,
-  HttpInterceptor,
-  HttpRequest,
-} from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest,} from '@angular/common/http';
+import {Injectable} from '@angular/core';
 
-import { Observable } from 'rxjs';
+import {Observable} from 'rxjs';
 
 const TOKEN_HEADER_KEY = 'Authorization';
 

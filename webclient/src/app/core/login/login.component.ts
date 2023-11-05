@@ -3,14 +3,13 @@ import {Router} from "@angular/router";
 import {FormBuilder, FormControl, Validators} from "@angular/forms";
 import {loginMessages} from "./login.constants";
 import {AuthService} from "../services/auth.service";
-import {TokenStorageService} from "../services/token-storage.service";
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit{
+export class LoginComponent implements OnInit {
   loginForm = this.fb.group({
     username: new FormControl('', {validators: [Validators.required]}),
     password: new FormControl('', {validators: Validators.required})
@@ -18,18 +17,20 @@ export class LoginComponent implements OnInit{
   incorrectCredentials = false;
 
   readonly messages = loginMessages;
+
   constructor(
     private authService: AuthService,
     private fb: FormBuilder,
     private router: Router,
-) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.loginForm.get('username')?.markAsDirty();
     this.loginForm.get('password')?.markAsDirty();
   }
 
-  onSubmit(): void{
+  onSubmit(): void {
     localStorage.removeItem('token');
     const username = this.loginForm.value.username;
     const password = this.loginForm.value.password;
@@ -46,7 +47,7 @@ export class LoginComponent implements OnInit{
           localStorage.setItem('token', resp.body.token);
           this.authService.sendMessage(resp.body.role);
           this.router
-            .navigateByUrl(this.authService.redirectUrl ?? '/table')
+            .navigateByUrl('/main')
             .then(() => (this.authService.redirectUrl = undefined));
         },
         () => {
