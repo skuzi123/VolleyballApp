@@ -101,3 +101,17 @@ Owebclient/src/app/feature/main-page/table-league/table-league.component.spec.ts
 Q.idea/sonarlint/securityhotspotstore/3/f/3f536deeb47ee2c6d26a9c7eb352adab3ab78b28,b\3\b399714752a702af6ebbf33fa613116de42431a7
 Å
 Q.idea/sonarlint/securityhotspotstore/3/5/35c9e3b520990e2e164af6c1a426ad3e5cb81452,f\a\faa4604203ab60c0c1ece0e97cfc0df1615853d0
+e
+5webclient/src/app/core/services/seasonteam-service.ts,d\9\d902bfdeaeb5759fe9359d08f778d19298924eac
+™
+zcore/VolleyballApp/src/main/java/com/engineeringthesis/VolleyballApp/logic/security/payload/response/UserInfoResponse.java,2\d\2da57c209d38baae6263b48ed2e7d9d55e9b0d0d
+¢
+rcore/VolleyballApp/src/main/java/com/engineeringthesis/VolleyballApp/logic/security/controller/AuthController.java,8\c\8c81511970e20b62e0fd2d1ce6782c8c35efc728
+•
+ucore/VolleyballApp/src/main/java/com/engineeringthesis/VolleyballApp/logic/security/payload/response/JwtResponse.java,0\7\07d25205d5f9bb10fe61e1626499804dab6f4211
+ï
+ecore/VolleyballApp/src/main/java/com/engineeringthesis/VolleyballApp/logic/security/jwt/JwtUtils.java,d\0\d0d6b208bb7accf769fd1567063bd4000f623726
+F
+webclient/package.json,b\4\b43b66d9dfbfba8dd6772d42c8c2c8fb3f39d5de
+K
+webclient/package-lock.json,9\c\9c1f21d78c33a604e238dac40b2dfdfe3dddff4b

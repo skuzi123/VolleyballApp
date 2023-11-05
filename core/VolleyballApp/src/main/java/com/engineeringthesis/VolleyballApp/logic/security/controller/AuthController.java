@@ -10,6 +10,7 @@ import com.engineeringthesis.VolleyballApp.data.repository.UserRepository;
 import com.engineeringthesis.VolleyballApp.logic.security.jwt.JwtUtils;
 import com.engineeringthesis.VolleyballApp.logic.security.payload.request.LoginRequest;
 import com.engineeringthesis.VolleyballApp.logic.security.payload.request.SignUpRequest;
+import com.engineeringthesis.VolleyballApp.logic.security.payload.response.JwtResponse;
 import com.engineeringthesis.VolleyballApp.logic.security.payload.response.MessageResponse;
 import com.engineeringthesis.VolleyballApp.logic.security.payload.response.UserInfoResponse;
 import com.engineeringthesis.VolleyballApp.logic.security.service.UserDetailsImpl;
@@ -59,19 +60,24 @@ public class AuthController {
                 .authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
-
+        String jwt = jwtUtils.generateJwtToken(authentication);
         UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
 
-        ResponseCookie jwtCookie = jwtUtils.generateJwtCookie(userDetails);
+
+//        ResponseCookie jwtCookie = jwtUtils.generateJwtCookie(userDetails);
 
         List<String> roles = userDetails.getAuthorities().stream()
                 .map(item -> item.getAuthority())
                 .toList();
 
-        return ResponseEntity.ok().header(HttpHeaders.SET_COOKIE, jwtCookie.toString())
-                .body(new UserInfoResponse(userDetails.getId(),
-                        userDetails.getUsername(),
-                        roles.get(0)));
+//        return ResponseEntity.ok().header(HttpHeaders.SET_COOKIE, jwtCookie.toString())
+//                .body(new UserInfoResponse(userDetails.getId(),
+//                        userDetails.getUsername(),
+//                        roles.get(0)));
+        return ResponseEntity.ok(new JwtResponse(jwt,
+                userDetails.getId(),
+                userDetails.getUsername(),
+                roles));
     }
 
     @PostMapping("/signup")
