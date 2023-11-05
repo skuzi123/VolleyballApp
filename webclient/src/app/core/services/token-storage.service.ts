@@ -38,6 +38,19 @@ export class TokenStorageService {
     return {};
   }
 
+  public getUser(): any {
+    const user = window.localStorage.getItem(USER_KEY);
+    if (user) {
+      return JSON.parse(user);
+    }
+
+    return {};
+  }
+  public removeUser(): void {
+    window.localStorage.removeItem(USER_KEY);
+  }
+
+
   public isLoggedIn(): boolean {
     const user = window.localStorage.getItem(USER_KEY);
     if (user) {

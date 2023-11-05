@@ -11,7 +11,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterComponent } from './core/register/register.component';
 import { MainPageComponent } from './feature/main-page/main-page.component';
 import {JWT_OPTIONS, JwtHelperService} from "@auth0/angular-jwt";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import { TableLeagueComponent } from './feature/main-page/table-league/table-league.component';
+import { ProfilePlayerComponent } from './feature/profile-player/profile-player.component';
+import { ProfileTrainerComponent } from './feature/profile-trainer/profile-trainer.component';
+import { ReportContainerComponent } from './feature/report-container/report-container.component';
+import {AuthInterceptor} from "./core/_helpers/auth.interceptor";
 
 @NgModule({
   declarations: [
@@ -20,7 +25,11 @@ import {HttpClientModule} from "@angular/common/http";
     HeaderComponent,
     FooterComponent,
     RegisterComponent,
-    MainPageComponent
+    MainPageComponent,
+    TableLeagueComponent,
+    ProfilePlayerComponent,
+    ProfileTrainerComponent,
+    ReportContainerComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +38,10 @@ import {HttpClientModule} from "@angular/common/http";
     BrowserAnimationsModule,
     HttpClientModule,
   ],
-  providers: [  JwtHelperService,],
+  providers: [  JwtHelperService,
+    {provide: JWT_OPTIONS, useValue: JWT_OPTIONS},
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

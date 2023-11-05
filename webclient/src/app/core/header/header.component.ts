@@ -1,5 +1,6 @@
 import {Component, EventEmitter, HostListener, OnInit, Output} from '@angular/core';
 import {Router} from "@angular/router";
+import {AuthService} from "../services/auth.service";
 
 @Component({
   selector: 'app-header',
@@ -13,21 +14,23 @@ export class HeaderComponent implements OnInit{
   fixednavbar: boolean = false;
   user?: string;
   constructor(
-    public router: Router
+    public router: Router,
+    private authService: AuthService
 
   ) {}
   @HostListener('window:scroll', ['$event']) onScroll() {
     this.fixednavbar = window.scrollY > 100;
   }
   ngOnInit(): void {
-    // this.authService.currentMessage$.subscribe((sub) => {
-    //   this.user = sub;
+    this.authService.currentMessage$.subscribe((sub) => {
+      this.user = sub;
+    })
   }
 
   logOut() {
     localStorage.removeItem('token');
     this.user = undefined;
-    // this.authService.sendMessage('');
+    this.authService.sendMessage('');
     this.router.navigate(['login']);
   }
 }

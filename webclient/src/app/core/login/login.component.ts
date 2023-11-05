@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {FormBuilder, FormControl, Validators} from "@angular/forms";
 import {loginMessages} from "./login.constants";
+import {AuthService} from "../services/auth.service";
+import {TokenStorageService} from "../services/token-storage.service";
 
 @Component({
   selector: 'app-login',
@@ -17,6 +19,7 @@ export class LoginComponent implements OnInit{
 
   readonly messages = loginMessages;
   constructor(
+    private authService: AuthService,
     private fb: FormBuilder,
     private router: Router,
 ) { }
@@ -27,6 +30,7 @@ export class LoginComponent implements OnInit{
   }
 
   onSubmit(): void{
+    localStorage.removeItem('token');
     const username = this.loginForm.value.username;
     const password = this.loginForm.value.password;
 
@@ -35,6 +39,21 @@ export class LoginComponent implements OnInit{
     }
     if (password === '') {
       this.loginForm.get('password')?.markAsPristine();
+    }
+    if (username !== '' && password !== '') {
+      this.authService.login(username!, password!).subscribe(
+        (resp) => {
+          localStorage.setItem('token', resp.body.token);
+          this.authService.sendMessage(resp.body.role);
+          this.router
+            .navigateByUrl(this.authService.redirectUrl ?? '/table')
+            .then(() => (this.authService.redirectUrl = undefined));
+        },
+        () => {
+          this.incorrectCredentials = true;
+          this.loginForm.controls['password'].setValue('');
+        }
+      );
     }
     () => {
       this.incorrectCredentials = true;
