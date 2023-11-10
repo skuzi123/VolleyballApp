@@ -15,7 +15,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {TableLeagueComponent} from './feature/main-page/table-league/table-league.component';
 import {ProfilePlayerComponent} from './feature/profile-player/profile-player.component';
 import {ProfileTrainerComponent} from './feature/profile-trainer/profile-trainer.component';
-import {ReportContainerComponent} from './feature/report-container/report-container.component';
+import {ReportContainerComponent} from './feature/main-page/report-container/report-container.component';
 import {AuthInterceptor} from "./core/_helpers/auth.interceptor";
 
 @NgModule({
