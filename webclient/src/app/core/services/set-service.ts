@@ -7,7 +7,7 @@ import {Set} from "../model/set";
   providedIn: 'root'
 })
 export class SetService {
-  url: string = 'http://localhost:8081/sets'
+  url: string = 'http://localhost:8081/api/auth/sets'
   sets$: Observable<Set[]> = this.http.get<Set[]>(
     this.url,
     {}

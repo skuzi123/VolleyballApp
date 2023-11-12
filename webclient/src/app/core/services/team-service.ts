@@ -7,7 +7,7 @@ import {Team} from "../model/team";
   providedIn: 'root'
 })
 export class TeamService {
-  url: string = 'http://localhost:8081/teams'
+  url: string = 'http://localhost:8081/api/auth/teams'
   teams$: Observable<Team[]> = this.http.get<Team[]>(
     this.url,
     {}

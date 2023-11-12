@@ -1,10 +1,10 @@
 export class Team {
   private _id: string;
-  private _name: string;
+  private _teamName: string;
 
-  constructor(id: string, name: string) {
+  constructor(id: string, teamName: string) {
     this._id = id;
-    this._name = name;
+    this._teamName = teamName;
   }
 
   get id(): string {
@@ -12,11 +12,11 @@ export class Team {
   }
 
 
-  get name(): string {
-    return this._name;
+  get teamName(): string {
+    return this._teamName;
   }
 
-  set name(value: string) {
-    this._name = value;
+  set teamName(value: string) {
+    this._teamName = value;
   }
 }

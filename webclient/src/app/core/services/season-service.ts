@@ -7,7 +7,7 @@ import {Season} from "../model/season";
   providedIn: 'root'
 })
 export class SeasonService {
-  url: string = 'http://localhost:8081/seasons'
+  url: string = 'http://localhost:8081/api/auth/seasons'
   seasons$: Observable<Season[]> = this.http.get<Season[]>(
     this.url,
     {}

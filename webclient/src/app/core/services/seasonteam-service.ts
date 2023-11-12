@@ -8,7 +8,7 @@ import {SeasonTeam} from "../model/seasonteam";
   providedIn: 'root'
 })
 export class SeasonTeamService {
-  private url: string = 'http://localhost:8081/seasonteams';
+  private url: string = 'http://localhost:8081/api/auth/seasonteams';
 
   constructor(private http: HttpClient) {
   }

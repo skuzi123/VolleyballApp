@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/players")
+@RequestMapping("/api/auth/players")
 public class PlayerController extends AbstractController<PlayerDto, PlayerEntity> {
     private final PlayerService playerService;
 

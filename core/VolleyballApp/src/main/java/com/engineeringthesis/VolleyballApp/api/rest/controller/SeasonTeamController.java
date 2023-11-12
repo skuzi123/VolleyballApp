@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/seasonteams")
+@RequestMapping("/api/auth/seasonteams")
 public class SeasonTeamController {
 
     private final SeasonTeamService seasonTeamService;

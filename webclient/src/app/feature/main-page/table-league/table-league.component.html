@@ -12,123 +12,19 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Trefl Gdańsk</td>
-          <td>12</td>
-          <td>4</td>
-          <td>0</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Projekt Warszawa</td>
-          <td>12</td>
-          <td>4</td>
-          <td>0</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Jastrzębski Węgiel</td>
-          <td>9</td>
-          <td>3</td>
-          <td>0</td>
-        </tr>
-        <tr>
-          <th scope="row">4</th>
-          <td>Ślepsk Malow Suwałki</td>
-          <td>9</td>
-          <td>4</td>
-          <td>1</td>
-        </tr>
-        <tr>
-          <th scope="row">5</th>
-          <td>BOGDANKA LUK Lublin</td>
-          <td>9</td>
-          <td>4</td>
-          <td>1</td>
-        </tr>
-        <tr>
-          <th scope="row">6</th>
-          <td>Grupa Azoty ZAKSA Kędzierzyn-Koźle</td>
-          <td>8</td>
-          <td>3</td>
-          <td>0</td>
-        </tr>
-        <tr>
-          <th scope="row">7</th>
-          <td>Asseco Resovia Rzeszów</td>
-          <td>5</td>
-          <td>3</td>
-          <td>1</td>
-        </tr>
-        <tr>
-          <th scope="row">8</th>
-          <td>Indykpol AZS Olsztyn</td>
-          <td>5</td>
-          <td>4</td>
-          <td>2</td>
-        </tr>
-        <tr>
-          <th scope="row">9</th>
-          <td>KGHM Cuprum Lubin</td>
-          <td>5</td>
-          <td>4</td>
-          <td>3</td>
-        </tr>
-        <tr>
-          <th scope="row">10</th>
-          <td>PGE GiEK Ska Bełchatów</td>
-          <td>4</td>
-          <td>4</td>
-          <td>2</td>
-        </tr>
-        <tr>
-          <th scope="row">11</th>
-          <td>PSG Stal Nysa</td>
-          <td>3</td>
-          <td>4</td>
-          <td>4</td>
-        </tr>
-        <tr>
-          <th scope="row">12</th>
-          <td>Barkom Każany Lwów</td>
-          <td>2</td>
-          <td>4</td>
-          <td>3</td>
-        </tr>
-        <tr>
-          <th scope="row">13</th>
-          <td>Aluron CMC Warta Zawiercie</td>
-          <td>1</td>
-          <td>2</td>
-          <td>2</td>
-        </tr>
-        <tr>
-          <th scope="row">14</th>
-          <td>Exact Systems Hemarpol Częstochowa</td>
-          <td>0</td>
-          <td>2</td>
-          <td>2</td>
-        </tr>
-        <tr>
-          <th scope="row">15</th>
-          <td>Enea Czarni Radom</td>
-          <td>0</td>
-          <td>4</td>
-          <td>4</td>
-        </tr>
-        <tr>
-          <th scope="row">16</th>
-          <td>GKS Katowice</td>
-          <td>0</td>
-          <td>3</td>
-          <td>3</td>
+        <tr *ngFor="let team of teams; let i = index">
+          <th scope="row">{{i + 1}}</th>
+          <td>{{team.id}}</td>
+          <td>{{team.teamName}}</td>
+<!--          <td>{{team.points}}</td>-->
+<!--          <td>{{team.wins}}</td>-->
+<!--          <td>{{team.losses}}</td>-->
         </tr>
         </tbody>
-
       </table>
     </div>
   </div>
 </div>
+
 
 

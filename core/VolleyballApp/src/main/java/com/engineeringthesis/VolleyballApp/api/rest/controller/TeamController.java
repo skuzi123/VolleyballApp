@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/teams")
+@RequestMapping("/api/auth/teams")
 public class TeamController extends AbstractController<TeamDto, TeamEntity> {
     private final TeamService teamService;
 

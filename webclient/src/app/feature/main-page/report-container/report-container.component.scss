@@ -1,7 +1,6 @@
 .match-reports-container {
   height: calc(70% - 140px); /* 120px to przykładowa wysokość nagłówka i marginesów */
   width: 200%;
-  overflow-y: scroll;
   background-color: #f7f6e7; /* Dopasowanie do koloru nagłówka */
   padding: 1rem;
   /* Włączenie przewijania dla dłuższych list */
@@ -15,7 +14,11 @@
   border: 1px solid #ddd; /* Subtelna obramówka */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Lekki cień dla wyróżnienia */
 }
-
+.middle-container{
+  width: 100%;
+  height: 100%;
+  overflow-y:scroll;
+}
 /* Dodatkowe style dla tekstu raportu */
 .match-report p {
   margin: 0;

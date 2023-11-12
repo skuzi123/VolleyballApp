@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/trainers")
+@RequestMapping("/api/auth/trainers")
 public class TrainerController extends AbstractController<TrainerDto, TrainerEntity> {
     private final TrainerService trainerService;
 

@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/sets")
+@RequestMapping("/api/auth/sets")
 public class SetController extends AbstractController<SetDto, SetEntity> {
     private final SetService setService;
 

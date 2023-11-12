@@ -4,7 +4,10 @@
   class="sticky head"
   style="display: grid; grid-template-rows: auto 1fr; grid-template-columns: 25% 1fr;"
 >
-
+  <app-left-panel
+    *ngIf="!router.url.includes('/login')"
+  >
+  </app-left-panel>
   <div class="upper-bar d-flex" style="grid-row: 1; grid-column: 2;">
     <div class="col-8 offset-2 d-flex">
       <div class="d-flex me-auto gap-3">

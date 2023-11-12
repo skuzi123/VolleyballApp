@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/reports")
+@RequestMapping("/api/auth/reports")
 public class ReportController extends AbstractController<ReportDto, ReportEntity> {
 
     private final ReportService reportService;

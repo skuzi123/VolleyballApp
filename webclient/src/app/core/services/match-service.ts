@@ -7,7 +7,7 @@ import {HttpClient, HttpResponse} from "@angular/common/http";
   providedIn: 'root'
 })
 export class MatchService {
-  url: string = 'http://localhost:8081/matches'
+  url: string = 'http://localhost:8081/api/auth/matches'
   matches$: Observable<Match[]> = this.http.get<Match[]>(
     this.url,
     {}

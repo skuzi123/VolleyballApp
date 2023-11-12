@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/matches")
+@RequestMapping("/api/auth/matches")
 public class MatchController extends AbstractController<MatchDto, MatchEntity> {
 
     private final MatchService matchService;

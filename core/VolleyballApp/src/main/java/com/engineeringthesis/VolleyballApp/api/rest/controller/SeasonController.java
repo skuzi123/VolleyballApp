@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/seasons")
+@RequestMapping("/api/auth/seasons")
 public class SeasonController extends AbstractController<SeasonDto, SeasonEntity> {
 
     private final SeasonService seasonService;

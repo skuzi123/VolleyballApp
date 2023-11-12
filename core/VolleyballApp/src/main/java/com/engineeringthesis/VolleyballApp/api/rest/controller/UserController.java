@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/users")
+@RequestMapping("/api/auth/users")
 public class UserController extends AbstractController<UserDto, UserEntity> {
     private final UserService userService;
 

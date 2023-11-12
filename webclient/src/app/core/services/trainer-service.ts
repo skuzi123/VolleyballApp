@@ -7,7 +7,7 @@ import {HttpClient, HttpResponse} from "@angular/common/http";
   providedIn: 'root'
 })
 export class TrainerService {
-  url: string = 'http://localhost:8081/Trainers'
+  url: string = 'http://localhost:8081/api/auth/trainers'
   trainers$: Observable<Trainer[]> = this.http.get<Trainer[]>(
     this.url,
     {}
