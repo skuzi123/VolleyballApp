@@ -1,0 +1,27 @@
+.footer {
+  height: 36px;
+  margin: 57px 0 0;
+  padding: 8px 32px;
+  bottom: 0;
+  z-index: 9999;
+  width: 100%;
+  background-color: #F7F6E7;
+  display: flex;
+  align-items: center;
+  position: fixed;
+}
+
+.update {
+  width: 195px;
+  height: 20px;
+  margin-left: auto;
+  font-family: Verdana, sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.67;
+  letter-spacing: normal;
+  text-align: right;
+  color: cadetblue;
+}

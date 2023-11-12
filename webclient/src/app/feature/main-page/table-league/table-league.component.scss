@@ -1,0 +1,88 @@
+/* style.css */
+.custom-header th {
+  background-color: #F2A154; /* Green background for headers */
+  color: white; /* White text color */
+}
+
+/* Additional styles for table positioning */
+.container > .row {
+  justify-content: flex-end; /* Aligns the row content to the end (right) */
+}
+
+.col-6.ml-auto {
+  /* This class is for the div containing the table, making it take up half the width and auto-margin on the left */
+  max-width: 100%;
+}
+
+/* Add additional custom styles below */
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(0,0,0,.05); /* For striped tables */
+}
+
+/* Example media query to handle responsive table behaviors */
+@media screen and (max-width: 768px) {
+  .table-responsive {
+    display: block;
+    width: 150%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .col-6.ml-auto {
+    width: 100%;
+    margin-left: 0;
+  }
+
+
+
+  /* Adjust this to ensure the table header has the correct color */
+  .custom-header th {
+    background-color: #F2A154; /* Adjust the color value as needed */
+    color: white;
+  }
+
+  /* Ensure the table takes the full width */
+  .table-responsive {
+    display: block;
+    width: 200%; /* Ensures the table is 100% the width of its parent */
+    overflow-x: auto; /* Allows horizontal scrolling if necessary */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Adjust the max-height to ensure the full table is visible */
+  .table {
+    max-height: unset; /* Removes any maximum height restriction */
+    width:70%;
+    overflow-y: visible; /* Ensures the full table is visible vertically */
+  }
+
+  /* If you want the table to be 5px away from another element, add margin */
+  .container > .row > .col-6.ml-auto {
+    margin-left: 5px; /* Adjust as necessary to create space from the left side */
+    width: calc(100% - 5px); /* Adjust width to account for margin */
+  }
+
+  /* Ensure the table is not cut off on smaller screens */
+  @media screen and (max-width: 768px) {
+    .col-6.ml-auto {
+      width: 100%; /* Full width on small screens */
+      margin-left: 0; /* Reset margin on small screens if necessary */
+    }
+
+    .col-6.ml-auto > .table-responsive {
+      overflow-y: visible; /* Ensures the full table is visible */
+    }
+  }
+
+  /* Add your other styles here */
+
+  //.table{
+//  max-height: calc(100vh - 120px); /* Zakładając, że tabela ma klasę 'table-responsive' */
+//  overflow-y: scroll;
+//}
+//  .col-6.ml-auto > .table {
+//    max-height: calc(100vh - 120px);
+//    overflow-y: scroll;
+//  }
+
+}

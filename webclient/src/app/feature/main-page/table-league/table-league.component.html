@@ -1,0 +1,30 @@
+<div class="container mt-6">
+  <div class="row">
+    <div class="col-6 ml-auto">
+      <table class="table">
+        <thead class="custom-header">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Drużyna</th>
+          <th scope="col">Punkty</th>
+          <th scope="col">Wygr.</th>
+          <th scope="col">Przegr.</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let team of teams; let i = index">
+          <th scope="row">{{i + 1}}</th>
+          <td>{{team.id}}</td>
+          <td>{{team.teamName}}</td>
+<!--          <td>{{team.points}}</td>-->
+<!--          <td>{{team.wins}}</td>-->
+<!--          <td>{{team.losses}}</td>-->
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
