@@ -19,6 +19,9 @@ import {ReportContainerComponent} from './feature/main-page/report-container/rep
 import {AuthInterceptor} from "./core/_helpers/auth.interceptor";
 import { LeftPanelComponent } from './core/left-panel/left-panel.component';
 import { SearchBarComponent } from './core/left-panel/search-bar/search-bar.component';
+import { SearchBarTrainerComponent } from './core/left-panel/search-bar-trainer/search-bar-trainer.component';
+import { SearchBarTeamComponent } from './core/left-panel/search-bar-team/search-bar-team.component';
+import { ProfileTeamComponent } from './feature/profile-team/profile-team.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,10 @@ import { SearchBarComponent } from './core/left-panel/search-bar/search-bar.comp
     ProfileTrainerComponent,
     ReportContainerComponent,
     LeftPanelComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    SearchBarTrainerComponent,
+    SearchBarTeamComponent,
+    ProfileTeamComponent
   ],
   imports: [
     BrowserModule,

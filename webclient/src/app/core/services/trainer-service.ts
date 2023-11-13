@@ -26,6 +26,7 @@ export class TrainerService {
 
   findByUser(userId: string): Observable<Trainer[]> {
     return this.http.get<Trainer[]>(`${this.url}/user/{userId}`);
+
   }
 
 

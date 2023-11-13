@@ -30,13 +30,6 @@ export class SearchBarComponent implements OnInit{
           // Na przykład możesz wyświetlić komunikat błędu
         }
       );
-    // this.playerService.getPlayers().subscribe(players => {
-    //   const playerExists = players.some(player => player.surname.toLowerCase() === this.searchTerm.toLowerCase());
-    //   if (playerExists) {
-    //     this.router.navigate(['/', this.searchTerm]);
-    //   } else {
-    //
-    //   }
-    // });
+
   }
 }

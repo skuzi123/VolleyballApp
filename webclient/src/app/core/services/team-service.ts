@@ -24,6 +24,10 @@ export class TeamService {
     return this.http.get<Team>(this.url + `/${id}`);
   }
 
+  getByTeamName(teamName: string): Observable<Team> {
+    return this.http.get<Team>(this.url + `/teamName/${teamName}`);
+  }
+
 
   addTeam(team: Team): Observable<HttpResponse<Object>> {
     let response: Observable<HttpResponse<Object>>;

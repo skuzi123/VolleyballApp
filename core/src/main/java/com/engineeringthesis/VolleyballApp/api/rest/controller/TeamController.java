@@ -17,7 +17,7 @@ public class TeamController extends AbstractController<TeamDto, TeamEntity> {
         this.teamService = teamService;
     }
 
-    @GetMapping("/teamName/{teamNameId}")
+    @GetMapping("/teamName/{teamName}")
     public ResponseEntity<TeamDto> findByTeamName(@PathVariable String teamName) {
         return ResponseEntity.ok(teamService.findByTeamName(teamName));
     }
