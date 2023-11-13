@@ -22,31 +22,26 @@ public abstract class AbstractController<T extends AbstractDto, E extends Abstra
     }
 
     @GetMapping("/{id}")
-//    @PreAuthorize("hasAnyRole('PLAYER','TRAINER','ADMIN')")
     public ResponseEntity<T> getById(@PathVariable final String id) {
         return ResponseEntity.ok(service.getById(id));
     }
 
     @GetMapping()
-//    @PreAuthorize("hasAnyRole('PLAYER','TRAINER','ADMIN')")
     public ResponseEntity<List<T>> getAll() {
         return ResponseEntity.ok(service.getAll());
     }
 
     @PostMapping
-//    @PreAuthorize("hasAnyRole('TRAINER','ADMIN')")
     public ResponseEntity<T> add(@RequestBody final T t) {
         return ResponseEntity.ok(service.add(t));
     }
 
     @PutMapping("/{id}")
-//    @PreAuthorize("hasAnyRole('PLAYER','TRAINER','ADMIN')")
     public ResponseEntity<T> update(@RequestBody final T t, @PathVariable final String id) {
         return ResponseEntity.ok(service.update(t, id));
     }
 
     @DeleteMapping("/{id}")
-//    @PreAuthorize("hasAnyRole('ADMIN')")
     public ResponseEntity<T> deleteById(@PathVariable final String id) {
         service.deleteById(id);
         return ResponseEntity.noContent().build();

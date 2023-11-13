@@ -4,7 +4,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './core/app-routing.module';
 import {AppComponent} from './core/app.component';
 import {LoginComponent} from './core/login/login.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HeaderComponent} from './core/header/header.component';
 import {FooterComponent} from './core/footer/footer.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -18,6 +18,7 @@ import {ProfileTrainerComponent} from './feature/profile-trainer/profile-trainer
 import {ReportContainerComponent} from './feature/main-page/report-container/report-container.component';
 import {AuthInterceptor} from "./core/_helpers/auth.interceptor";
 import { LeftPanelComponent } from './core/left-panel/left-panel.component';
+import { SearchBarComponent } from './core/left-panel/search-bar/search-bar.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { LeftPanelComponent } from './core/left-panel/left-panel.component';
     ProfilePlayerComponent,
     ProfileTrainerComponent,
     ReportContainerComponent,
-    LeftPanelComponent
+    LeftPanelComponent,
+    SearchBarComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +41,7 @@ import { LeftPanelComponent } from './core/left-panel/left-panel.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    FormsModule,
   ],
   providers: [JwtHelperService,
     {provide: JWT_OPTIONS, useValue: JWT_OPTIONS},

@@ -49,7 +49,7 @@ public class PlayerStandardService extends AbstractStandardService<PlayerDto, Pl
 
     @Override
     public PlayerDto findBySurname(String surname) {
-        return playerMapper.mapToDto(playerRepository.findByName(surname));
+        return playerMapper.mapToDto(playerRepository.findBySurname(surname));
     }
 
 }

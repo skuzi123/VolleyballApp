@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./left-panel.component.scss']
 })
 export class LeftPanelComponent {
-
+  searchTerm = '';
 }

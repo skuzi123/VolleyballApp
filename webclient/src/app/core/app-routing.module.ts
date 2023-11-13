@@ -6,6 +6,7 @@ import {LoginGuard} from "./guards/login.guard";
 import {AuthGuard} from "./guards/auth.guard";
 import {TableLeagueComponent} from "../feature/main-page/table-league/table-league.component";
 import {MainPageComponent} from "../feature/main-page/main-page.component";
+import {ProfilePlayerComponent} from "../feature/profile-player/profile-player.component";
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent, canActivate: [LoginGuard]},
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path: 'main', component: MainPageComponent, canActivate: [AuthGuard]},
   {path: '', component: MainPageComponent, canActivate: [AuthGuard]},
   {path: 'register', component: RegisterComponent},
+  { path: 'player/:surname', component: ProfilePlayerComponent, canActivate: [AuthGuard]},
   {path: '**', redirectTo: 'main',},
 ];
 
