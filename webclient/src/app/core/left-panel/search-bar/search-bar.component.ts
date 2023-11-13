@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {PlayerService} from "../../services/player-service";
 import {Router} from "@angular/router";
+import {SearchService} from "../../services/search-service";
 
 @Component({
   selector: 'app-search-bar',
@@ -11,8 +12,8 @@ export class SearchBarComponent implements OnInit{
   @Input() placeholder: string = 'Wpisz coś...';
   @Input() searchTerm: string = '';
   @Output() searchTermChange = new EventEmitter<string>();
-
-  constructor(private router: Router, private playerService: PlayerService) { }
+  searchValue = '';
+  constructor(private router: Router, private playerService: PlayerService,private searchService: SearchService) { }
 
   ngOnInit(): void {
   }
@@ -30,6 +31,10 @@ export class SearchBarComponent implements OnInit{
           // Na przykład możesz wyświetlić komunikat błędu
         }
       );
+    this.searchTermChange.emit(this.searchTerm);
+  }
 
+  onSearchChange(): void {
+    this.searchService.setSearchValue(this.searchValue);
   }
 }
