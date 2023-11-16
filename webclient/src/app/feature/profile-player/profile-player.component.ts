@@ -5,6 +5,7 @@ import {Player} from "../../core/model/player";
 import {PlayerService} from "../../core/services/player-service";
 import {Subscription} from "rxjs";
 import {SearchService} from "../../core/services/search-service";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-profile-player',
@@ -12,28 +13,19 @@ import {SearchService} from "../../core/services/search-service";
   styleUrls: ['./profile-player.component.scss']
 })
 export class ProfilePlayerComponent implements OnInit{
-  player: Player | undefined;
+  player?: Player;
 
-  private searchSubscription: Subscription | undefined;
-
-  constructor(private playerService: PlayerService, private searchService: SearchService) {}
+  constructor(private route: ActivatedRoute, private playerService: PlayerService) {}
 
   ngOnInit(): void {
-    this.searchSubscription = this.searchService.getSearchValue().subscribe((surname) => {
-      this.playerService.findBySurname(surname).subscribe(playerData => {
-        this.player = playerData;
-        },
-        error => {
-          console.error('There was an error!', error);
-        }
-      );
+    this.route.params.subscribe(params => {
+      const surname = params['surname'];
+      this.playerService.findBySurname(surname).subscribe(player => {
+        this.player = player;
+      }, error => {
+        // Handle error, e.g., player not found
+      });
     });
-
   }
-  ngOnDestroy(): void {
 
-    if (this.searchSubscription) {
-      this.searchSubscription.unsubscribe();
-    }
-
-}}
+}

@@ -13,6 +13,6 @@ export class FooterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.time = 'Deloitte'
+    this.time = 'Volleyball League'
   }
 }
