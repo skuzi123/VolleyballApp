@@ -4,9 +4,13 @@
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 30rem; /* Adjust based on your layout */
-  margin-top: 5rem;
-  margin-left: 40%;
+  //width: 30rem; /* Adjust based on your layout */
+  //margin-top: 5rem;
+  //margin-left: 40%;
+  width:50%;
+  height: 50%;
+  margin: 5% auto;
+  transform: scale(1.05);
 }
 
 .profile-team h2 {
@@ -15,9 +19,11 @@
 }
 
 .team-details {
-  font-family: Arial, sans-serif; /* Replace with your font choice */
+  font-family: Arial, sans-serif;
+  font-size: larger/* Replace with your font choice */
 }
 
 .team-details div {
   margin-bottom: 10px;
 }
+
