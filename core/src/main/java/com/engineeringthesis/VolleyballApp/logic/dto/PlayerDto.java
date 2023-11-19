@@ -18,4 +18,5 @@ public class PlayerDto extends AbstractDto {
     private Double attackRange;
     private Double blockRange;
     private String teamId;
+
 }

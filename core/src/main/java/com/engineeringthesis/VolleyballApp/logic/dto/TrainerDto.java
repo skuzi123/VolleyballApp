@@ -8,6 +8,10 @@ import lombok.Setter;
 public class TrainerDto extends AbstractDto {
 
     private String userId;
+    private String teamId;
+    private String name;
+    private String surname;
+    private Integer age;
     private String workHistory;
     private String achievements;
 }

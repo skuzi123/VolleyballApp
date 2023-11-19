@@ -1,1 +1,12 @@
-<p>profile-trainer works!</p>
+<div class="profile-trainer">
+  <h2>Trainer Profile</h2>
+  <div class="trainer-details">
+    <div><strong>Name:</strong> {{ trainer?.name }} {{ trainer?.surname }}</div>
+    <div><strong>Age:</strong> {{ trainer?.age }}</div>
+    <div><strong>Work history:</strong> {{ trainer?.workHistory }}</div>
+    <div *ngIf="team"><strong>Club:</strong> {{ team?.teamName}}</div>
+    <div><strong>Achievement:</strong> {{ trainer?.achievements}}</div>
+  </div>
+</div>
+
+

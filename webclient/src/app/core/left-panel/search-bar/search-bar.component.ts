@@ -23,12 +23,10 @@ export class SearchBarComponent implements OnInit{
       // Używaj metody findBySurname z PlayerService do wyszukiwania po nazwisku
       this.playerService.findBySurname(this.searchTerm).subscribe(
         (player) => {
-          // Jeśli gracz istnieje, przekieruj do jego profilu
           this.router.navigate(['/player', player.surname]);
         },
         (error) => {
-          // Jeśli gracz nie zostanie znaleziony lub wystąpi inny błąd, obsłuż to tutaj
-          // Na przykład możesz wyświetlić komunikat błędu
+
         }
       );
     this.searchTermChange.emit(this.searchTerm);

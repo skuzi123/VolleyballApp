@@ -11,6 +11,10 @@ public class TrainerMapper extends AbstractMapper<TrainerDto, TrainerEntity> {
         TrainerDto dto = new TrainerDto();
         super.mapToDto(entity, dto);
         dto.setUserId(entity.getUser().getId());
+        dto.setTeamId(entity.getTeam().getId());
+        dto.setName(entity.getName());
+        dto.setSurname(entity.getSurname());
+        dto.setAge(entity.getAge());
         dto.setAchievements(entity.getAchievements());
         dto.setWorkHistory(entity.getWorkHistory());
         return dto;
@@ -21,6 +25,10 @@ public class TrainerMapper extends AbstractMapper<TrainerDto, TrainerEntity> {
         TrainerEntity entity = new TrainerEntity();
         super.mapToEntity(dto, entity);
         entity.setUser(dto.getUserId());
+        entity.setTeam(dto.getTeamId());
+        entity.setName(dto.getName());
+        entity.setSurname(dto.getSurname());
+        entity.setAge(dto.getAge());
         entity.setAchievements(dto.getAchievements());
         entity.setWorkHistory(dto.getWorkHistory());
         return entity;

@@ -2,7 +2,8 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Router} from "@angular/router";
 import {TrainerService} from "../../services/trainer-service";
 import {UserService} from "../../services/user-service";
-import {ERole} from "../../model/user";
+import {SearchService} from "../../services/search-service";
+
 
 @Component({
   selector: 'app-search-bar-trainer',
@@ -13,23 +14,35 @@ export class SearchBarTrainerComponent implements OnInit{
   @Input() placeholder: string = 'Wpisz coś...';
   @Input() searchTerm: string = '';
   @Output() searchTermChange = new EventEmitter<string>();
-
-  constructor(private router: Router, private trainerService: TrainerService, private userService: UserService) { }
+  searchValue = '';
+  constructor(private router: Router, private trainerService: TrainerService,private searchService: SearchService) { }
 
   ngOnInit(): void {
   }
 
   onSearch() {
-    this.userService.getById(this.searchTerm).subscribe(
-      (user) => {
-    if(user.role === ERole.TRAINER){
-      this.router.navigate(['/trainer', user.id]);
-    }
+  this.trainerService.findBySurname(this.searchTerm).subscribe(
+      (trainer) => {
+        this.router.navigate(['/trainer',trainer.surname]);
       },
       (error) => {
 
       }
     );
+    this.searchTermChange.emit(this.searchTerm);
+    // this.userService.getById(this.searchTerm).subscribe(
+    //   (user) => {
+    // if(user.role === ERole.TRAINER){
+    //   this.router.navigate(['/trainer', user.id]);
+    // }
+    //   },
+    //   (error) => {
+    //
+    //   }
+    // );
+  }
+  onSearchChange(): void {
+    this.searchService.setSearchValue(this.searchValue);
   }
 
 }

@@ -1,10 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Team} from "../../core/model/team";
-import {TeamService} from "../../core/services/team-service";
 import {Player} from "../../core/model/player";
 import {PlayerService} from "../../core/services/player-service";
-import {Subscription} from "rxjs";
-import {SearchService} from "../../core/services/search-service";
 import {ActivatedRoute} from "@angular/router";
 
 @Component({
@@ -23,7 +19,7 @@ export class ProfilePlayerComponent implements OnInit{
       this.playerService.findBySurname(surname).subscribe(player => {
         this.player = player;
       }, error => {
-        // Handle error, e.g., player not found
+
       });
     });
   }
