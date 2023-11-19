@@ -13,6 +13,8 @@ public class PlayerMapper extends AbstractMapper<PlayerDto, PlayerEntity> {
         dto.setAge(entity.getAge());
         dto.setName(entity.getName());
         dto.setHeight(entity.getHeight());
+        dto.setWeight(entity.getWeight());
+        dto.setPosition(entity.getPosition());
         dto.setExperience(entity.getExperience());
         dto.setSurname(entity.getSurname());
         dto.setAttackRange(entity.getAttackRange());
@@ -31,6 +33,8 @@ public class PlayerMapper extends AbstractMapper<PlayerDto, PlayerEntity> {
         entity.setAge(dto.getAge());
         entity.setName(dto.getName());
         entity.setHeight(dto.getHeight());
+        entity.setWeight(dto.getWeight());
+        entity.setPosition(dto.getPosition());
         entity.setExperience(dto.getExperience());
         entity.setSurname(dto.getSurname());
         entity.setAttackRange(dto.getAttackRange());

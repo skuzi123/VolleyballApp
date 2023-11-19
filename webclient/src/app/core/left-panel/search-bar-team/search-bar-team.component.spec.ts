@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SearchBarTeamComponent } from './search-bar-team.component';
+import {SearchBarTeamComponent} from './search-bar-team.component';
 
 describe('SearchBarTeamComponent', () => {
   let component: SearchBarTeamComponent;

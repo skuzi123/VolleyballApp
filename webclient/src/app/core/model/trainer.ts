@@ -1,7 +1,3 @@
-import {User} from "./user";
-import {Team} from "./team";
-
-
 export class Trainer {
   private _id: string;
   private _userId: string;
@@ -12,7 +8,7 @@ export class Trainer {
   private _workHistory: string;
   private _achievements: string;
 
-  constructor(id: string, userId: string,teamId: string,name: string, surname: string, age: number, workHistory: string, achievements: string) {
+  constructor(id: string, userId: string, teamId: string, name: string, surname: string, age: number, workHistory: string, achievements: string) {
     this._id = id;
     this._userId = userId;
     this._teamId = teamId;

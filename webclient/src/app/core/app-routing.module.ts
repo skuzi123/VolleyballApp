@@ -16,9 +16,9 @@ const routes: Routes = [
   {path: 'main', component: MainPageComponent, canActivate: [AuthGuard]},
   {path: '', component: MainPageComponent, canActivate: [AuthGuard]},
   {path: 'register', component: RegisterComponent},
-  { path: 'player/:surname', component: ProfilePlayerComponent, canActivate: [AuthGuard]},
-  { path: 'trainer/:surname', component: ProfileTrainerComponent, canActivate: [AuthGuard]},
-  { path: 'team/:teamName', component: ProfileTeamComponent, canActivate: [AuthGuard]},
+  {path: 'player/:surname', component: ProfilePlayerComponent, canActivate: [AuthGuard]},
+  {path: 'trainer/:surname', component: ProfileTrainerComponent, canActivate: [AuthGuard]},
+  {path: 'team/:teamName', component: ProfileTeamComponent, canActivate: [AuthGuard]},
   {path: '**', redirectTo: 'main',},
 ];
 

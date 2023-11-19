@@ -9,7 +9,7 @@
     <div><strong>Height:</strong> {{ player?.height }} cm</div>
     <div><strong>Spike Reach:</strong> {{ player?.attackRange}} cm</div>
     <div><strong>Block Reach:</strong> {{ player?.blockRange}} cm</div>
-    <div><strong>Club:</strong> {{ player?.team}}</div>
+    <div *ngIf="team"><strong>Club:</strong> {{ team.teamName}}</div>
   </div>
 </div>
 

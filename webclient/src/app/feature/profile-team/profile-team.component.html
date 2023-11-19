@@ -1,1 +1,27 @@
-<p>profile-team works!</p>
+<div class="profile-team">
+  <h2>Team Profile</h2>
+  <div *ngIf="team" class="team-details">
+    <div><strong>Name:</strong> {{ team.teamName }}</div>
+    <div *ngIf="trainers.length === 1">
+      <strong>Trainer:</strong> {{ trainers[0].name }} {{ trainers[0].surname }}
+    </div>
+    <div *ngIf="trainers.length > 1">
+      <strong>Trainers:</strong>
+      <ul>
+        <li *ngFor="let trainer of trainers">
+          {{ trainer.name }} {{ trainer.surname }}
+        </li>
+      </ul>
+    </div>
+    <div *ngIf="players.length > 1">
+      <strong>Players:</strong>
+      <ul>
+        <li *ngFor="let player of players">
+          {{ player.name }} {{ player.surname }}
+        </li>
+      </ul>
+    </div>
+    <!-- Achievement can be similarly conditionally displayed if needed -->
+  </div>
+</div>
+

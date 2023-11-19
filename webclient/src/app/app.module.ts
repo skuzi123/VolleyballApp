@@ -17,11 +17,11 @@ import {ProfilePlayerComponent} from './feature/profile-player/profile-player.co
 import {ProfileTrainerComponent} from './feature/profile-trainer/profile-trainer.component';
 import {ReportContainerComponent} from './feature/main-page/report-container/report-container.component';
 import {AuthInterceptor} from "./core/_helpers/auth.interceptor";
-import { LeftPanelComponent } from './core/left-panel/left-panel.component';
-import { SearchBarComponent } from './core/left-panel/search-bar/search-bar.component';
-import { SearchBarTrainerComponent } from './core/left-panel/search-bar-trainer/search-bar-trainer.component';
-import { SearchBarTeamComponent } from './core/left-panel/search-bar-team/search-bar-team.component';
-import { ProfileTeamComponent } from './feature/profile-team/profile-team.component';
+import {LeftPanelComponent} from './core/left-panel/left-panel.component';
+import {SearchBarComponent} from './core/left-panel/search-bar/search-bar.component';
+import {SearchBarTrainerComponent} from './core/left-panel/search-bar-trainer/search-bar-trainer.component';
+import {SearchBarTeamComponent} from './core/left-panel/search-bar-team/search-bar-team.component';
+import {ProfileTeamComponent} from './feature/profile-team/profile-team.component';
 
 @NgModule({
   declarations: [

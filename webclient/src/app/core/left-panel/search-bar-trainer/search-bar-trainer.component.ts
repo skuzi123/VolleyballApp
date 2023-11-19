@@ -1,7 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Router} from "@angular/router";
 import {TrainerService} from "../../services/trainer-service";
-import {UserService} from "../../services/user-service";
 import {SearchService} from "../../services/search-service";
 
 
@@ -10,20 +9,22 @@ import {SearchService} from "../../services/search-service";
   templateUrl: './search-bar-trainer.component.html',
   styleUrls: ['./search-bar-trainer.component.scss']
 })
-export class SearchBarTrainerComponent implements OnInit{
+export class SearchBarTrainerComponent implements OnInit {
   @Input() placeholder: string = 'Wpisz coś...';
   @Input() searchTerm: string = '';
   @Output() searchTermChange = new EventEmitter<string>();
   searchValue = '';
-  constructor(private router: Router, private trainerService: TrainerService,private searchService: SearchService) { }
+
+  constructor(private router: Router, private trainerService: TrainerService, private searchService: SearchService) {
+  }
 
   ngOnInit(): void {
   }
 
   onSearch() {
-  this.trainerService.findBySurname(this.searchTerm).subscribe(
+    this.trainerService.findBySurname(this.searchTerm).subscribe(
       (trainer) => {
-        this.router.navigate(['/trainer',trainer.surname]);
+        this.router.navigate(['/trainer', trainer.surname]);
       },
       (error) => {
 
@@ -41,6 +42,7 @@ export class SearchBarTrainerComponent implements OnInit{
     //   }
     // );
   }
+
   onSearchChange(): void {
     this.searchService.setSearchValue(this.searchValue);
   }

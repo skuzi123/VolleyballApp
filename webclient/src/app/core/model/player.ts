@@ -1,9 +1,6 @@
-import {User} from "./user";
-import {Team} from "./team";
-
 export class Player {
   private _id: string;
-  private _user: User;
+  private _userId: string;
 
   private _name: string;
 
@@ -26,11 +23,11 @@ export class Player {
   private _blockRange: number;
 
 
-  private _team: Team;
+  private _teamId: string;
 
-  constructor(id: string, user: User, name: string, surname: string, age: number, experience: number, position: string, weight: number, height: number, attackRange: number, blockRange: number, team: Team) {
+  constructor(id: string, userId: string, name: string, surname: string, age: number, experience: number, position: string, weight: number, height: number, attackRange: number, blockRange: number, teamId: string) {
     this._id = id;
-    this._user = user;
+    this._userId = userId;
     this._name = name;
     this._surname = surname;
     this._age = age;
@@ -40,7 +37,7 @@ export class Player {
     this._height = height;
     this._attackRange = attackRange;
     this._blockRange = blockRange;
-    this._team = team;
+    this._teamId = teamId;
   }
 
   get id(): string {
@@ -48,12 +45,12 @@ export class Player {
   }
 
 
-  get user(): User {
-    return this._user;
+  get userId(): string {
+    return this._userId;
   }
 
-  set user(value: User) {
-    this._user = value;
+  set userId(value: string) {
+    this._userId = value;
   }
 
   get name(): string {
@@ -128,11 +125,11 @@ export class Player {
     this._blockRange = value;
   }
 
-  get team(): Team {
-    return this._team;
+  get teamId(): string {
+    return this._teamId;
   }
 
-  set team(value: Team) {
-    this._team = value;
+  set teamId(value: string) {
+    this._teamId = value;
   }
 }

@@ -1,15 +1,13 @@
-import {Match} from "./match";
-
 export class Set {
   private _id: string;
-  private _match: Match;
+  private _matchId: string;
   private _setNumber: number;
   private _homePoints: number;
   private _awayPoints: number;
 
-  constructor(_id: string, _match: Match, _setNumber: number, _homePoints: number, _awayPoints: number) {
+  constructor(_id: string, _matchId: string, _setNumber: number, _homePoints: number, _awayPoints: number) {
     this._id = _id;
-    this._match = _match;
+    this._matchId = _matchId;
     this._setNumber = _setNumber;
     this._homePoints = _homePoints;
     this._awayPoints = _awayPoints;
@@ -20,12 +18,13 @@ export class Set {
     return this._id;
   }
 
-  get match(): Match {
-    return this._match;
+
+  get matchId(): string {
+    return this._matchId;
   }
 
-  set match(value: Match) {
-    this._match = value;
+  set matchId(value: string) {
+    this._matchId = value;
   }
 
   get setNumber(): number {

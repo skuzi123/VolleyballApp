@@ -8,27 +8,29 @@ import {SearchService} from "../../services/search-service";
   templateUrl: './search-bar.component.html',
   styleUrls: ['./search-bar.component.scss']
 })
-export class SearchBarComponent implements OnInit{
+export class SearchBarComponent implements OnInit {
   @Input() placeholder: string = 'Wpisz coś...';
   @Input() searchTerm: string = '';
   @Output() searchTermChange = new EventEmitter<string>();
   searchValue = '';
-  constructor(private router: Router, private playerService: PlayerService,private searchService: SearchService) { }
+
+  constructor(private router: Router, private playerService: PlayerService, private searchService: SearchService) {
+  }
 
   ngOnInit(): void {
   }
 
   onSearch() {
 
-      // Używaj metody findBySurname z PlayerService do wyszukiwania po nazwisku
-      this.playerService.findBySurname(this.searchTerm).subscribe(
-        (player) => {
-          this.router.navigate(['/player', player.surname]);
-        },
-        (error) => {
+    // Używaj metody findBySurname z PlayerService do wyszukiwania po nazwisku
+    this.playerService.findBySurname(this.searchTerm).subscribe(
+      (player) => {
+        this.router.navigate(['/player', player.surname]);
+      },
+      (error) => {
 
-        }
-      );
+      }
+    );
     this.searchTermChange.emit(this.searchTerm);
   }
 

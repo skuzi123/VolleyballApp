@@ -1,15 +1,13 @@
-import {Team} from "./team";
-
 export class Match {
   private _id: string;
-  private _hostTeam: Team;
-  private _guestTeam: Team;
+  private _hostTeamId: string;
+  private _guestTeamId: string;
   private _result: string;
 
-  constructor(_id: string, hostTeam: Team, guestTeam: Team, result: string) {
+  constructor(_id: string, hostTeamId: string, guestTeamId: string, result: string) {
     this._id = _id;
-    this._hostTeam = hostTeam;
-    this._guestTeam = guestTeam;
+    this._hostTeamId = hostTeamId;
+    this._guestTeamId = guestTeamId;
     this._result = result;
   }
 
@@ -27,19 +25,19 @@ export class Match {
   }
 
 
-  get hostTeam(): Team {
-    return this._hostTeam;
+  get hostTeamId(): string {
+    return this._hostTeamId;
   }
 
-  set hostTeam(value: Team) {
-    this._hostTeam = value;
+  set hostTeamId(value: string) {
+    this._hostTeamId = value;
   }
 
-  get guestTeam(): Team {
-    return this._guestTeam;
+  get guestTeamId(): string {
+    return this._guestTeamId;
   }
 
-  set guestTeam(value: Team) {
-    this._guestTeam = value;
+  set guestTeamId(value: string) {
+    this._guestTeamId = value;
   }
 }

@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SearchBarTrainerComponent } from './search-bar-trainer.component';
+import {SearchBarTrainerComponent} from './search-bar-trainer.component';
 
 describe('SearchBarTrainerComponent', () => {
   let component: SearchBarTrainerComponent;

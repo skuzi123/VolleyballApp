@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Team} from "../../../core/model/team";
 import {TeamService} from "../../../core/services/team-service";
 
@@ -11,7 +11,8 @@ import {TeamService} from "../../../core/services/team-service";
 export class TableLeagueComponent implements OnInit {
   teams: Team[] = [];
 
-  constructor(private teamService: TeamService) {}
+  constructor(private teamService: TeamService) {
+  }
 
   ngOnInit() {
     this.teamService.getTeams().subscribe((data: Team[]) => { // Type annotation added here

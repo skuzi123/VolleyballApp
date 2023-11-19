@@ -15,7 +15,8 @@ export class ProfileTrainerComponent implements OnInit {
   trainer?: Trainer;
   team?: Team;
 
-  constructor(private route: ActivatedRoute, private trainerService: TrainerService, private teamService: TeamService) {}
+  constructor(private route: ActivatedRoute, private trainerService: TrainerService, private teamService: TeamService) {
+  }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {

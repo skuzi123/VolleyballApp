@@ -1,6 +1,3 @@
-import {Trainer} from "./trainer";
-import {Player} from "./player";
-
 export enum ERole {
   PLAYER = "PLAYER",
   TRAINER = "TRAINER",
@@ -13,16 +10,16 @@ export class User {
   private _username: string;
   private _password: string;
   private _role: ERole;
-  private _trainer?: Trainer;
-  private _player?: Player;
+  private _trainerId: string;
+  private _playerId: string;
 
-  constructor(id: string, username: string, password: string, role: ERole, trainer?: Trainer, player?: Player) {
+  constructor(id: string, username: string, password: string, role: ERole, trainerId: string, playerId: string) {
     this._id = id;
     this._username = username;
     this._password = password;
     this._role = role;
-    this._trainer = trainer;
-    this._player = player;
+    this._trainerId = trainerId;
+    this._playerId = playerId;
   }
 
   get id(): string {
@@ -53,20 +50,21 @@ export class User {
     this._role = role;
   }
 
-  get trainer(): Trainer | undefined {
-    return this._trainer;
+
+  get trainerId(): string {
+    return this._trainerId;
   }
 
-  set trainer(trainer: Trainer | undefined) {
-    this._trainer = trainer;
+  set trainerId(value: string) {
+    this._trainerId = value;
   }
 
-  get player(): Player | undefined {
-    return this._player;
+  get playerId(): string {
+    return this._playerId;
   }
 
-  set player(player: Player | undefined) {
-    this._player = player;
+  set playerId(value: string) {
+    this._playerId = value;
   }
 }
 

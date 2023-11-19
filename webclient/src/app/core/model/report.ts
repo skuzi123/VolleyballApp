@@ -1,19 +1,17 @@
-import {User} from "./user";
-
 export class Report {
   private _id: string;
   private _reportName: string;
 
   private _reportText: string;
 
-  private _createdByUser: User;
+  private _createdByUserId: string;
 
 
-  constructor(id: string, reportName: string, reportText: string, createdByUser: User) {
+  constructor(id: string, reportName: string, reportText: string, createdByUserId: string) {
     this._id = id;
     this._reportName = reportName;
     this._reportText = reportText;
-    this._createdByUser = createdByUser;
+    this._createdByUserId = createdByUserId;
   }
 
 
@@ -37,11 +35,11 @@ export class Report {
     this._reportText = value;
   }
 
-  get createdByUser(): User {
-    return this._createdByUser;
+  get createdByUserId(): string {
+    return this._createdByUserId;
   }
 
-  set createdByUser(value: User) {
-    this._createdByUser = value;
+  set createdByUserId(value: string) {
+    this._createdByUserId = value;
   }
 }

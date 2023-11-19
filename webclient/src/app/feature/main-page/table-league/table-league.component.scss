@@ -16,7 +16,7 @@
 
 /* Add additional custom styles below */
 .table-striped tbody tr:nth-of-type(odd) {
-  background-color: rgba(0,0,0,.05); /* For striped tables */
+  background-color: rgba(0, 0, 0, .05); /* For striped tables */
 }
 
 /* Example media query to handle responsive table behaviors */
@@ -32,7 +32,6 @@
     width: 100%;
     margin-left: 0;
   }
-
 
 
   /* Adjust this to ensure the table header has the correct color */
@@ -52,7 +51,7 @@
   /* Adjust the max-height to ensure the full table is visible */
   .table {
     max-height: unset; /* Removes any maximum height restriction */
-    width:70%;
+    width: 70%;
     overflow-y: visible; /* Ensures the full table is visible vertically */
   }
 
@@ -77,12 +76,12 @@
   /* Add your other styles here */
 
   //.table{
-//  max-height: calc(100vh - 120px); /* Zakładając, że tabela ma klasę 'table-responsive' */
-//  overflow-y: scroll;
-//}
-//  .col-6.ml-auto > .table {
-//    max-height: calc(100vh - 120px);
-//    overflow-y: scroll;
-//  }
+  //  max-height: calc(100vh - 120px); /* Zakładając, że tabela ma klasę 'table-responsive' */
+  //  overflow-y: scroll;
+  //}
+  //  .col-6.ml-auto > .table {
+  //    max-height: calc(100vh - 120px);
+  //    overflow-y: scroll;
+  //  }
 
 }
