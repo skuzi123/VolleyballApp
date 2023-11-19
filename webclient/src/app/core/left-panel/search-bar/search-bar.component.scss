@@ -14,6 +14,7 @@
 }
 
 input:focus {
+  text-align: center;
   width: 80%;
   margin-top: 15%;
   outline: none;
@@ -25,6 +26,7 @@ input:focus {
 }
 
 input:empty:not(:focus) {
+  text-align: center;
   width: 70%;
   margin-top: 15%;
   outline: none;
@@ -42,5 +44,6 @@ input:empty:not(:focus) {
 }
 
 input:focus::placeholder {
+  text-align: center;
   color: transparent;
 }
