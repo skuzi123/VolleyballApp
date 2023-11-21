@@ -1,13 +1,13 @@
 <div class="left-panel">
-  <!--  <div class="search">-->
-  <!--    <app-search-bar [(searchTerm)]="searchTerm" style="position: sticky; top: 1rem; z-index: 1;"[placeholder]="Search player"></app-search-bar>-->
-  <!--  </div>-->
-  <!--  <div class="search">-->
-  <!--    <app-search-bar [(searchTerm)]="searchTerm" style="position: sticky; top: 1rem; z-index: 1;"placeholder="Search trainer"></app-search-bar>-->
-  <!--  </div>-->
-  <!--  <div class="search">-->
-  <!--    <app-search-bar [(searchTerm)]="searchTerm" style="position: sticky; top: 1rem; z-index: 1;"placeholder="Search team"></app-search-bar>-->
-  <!--  </div>-->
+  <div class="d-flex ms-auto gap-3">
+    <button
+      type="button"
+      class="btn btn-logout btn-outline-primary"
+      (click)="redirectToProfile()"
+    >
+      My Profile
+    </button>
+  </div>
   <div class="Search">
     <app-search-bar [placeholder]="'Search player'"></app-search-bar>
 
@@ -20,5 +20,6 @@
     <app-search-bar-trainer [placeholder]="'Search trainer'"></app-search-bar-trainer>
 
   </div>
+
 </div>
 

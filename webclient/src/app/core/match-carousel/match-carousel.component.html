@@ -1,0 +1,23 @@
+<div class="match-carousel">
+  <button (click)="previousMatch()">❮</button>
+  <div *ngFor="let match of matches | slice:currentIndex:(currentIndex+5)">
+      <div>{{ match.hostTeamName }} vs {{ match.guestTeamName }}</div>
+      <div>Score: {{ match.result }}</div>
+      <!-- Dodaj więcej informacji o meczu zgodnie z potrzebami -->
+  </div>
+  <button (click)="nextMatch()">❯</button>
+</div>
+
+<!--<div class="carousel-container" style="background-color: antiquewhite; width: 100%;">-->
+<!--  <div *ngFor="let match of currentMatches" class="match-display">-->
+<!--    <div>{{ match.hostTeamName }} vs {{ match.guestTeamName }}</div>-->
+<!--    <div>Result: {{ match.result }}</div>-->
+<!--    <div *ngFor="let set of match.setResults">-->
+<!--      Set {{ set.setNumber }}: {{ set.homePoints }} - {{ set.awayPoints }}-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <button (click)="onPrevClick()">Previous</button>-->
+<!--  <button (click)="onNextClick()">Next</button>-->
+<!--</div>-->
+
+

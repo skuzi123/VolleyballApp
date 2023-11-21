@@ -5,7 +5,7 @@
   style="display: grid; grid-template-rows: auto 1fr; grid-template-columns: 25% 1fr;"
 >
   <app-left-panel
-    *ngIf="!router.url.includes('/login')"
+    *ngIf="!router.url.includes('/login') && !router.url.includes('/register')"
   >
   </app-left-panel>
   <div class="upper-bar d-flex" style="grid-row: 1; grid-column: 2;">
@@ -21,7 +21,6 @@
         <button
           type="button"
           class="btn btn-logout btn-outline-primary"
-          *ngIf="!router.url.includes('/login')"
           (click)="logOut()"
         >
           Logout

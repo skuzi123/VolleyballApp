@@ -22,6 +22,8 @@ import {SearchBarComponent} from './core/left-panel/search-bar/search-bar.compon
 import {SearchBarTrainerComponent} from './core/left-panel/search-bar-trainer/search-bar-trainer.component';
 import {SearchBarTeamComponent} from './core/left-panel/search-bar-team/search-bar-team.component';
 import {ProfileTeamComponent} from './feature/profile-team/profile-team.component';
+import { UserProfileComponent } from './feature/user-profile/user-profile.component';
+import { MatchCarouselComponent } from './core/match-carousel/match-carousel.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import {ProfileTeamComponent} from './feature/profile-team/profile-team.componen
     SearchBarComponent,
     SearchBarTrainerComponent,
     SearchBarTeamComponent,
-    ProfileTeamComponent
+    ProfileTeamComponent,
+    UserProfileComponent,
+    MatchCarouselComponent
   ],
   imports: [
     BrowserModule,

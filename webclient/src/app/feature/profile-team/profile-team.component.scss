@@ -17,7 +17,10 @@
   color: #f68b1f; /* Sample color taken from your screenshot */
   text-align: center;
 }
-
+.profile-team:hover{
+  transform: scale(1.08);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
 .team-details {
   font-family: Arial, sans-serif;
   font-size: larger/* Replace with your font choice */

@@ -1,4 +1,4 @@
-.profile-trainer {
+.profile{
   background-color: #fff; /* Replace with the color of your choice */
   color: #333; /* Replace with the color of your choice */
   padding: 20px;
@@ -7,21 +7,18 @@
   width: 30rem; /* Adjust based on your layout */
   margin-top: 5rem;
   margin-left: 40%;
-  transform: scale(1.13);
+  transform: scale(1.1);
 }
 
-.profile-trainer h2 {
+.profile h2 {
   color: #f68b1f; /* Sample color taken from your screenshot */
   text-align: center;
 }
-.profile-trainer:hover{
-  transform: scale(1.16);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-}
-.trainer-details {
+
+.details {
   font-family: Arial, sans-serif; /* Replace with your font choice */
 }
 
-.trainer-details div {
+.details div {
   margin-bottom: 10px;
 }

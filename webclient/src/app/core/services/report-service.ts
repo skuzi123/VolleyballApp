@@ -7,7 +7,7 @@ import {Report} from "../model/report";
   providedIn: 'root'
 })
 export class ReportService {
-  url: string = 'http://localhost:8081/api/auth/eports'
+  url: string = 'http://localhost:8081/api/auth/reports'
   reports$: Observable<Report[]> = this.http.get<Report[]>(
     this.url,
     {}

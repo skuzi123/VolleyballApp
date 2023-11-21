@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {Observable} from "rxjs";
+import {map, Observable} from "rxjs";
 import {HttpClient, HttpResponse} from "@angular/common/http";
 import {Team} from "../model/team";
 
@@ -20,13 +20,19 @@ export class TeamService {
     return this.http.get<Team[]>(this.url);
   }
 
-  getById(id: string): Observable<Team> {
-    return this.http.get<Team>(this.url + `/${id}`);
+  // getById(id: string): Observable<Team> {
+  //   return this.http.get<Team>(this.url + `/${id}`);
+  // }
+  getById(teamId: string): Observable<any> {
+    return this.http.get(`${this.url}/${teamId}`).pipe(
+      map(response => response as any) // Cast the response to any or to a more specific type if you have one
+    );
   }
 
   getByTeamName(teamName: string): Observable<Team> {
     return this.http.get<Team>(this.url + `/teamName/${teamName}`);
   }
+
 
 
   addTeam(team: Team): Observable<HttpResponse<Object>> {

@@ -24,10 +24,10 @@ export class TrainerService {
     return this.http.get<Trainer>(this.url + `/${id}`);
   }
 
-  // findByUser(userId: string): Observable<Trainer[]> {
-  //   return this.http.get<Trainer[]>(`${this.url}/user/{userId}`);
-  //
-  // }
+  findByUser(userId: string): Observable<Trainer> {
+    return this.http.get<Trainer>(`${this.url}/user/${userId}`);
+
+  }
   findByTeam(teamId: string): Observable<Trainer[]> {
     return this.http.get<Trainer[]>(`${this.url}/team/${teamId}`);
   }

@@ -1,0 +1,69 @@
+//.match-carousel {
+//  display: flex;
+//  align-items: center;
+//  padding: 2%;
+//}
+//
+//.match-carousel button {
+//  border: none;
+//  background-color: transparent;
+//  cursor: pointer;
+//  font-size: 24px;
+//}
+//
+//.match-carousel div {
+//  margin: 0 15px;
+//  text-align: center;
+//}
+.match-carousel { // This color is sampled from the sidebar background
+  font-family: 'Verdana', sans-serif; // This should match the font used throughout your app
+  color: #000; // Standard text color, adjust if your app uses a different shade
+  background-color: white;
+padding:5%;
+  .match {
+    padding: 20px; // Increase padding for a more spacious layout
+    margin-bottom: 10px; // Add some space between the match entries
+    border-radius: 10px; // Match the border-radius from your app's cards
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // A subtle shadow for depth, similar to your app's cards
+
+    // Apply the orange highlight from the buttons for scores or important info
+    .score {
+      color: #ff8c00; // This orange is sampled from the buttons in your app
+      font-weight: bold; // Make it stand out
+    }
+  }
+
+  // Adjust the navigation buttons to match the app's button style
+  button {
+    background-color: #ff8c00; // Button color from your app
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 16px; // Adjust to match your app's button font size
+    margin: 0 20px; // Space between buttons and the match entries
+
+    &:hover {
+      background-color: darken(#ff8c00, 10%); // A darker shade on hover
+    }
+  }
+
+  // Ensure the carousel takes the full width of its container
+  width: 120%;
+
+  // Use a flexbox layout for horizontal alignment and space distribution
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  // Adjust this to fit 5 matches at a time as per your earlier request
+  .match-container {
+    flex: 0 0 18%; // This allows for 5 items, adjust the percentage as needed
+    margin-right: 2%; // Add some space between items, adjust as needed
+  }
+
+  // If you want the match entries to scroll horizontally, you might consider adding overflow-x: auto;
+  overflow-x: auto;
+}
+

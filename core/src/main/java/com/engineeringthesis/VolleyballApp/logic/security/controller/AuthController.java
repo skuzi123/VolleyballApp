@@ -28,6 +28,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
 import java.util.List;
+import java.util.stream.Collectors;
 
 //@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600, allowCredentials = "true")
 @CrossOrigin(origins = "*")
@@ -69,10 +70,19 @@ public class AuthController {
 //                .body(new UserInfoResponse(userDetails.getId(),
 //                        userDetails.getUsername(),
 //                        roles.get(0)));
-        return ResponseEntity.ok(new JwtResponse(jwt,
+        JwtResponse jwtResponse = new JwtResponse(
+                jwt,
                 userDetails.getId(),
                 userDetails.getUsername(),
-                roles));
+                userDetails.getAuthorities().stream()
+                        .map(item -> item.getAuthority())
+                        .collect(Collectors.toList())
+        );
+//        return ResponseEntity.ok(new JwtResponse(jwt,
+//                userDetails.getId(),
+//                userDetails.getUsername(),
+//                roles));
+        return ResponseEntity.ok(jwtResponse);
     }
 
     @PostMapping("/signup")

@@ -1,3 +1,5 @@
+import {Team} from "./team";
+
 export class Match {
   private _id: string;
   private _hostTeamId: string;
@@ -24,7 +26,21 @@ export class Match {
     return this._id;
   }
 
-
+  // get hostTeam(): Team {
+  //   return this._hostTeam;
+  // }
+  //
+  // set hostTeam(value: Team) {
+  //   this._hostTeam = value;
+  // }
+  //
+  // get guestTeam(): Team {
+  //   return this._guestTeam;
+  // }
+  //
+  // set guestTeam(value: Team) {
+  //   this._guestTeam = value;
+  // }
   get hostTeamId(): string {
     return this._hostTeamId;
   }
