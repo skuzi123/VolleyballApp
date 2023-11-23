@@ -3,7 +3,7 @@ import {HttpClient, HttpHeaders, HttpResponse} from '@angular/common/http';
 import {BehaviorSubject, map, Observable} from 'rxjs';
 import {JwtHelperService} from "@auth0/angular-jwt";
 import {UserRole} from "../enums/user-role";
-import {User} from "../model/user";
+import {ERole, User} from "../model/user";
 
 const AUTH_API = 'http://localhost:8081/api/auth/';
 
@@ -80,7 +80,7 @@ export class AuthService {
   public register(
     username: string,
     password: string,
-    role: UserRole
+    role: ERole
   ): Observable<HttpResponse<any>> {
     return this.http.post(
       AUTH_API + 'signup',

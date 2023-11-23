@@ -4,6 +4,8 @@ import {FormBuilder, FormControl, Validators} from "@angular/forms";
 import {UserRole} from "../enums/user-role";
 import {registerMessages} from "./register.constants";
 import {Router} from "@angular/router";
+import {AuthService} from "../services/auth.service";
+import {ERole} from "../model/user";
 
 
 @Component({
@@ -32,6 +34,7 @@ export class RegisterComponent {
   constructor(
     private fb: FormBuilder,
     private router: Router,
+    private authService: AuthService
   ) {
   }
 
@@ -55,6 +58,17 @@ export class RegisterComponent {
     if (role === '') {
       this.registerForm.get('role')?.markAsPristine();
     }
+    if (username !== '' && password !== '' && role !== ''){
+      const roleEnum: ERole = ERole[role as keyof typeof ERole];
+      this.authService.register(username!,password!,roleEnum!).subscribe({
+        next: data =>{
+          this.router
+            .navigateByUrl('/login')
+            .then(() => (this.authService.redirectUrl = undefined));
+        }
+      })
+    }
+
     () => {
       this.incorrectCredentials = true;
       this.registerForm.controls['username'].setValue('');
