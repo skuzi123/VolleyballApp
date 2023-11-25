@@ -8,8 +8,8 @@
       <div><strong>Age:</strong> {{ player.age }}</div>
       <div><strong>Experience:</strong> {{ player.experience }} years</div>
       <div><strong>Position:</strong> {{ player.position }}</div>
-      <div><strong>Weight:</strong> {{ player.weight }} kg</div>
-      <div><strong>Height:</strong> {{ player.height }} cm</div>
+      <div><strong>Height:</strong> {{ player.height }} kg</div>
+      <div><strong>Weight:</strong> {{ player.weight }} cm</div>
       <div><strong>Spike Reach:</strong> {{ player.attackRange}} cm</div>
       <div><strong>Block Reach:</strong> {{ player.blockRange}} cm</div>
     </div>
@@ -20,6 +20,10 @@
       <div><strong>Achievement:</strong> {{ trainer.achievements}}</div>
     </div>
     <div *ngIf="team"><strong>Club:</strong> {{ team.teamName}}</div>
+  </div>
+
+  <div>
+    <button mat-stroked-button mat-button class="buttons" (click)="editProfile()">Edytuj dane</button>
   </div>
 </div>
 

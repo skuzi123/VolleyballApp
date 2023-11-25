@@ -11,4 +11,6 @@ public interface PlayerService extends AbstractModelService<PlayerDto, PlayerEnt
     PlayerDto findByName(String name);
 
     PlayerDto findBySurname(String surname);
+
+    PlayerDto findByUser(String userId);
 }

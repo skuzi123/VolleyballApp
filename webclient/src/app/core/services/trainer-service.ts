@@ -65,6 +65,19 @@ export class TrainerService {
     }
   }
 
+  // updateProfile(form: any, userId: string): Observable<HttpResponse<any>> {
+  //   return this.http.put<any>(this.url + `/${userId}`, form, { observe: 'response' });
+  // }
+
+  updateProfile(trainerForm: any, userId: string): Observable<HttpResponse<any>> {
+    return this.http.put<any>(`${this.url}/profile/${userId}`, {
+      // tutaj mapujesz pola z 'form' na odpowiednie pola w żądaniu PUT
+      age: trainerForm.age,
+      workHistory: trainerForm.workHistory,
+      achievement: trainerForm.achievement
+      // dodaj więcej pól według potrzeb
+    }, { observe: 'response' });
+  }
   deleteById(id: string): Observable<void> {
     return this.http.delete<void>(this.url + `/${id}`);
   }

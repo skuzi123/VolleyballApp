@@ -10,6 +10,8 @@ import {UserService} from "../../core/services/user-service";
 import {TokenStorageService} from "../../core/services/token-storage.service";
 import {Team} from "../../core/model/team";
 import {AuthService} from "../../core/services/auth.service";
+import {EditProfileDialogComponent} from "../edit-profile-dialog/edit-profile-dialog.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-user-profile',
@@ -22,7 +24,7 @@ export class UserProfileComponent implements OnInit {
   user?: User;
   team?: Team;
   teamId:string  = "";
-  constructor( private teamService: TeamService, private playerService: PlayerService, private trainerService: TrainerService, private userService: UserService, private tokenStorageService: TokenStorageService) {
+  constructor( private teamService: TeamService, private playerService: PlayerService, private trainerService: TrainerService, private userService: UserService, private tokenStorageService: TokenStorageService, public dialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -52,7 +54,6 @@ export class UserProfileComponent implements OnInit {
       }
 
     }, error => {
-      // Handle error
     });
   }
 
@@ -60,34 +61,32 @@ export class UserProfileComponent implements OnInit {
     this.teamService.getById(teamId).subscribe(team => {
       this.team = team;
     }, error => {
-      // Handle error
     });
   }
 
-  // ngOnInit(): void {
-  //
-  //   this.userService.getById(this.tokenStorageService.getUserId()).subscribe(user => {
-  //     this.user = user; // Sto
-  //     // re the team information
-  //     console.log(this.tokenStorageService.getUserId());
-  //     if( this.user.role == "PLAYER"){
-  //       this.playerService.getById(this.tokenStorageService.getUserId()).subscribe(player =>{
-  //         this.player = player;
-  //         this.teamId = player.teamId;
-  //       })
-  //     }
-  //   else if( this.user.role == "TRAINER"){
-  //       this.trainerService.getById(this.tokenStorageService.getUserId()).subscribe(trainer =>{
-  //         this.trainer = trainer;
-  //         this.teamId = trainer.teamId;
-  //       })
-  //     }
-  //   }, error => {
-  //
-  //   });
-  //   this.teamService.getById(this.teamId).subscribe(team =>{
-  //     this.team = team;
-  //   })
-  // }
+  editProfile() {
+    const dialogRef = this.dialog.open(EditProfileDialogComponent, {
+      width: '35%',
+      height: '70%',
+    });
+
+    dialogRef.componentInstance.userId = this.getUserId();
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+      window.location.reload();
+    });
+  }
+  getUserId() {
+    const token = window.localStorage.getItem('auth-user');
+
+    return token ? JSON.parse(token).id : [];
+  }
+
+  getRole() {
+    const token = window.localStorage.getItem('auth-user');
+
+    return token ? JSON.parse(token).role : [];
+  }
 
 }

@@ -1,0 +1,113 @@
+<mat-dialog-content class="mat-typography">
+  <h1>Pass data to edit</h1>
+  <form name="form" *ngIf="isPlayer">
+    <div class="row" >
+      <p>
+        <mat-form-field style="width: 100%" class="example-full-width" appearance="fill">
+          <mat-label>Age</mat-label>
+          <input matInput
+                 type="number"
+                 name="age"
+                 [(ngModel)]="playerForm.age"
+                 #age="ngModel">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field style="width: 100%" class="example-full-width" appearance="fill">
+          <mat-label>Experience</mat-label>
+          <input matInput
+                 type="string"
+                 name="experience"
+                 [(ngModel)]="playerForm.experience"
+                 #experience="ngModel">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field style="width: 100%" class="example-full-width" appearance="fill">
+          <mat-label>Position</mat-label>
+          <input matInput
+                 type="string"
+                 name="position"
+                 [(ngModel)]="playerForm.position"
+                 #age="ngModel">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field style="width: 100%" class="example-full-width" appearance="fill">
+          <mat-label>Height</mat-label>
+          <input matInput
+                 type="number"
+                 name="height"
+                 [(ngModel)]="playerForm.height"
+                 #height="ngModel">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field style="width: 100%" class="example-full-width" appearance="fill">
+          <mat-label>Weight</mat-label>
+          <input matInput
+                 type="number"
+                 name="weight"
+                 [(ngModel)]="playerForm.weight"
+                 #weight="ngModel">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field style="width: 100%" class="example-full-width" appearance="fill">
+          <mat-label>Spike Reach</mat-label>
+          <input matInput
+                 type="number"
+                 name="spikeReach"
+                 [(ngModel)]="playerForm.spikeReach"
+                 #spikeReach="ngModel">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field style="width: 100%" class="example-full-width" appearance="fill">
+          <mat-label>Block Reach</mat-label>
+          <input matInput
+                 type="number"
+                 name="blockReach"
+                 [(ngModel)]="playerForm.blockReach"
+                 #blockReach="ngModel">
+        </mat-form-field>
+      </p>
+    </div>
+  </form>
+  <form name="trainerForm" *ngIf="isTrainer">
+    <p>
+      <mat-form-field style="width: 100%" class="example-full-width" appearance="fill">
+        <mat-label>Age</mat-label>
+        <input matInput
+               type="number"
+               name="age"
+               [(ngModel)]="trainerForm.age"
+               #age="ngModel">
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field style="width: 100%" class="example-full-width" appearance="fill">
+        <mat-label>Work history</mat-label>
+        <input matInput
+               type="string"
+               name="workHistory"
+               [(ngModel)]="trainerForm.workHistory"
+               #workHistory="ngModel">
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field style="width: 100%" class="example-full-width" appearance="fill">
+        <mat-label>Achievement</mat-label>
+        <input matInput
+               type="string"
+               name="achievement"
+               [(ngModel)]="trainerForm.achievement"
+               #achievement="ngModel">
+      </mat-form-field>
+    </p>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-raised-button mat-dialog-close color="primary" (click)="editProfile()">Zapisz zmiany</button>
+</mat-dialog-actions>
+

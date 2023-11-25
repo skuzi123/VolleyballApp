@@ -24,6 +24,11 @@ import {SearchBarTeamComponent} from './core/left-panel/search-bar-team/search-b
 import {ProfileTeamComponent} from './feature/profile-team/profile-team.component';
 import { UserProfileComponent } from './feature/user-profile/user-profile.component';
 import { MatchCarouselComponent } from './core/match-carousel/match-carousel.component';
+import {MatButtonModule} from "@angular/material/button";
+import { EditProfileDialogComponent } from './feature/edit-profile-dialog/edit-profile-dialog.component';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatInputModule} from "@angular/material/input";
 
 @NgModule({
   declarations: [
@@ -43,7 +48,8 @@ import { MatchCarouselComponent } from './core/match-carousel/match-carousel.com
     SearchBarTeamComponent,
     ProfileTeamComponent,
     UserProfileComponent,
-    MatchCarouselComponent
+    MatchCarouselComponent,
+    EditProfileDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -52,6 +58,10 @@ import { MatchCarouselComponent } from './core/match-carousel/match-carousel.com
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatDialogModule,
+    MatInputModule,
   ],
   providers: [JwtHelperService,
     {provide: JWT_OPTIONS, useValue: JWT_OPTIONS},

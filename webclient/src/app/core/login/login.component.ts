@@ -13,7 +13,7 @@ import {TokenStorageService} from "../services/token-storage.service";
 export class LoginComponent implements OnInit {
   loginForm = this.fb.group({
     username: new FormControl('', {validators: [Validators.required]}),
-    password: new FormControl('', {validators: Validators.required})
+    password: new FormControl('', {validators: [Validators.required]})
   })
   incorrectCredentials = false;
 
