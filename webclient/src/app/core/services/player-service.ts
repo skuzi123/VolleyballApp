@@ -1,8 +1,8 @@
 import {Injectable} from "@angular/core";
 import {Observable} from "rxjs";
 import {Player} from "../model/player";
-import {HttpClient, HttpResponse} from "@angular/common/http";
-import {Trainer} from "../model/trainer";
+import {HttpClient} from "@angular/common/http";
+import {PlayerProfile} from "../model/player-profile";
 
 @Injectable({
   providedIn: 'root'
@@ -36,49 +36,42 @@ export class PlayerService {
   findBySurname(surname: string): Observable<Player> {
     return this.http.get<Player>(`${this.url}/surname/${surname}`);
   }
+
   findByUser(userId: string): Observable<Player> {
     return this.http.get<Player>(`${this.url}/user/${userId}`);
 
   }
-  addPlayer(player: Player): Observable<HttpResponse<Object>> {
-    let response: Observable<HttpResponse<Object>>;
-    try {
-      response = this.http.post(this.url, player, {
-        observe: 'response'
-      });
-      return response;
-    } catch (error: any) {
-      throw new Error(error.message);
+
+  addPlayer(player: Player): Observable<Player> {
+    const request = {
+      age: player.age,
+      experience: player.experience,
+      position: player.position,
+      height: player.height,
+      weight: player.weight,
+      attackRange: player.attackRange,
+      blockRange: player.blockRange
+
     }
+    return this.http.post<Player>(`${this.url}`, request);
   }
 
-  updatePlayer(player: Player): Observable<HttpResponse<Object>> {
-    let response: Observable<HttpResponse<Object>>;
-    try {
-      response = this.http.put(this.url + `/${player.id}`, player, {
-        observe: 'response'
-      });
-      return response;
-    } catch (error: any) {
-      throw new Error(error.message);
+  updatePlayer(player: PlayerProfile, id: string): Observable<Player> {
+    const request = {
+      name: player.name,
+      surname: player.surname,
+      age: player.age,
+      experience: player.experience,
+      position: player.position,
+      height: player.height,
+      weight: player.weight,
+      attackRange: player.attackRange,
+      blockRange: player.blockRange
+
     }
+    return this.http.patch<Player>(`${this.url}/${id}`, request);
   }
-  // updateProfile(form: any, userId: string): Observable<HttpResponse<any>> {
-  //   return this.http.put<any>(this.url + `/${userId}`, form, { observe: 'response' });
-  // }
-  updateProfile(trainerForm: any, userId: string): Observable<HttpResponse<any>> {
-    return this.http.put<any>(`${this.url}/profile/${userId}`, {
-      // tutaj mapujesz pola z 'form' na odpowiednie pola w żądaniu PUT
-      age: trainerForm.age,
-      experience: trainerForm.experience,
-      position: trainerForm.position,
-      height: trainerForm.height,
-      weight: trainerForm.weight,
-      spikeReach: trainerForm.spikeReach,
-      blockReach: trainerForm.blockReach,
-      // dodaj więcej pól według potrzeb
-    }, { observe: 'response' });
-  }
+
 
   deleteById(id: string): Observable<void> {
     return this.http.delete<void>(this.url + `/${id}`);

@@ -22,9 +22,11 @@
     <div *ngIf="team"><strong>Club:</strong> {{ team.teamName}}</div>
   </div>
 
-  <div>
-    <button mat-stroked-button mat-button class="buttons" (click)="editProfile()">Edytuj dane</button>
+  <!-- Use *ngIf to ensure the button is only rendered when 'user' is defined -->
+  <div *ngIf="user">
+    <button mat-stroked-button mat-button class="buttons" (click)="openEditProfile(user)">Edytuj dane</button>
   </div>
+
 </div>
 
 

@@ -2,7 +2,7 @@ package com.engineeringthesis.VolleyballApp.api.rest.controller;
 
 import com.engineeringthesis.VolleyballApp.data.model.PlayerEntity;
 import com.engineeringthesis.VolleyballApp.logic.dto.PlayerDto;
-import com.engineeringthesis.VolleyballApp.logic.dto.TrainerDto;
+import com.engineeringthesis.VolleyballApp.logic.dto.PlayerProfileDto;
 import com.engineeringthesis.VolleyballApp.logic.service.PlayerService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,14 +20,21 @@ public class PlayerController extends AbstractController<PlayerDto, PlayerEntity
         this.playerService = playerService;
     }
 
+    @PatchMapping("/{id}")
+    public ResponseEntity<PlayerDto> patch(@RequestBody final PlayerProfileDto dto, @PathVariable final String id) {
+        return ResponseEntity.ok(playerService.patch(dto, id));
+    }
+
     @GetMapping("/team/{teamId}")
     public ResponseEntity<List<PlayerDto>> findByTeam(@PathVariable String teamId) {
         return ResponseEntity.ok(playerService.findByTeam(teamId));
     }
+
     @GetMapping("/user/{userId}")
     public ResponseEntity<PlayerDto> findByUser(@PathVariable String userId) {
         return ResponseEntity.ok(playerService.findByUser(userId));
     }
+
     @GetMapping("/name/{name}")
     public ResponseEntity<PlayerDto> findByName(@PathVariable String name) {
         return ResponseEntity.ok(playerService.findByName(name));

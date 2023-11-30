@@ -1,9 +1,12 @@
-import { Component } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {Component, Inject} from '@angular/core';
+import {FormBuilder, FormGroup} from "@angular/forms";
 import {UserService} from "../../core/services/user-service";
 import {PlayerService} from "../../core/services/player-service";
 import {TrainerService} from "../../core/services/trainer-service";
 import {ERole} from "../../core/model/user";
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import {Player} from "../../core/model/player";
+import {Trainer} from "../../core/model/trainer";
 
 @Component({
   selector: 'app-edit-profile-dialog',
@@ -15,45 +18,38 @@ export class EditProfileDialogComponent {
   role!: ERole;
   isPlayer: boolean = false;
   isTrainer: boolean = false;
-  isProfileUpdated: boolean = false;
 
-  // playerForm = this.fb.group({
-  //   age: new FormControl(null, {validators: [Validators.required]}),
-  //   experience: new FormControl('', {validators: [Validators.required]}),
-  //   position: new FormControl('', {validators: [Validators.required]}),
-  //   height: new FormControl(null, {validators: [Validators.required]}),
-  //   weight: new FormControl(null, {validators: [Validators.required]}),
-  //   spikeReach: new FormControl(null, {validators: [Validators.required]}),
-  //   blockReach: new FormControl(null, {validators: [Validators.required]})
-  // })
-  //
-  // trainerForm = this.fb.group({
-  //   age: new FormControl(null, {validators: [Validators.required]}),
-  //   workHistory: new FormControl('', {validators: [Validators.required]}),
-  //   achievement: new FormControl('', {validators: [Validators.required]})
-  // })
+  playerForm!: FormGroup;
+  trainerForm!: FormGroup;
 
-  playerForm: any = {
-    age: null,
-    experience: null,
-    position: null,
-    height: null,
-    weight: null,
-    spikeReach: null,
-    blockReach: null
-  };
-
-  trainerForm: any = {
-    age: null,
-    workHistory: null,
-    achievement: null
-  };
-
-
-  constructor( private fb: FormBuilder,private userService: UserService, private playerService: PlayerService, private trainerService: TrainerService) {
+  constructor(private fb: FormBuilder, public dialogRef: MatDialogRef<EditProfileDialogComponent>, private userService: UserService, private playerService: PlayerService, private trainerService: TrainerService,
+              //
+              @Inject(MAT_DIALOG_DATA) public data: { player?: Player, trainer?: Trainer }) {
   }
+
   ngOnInit(): void {
     this.loadUserRole();
+    if (this.data.player) {
+      this.playerForm = this.fb.group({
+        name: [this.data.player.name],
+        surname: [this.data.player.surname],
+        age: [this.data.player.age],
+        experience: [this.data.player.experience],
+        position: [this.data.player.position],
+        height: [this.data.player.height],
+        weight: [this.data.player.weight],
+        attackRange: [this.data.player.attackRange],
+        blockRange: [this.data.player.blockRange],
+      })
+    } else if (this.data.trainer) {
+      this.trainerForm = this.fb.group({
+        name: [this.data.trainer.name],
+        surname: [this.data.trainer.surname],
+        age: [this.data.trainer.age],
+        workHistory: [this.data.trainer.workHistory],
+        achievements: [this.data.trainer.achievements],
+      })
+    }
   }
 
   loadUserRole(): void {
@@ -65,87 +61,37 @@ export class EditProfileDialogComponent {
       this.isPlayer = false;
       this.isTrainer = true;
     }
-    // Ustaw pozostałe flagi i logikę zależnie od struktury ról
   }
 
-  // editProfile(role: ERole, trainerForm?: FormGroup, playerForm?: FormGroup): void {
-  //   console.log(this.isTrainer);
-  //   console.log(this.isPlayer);
-  //   if (role === "PLAYER" && playerForm) {
-  //     this.isPlayer = true;
-  //     const playerData = playerForm.value;
-  //     this.playerService.updateProfile(playerForm.value).subscribe();
-  //   } else if (role === "TRAINER" && trainerForm) {
-  //     this.isTrainer = true;
-  //     const trainerData = trainerForm.value;
-  //     this.trainerService.updateProfile(trainerData).subscribe();
-  //   } else {
-  //     // Handle invalid role or missing form data
-  //   }
-  // }
   getUserId(): void {
     const authUser = JSON.parse(localStorage.getItem('auth-user') || '{}');
-    this.userId = authUser.id; // lub odpowiedni klucz, jeśli jest inny
+    this.userId = authUser.id;
   }
-  editProfile(): void {
-    if (this.isPlayer) {
-      this.playerService.updateProfile(this.playerForm, this.userId).subscribe({
-        next: (response) => {
-          // Obsługa sukcesu
+
+  onSubmit(): void {
+    if (this.data.player && this.isPlayer) {
+      const playerData = {...this.data.player, ...this.playerForm.value};
+      this.playerService.updatePlayer(playerData, this.data.player.id).subscribe({
+        next: (updatedPlayer) => {
+          this.dialogRef.close(updatedPlayer);
         },
         error: (error) => {
-          // Obsługa błędu
+          console.error('Error updating player:', error);
         }
       });
-    } else if (this.isTrainer) {
-      this.trainerService.updateProfile(this.trainerForm, this.userId).subscribe({
-        next: (response) => {
-          // Obsługa sukcesu
+    } else if (this.data.trainer && this.isTrainer) {
+      const trainerData = {...this.data.trainer, ...this.trainerForm.value};
+      this.trainerService.updateTrainer(trainerData, this.data.trainer.id).subscribe({
+        next: (updatedTrainer) => {
+          this.dialogRef.close(updatedTrainer);
         },
         error: (error) => {
-          // Obsługa błędu
+          console.error('Error updating trainer:', error);
         }
       });
     }
+
   }
-  // editProfile(): void {
-  //   if (this.isPlayer && this.playerForm.valid) {
-  //     this.playerService.findByUser(this.userId).subscribe({
-  //       next: (playerDto) => {
-  //         this.playerService.updateProfile({ ...this.playerForm.value, id: playerDto.id }).subscribe({
-  //           next: (response) => {
-  //             console.log('Player profile updated:', response);
-  //             // Logika po zaktualizowaniu profilu gracza
-  //           },
-  //           error: (error) => {
-  //             console.error('Error updating player profile:', error);
-  //           }
-  //         });
-  //       },
-  //       error: (error) => {
-  //         console.error('Error finding player by user ID:', error);
-  //       }
-  //     });
-  //   } else if (this.isTrainer && this.trainerForm.valid) {
-  //     this.trainerService.findByUser(this.userId).subscribe({
-  //       next: (trainerDto) => {
-  //         this.trainerService.updateProfile({ ...this.trainerForm.value, id: trainerDto.id }).subscribe({
-  //           next: (response) => {
-  //             console.log('Trainer profile updated:', response);
-  //             // Logika po zaktualizowaniu profilu trenera
-  //           },
-  //           error: (error) => {
-  //             console.error('Error updating trainer profile:', error);
-  //           }
-  //         });
-  //       },
-  //       error: (error) => {
-  //         console.error('Error finding trainer by user ID:', error);
-  //       }
-  //     });
-  //   } else {
-  //     console.error('Invalid role or incomplete form data');
-  //   }
-  // }
+
 
 }

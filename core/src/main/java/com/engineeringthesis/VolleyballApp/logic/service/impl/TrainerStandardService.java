@@ -1,6 +1,5 @@
 package com.engineeringthesis.VolleyballApp.logic.service.impl;
 
-import com.engineeringthesis.VolleyballApp.data.model.PlayerEntity;
 import com.engineeringthesis.VolleyballApp.data.model.TeamEntity;
 import com.engineeringthesis.VolleyballApp.data.model.TrainerEntity;
 import com.engineeringthesis.VolleyballApp.data.model.UserEntity;
@@ -8,6 +7,7 @@ import com.engineeringthesis.VolleyballApp.data.repository.TeamRepository;
 import com.engineeringthesis.VolleyballApp.data.repository.TrainerRepository;
 import com.engineeringthesis.VolleyballApp.data.repository.UserRepository;
 import com.engineeringthesis.VolleyballApp.logic.dto.TrainerDto;
+import com.engineeringthesis.VolleyballApp.logic.dto.TrainerProfileDto;
 import com.engineeringthesis.VolleyballApp.logic.mapper.TrainerMapper;
 import com.engineeringthesis.VolleyballApp.logic.service.TrainerService;
 import jakarta.transaction.Transactional;
@@ -61,5 +61,22 @@ public class TrainerStandardService extends AbstractStandardService<TrainerDto, 
     @Override
     public TrainerDto findBySurname(String surname) {
         return trainerMapper.mapToDto(trainerRepository.findBySurname(surname));
+    }
+
+    @Override
+    public TrainerDto patch(TrainerProfileDto dto, String id) {
+        Objects.requireNonNull(dto);
+
+        TrainerEntity trainer = trainerRepository.findById(id).orElse(null);
+
+        trainer.setName(dto.getName());
+        trainer.setSurname(dto.getSurname());
+        trainer.setAge(dto.getAge());
+        trainer.setWorkHistory(dto.getWorkHistory());
+        trainer.setAchievements(dto.getAchievements());
+
+        trainer = trainerRepository.save(trainer);
+
+        return trainerMapper.mapToDto(trainer);
     }
 }

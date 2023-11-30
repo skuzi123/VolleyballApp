@@ -1,8 +1,8 @@
 package com.engineeringthesis.VolleyballApp.api.rest.controller;
 
 import com.engineeringthesis.VolleyballApp.data.model.TrainerEntity;
-import com.engineeringthesis.VolleyballApp.logic.dto.PlayerDto;
 import com.engineeringthesis.VolleyballApp.logic.dto.TrainerDto;
+import com.engineeringthesis.VolleyballApp.logic.dto.TrainerProfileDto;
 import com.engineeringthesis.VolleyballApp.logic.service.TrainerService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +18,11 @@ public class TrainerController extends AbstractController<TrainerDto, TrainerEnt
     public TrainerController(TrainerService trainerService) {
         super(trainerService);
         this.trainerService = trainerService;
+    }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity<TrainerDto> patch(@RequestBody final TrainerProfileDto trainerProfileDto, @PathVariable final String id) {
+        return ResponseEntity.ok(trainerService.patch(trainerProfileDto, id));
     }
 
     @GetMapping("/user/{userId}")

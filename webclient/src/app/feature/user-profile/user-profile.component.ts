@@ -1,15 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {Player} from "../../core/model/player";
 import {Trainer} from "../../core/model/trainer";
-import {ActivatedRoute} from "@angular/router";
 import {PlayerService} from "../../core/services/player-service";
 import {TeamService} from "../../core/services/team-service";
 import {TrainerService} from "../../core/services/trainer-service";
-import {User} from "../../core/model/user";
+import {ERole, User} from "../../core/model/user";
 import {UserService} from "../../core/services/user-service";
 import {TokenStorageService} from "../../core/services/token-storage.service";
 import {Team} from "../../core/model/team";
-import {AuthService} from "../../core/services/auth.service";
 import {EditProfileDialogComponent} from "../edit-profile-dialog/edit-profile-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
 
@@ -23,8 +21,9 @@ export class UserProfileComponent implements OnInit {
   trainer?: Trainer;
   user?: User;
   team?: Team;
-  teamId:string  = "";
-  constructor( private teamService: TeamService, private playerService: PlayerService, private trainerService: TrainerService, private userService: UserService, private tokenStorageService: TokenStorageService, public dialog: MatDialog) {
+  teamId: string = "";
+
+  constructor(private teamService: TeamService, private playerService: PlayerService, private trainerService: TrainerService, private userService: UserService, private tokenStorageService: TokenStorageService, public dialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -64,19 +63,41 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
-  editProfile() {
-    const dialogRef = this.dialog.open(EditProfileDialogComponent, {
-      width: '35%',
-      height: '70%',
-    });
+  openEditProfile(user: User) {
+    if (user.role === ERole.PLAYER) {
+      this.playerService.findByUser(user.id).subscribe((player: Player) => {
+        this.openDialog({player: player});
+      });
+    } else if (user.role === ERole.TRAINER) {
+      this.trainerService.findByUser(user.id).subscribe((trainer: Trainer) => {
+        this.openDialog({trainer: trainer});
+      });
+    }
+  }
 
-    dialogRef.componentInstance.userId = this.getUserId();
+  private openDialog(dialogData: any) {
+    const dialogRef = this.dialog.open(EditProfileDialogComponent, {
+      data: dialogData
+    });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-      window.location.reload();
+      console.log('Dialog was closed');
     });
   }
+
+  // editProfile() {
+  //   const dialogRef = this.dialog.open(EditProfileDialogComponent, {
+  //     width: '35%',
+  //     height: '70%',
+  //   });
+  //
+  //   dialogRef.componentInstance.userId = this.getUserId();
+  //
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     console.log(`Dialog result: ${result}`);
+  //     window.location.reload();
+  //   });
+  // }
   getUserId() {
     const token = window.localStorage.getItem('auth-user');
 
@@ -90,3 +111,4 @@ export class UserProfileComponent implements OnInit {
   }
 
 }
+

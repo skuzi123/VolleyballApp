@@ -7,6 +7,7 @@ import com.engineeringthesis.VolleyballApp.data.repository.PlayerRepository;
 import com.engineeringthesis.VolleyballApp.data.repository.TeamRepository;
 import com.engineeringthesis.VolleyballApp.data.repository.UserRepository;
 import com.engineeringthesis.VolleyballApp.logic.dto.PlayerDto;
+import com.engineeringthesis.VolleyballApp.logic.dto.PlayerProfileDto;
 import com.engineeringthesis.VolleyballApp.logic.mapper.PlayerMapper;
 import com.engineeringthesis.VolleyballApp.logic.service.PlayerService;
 import jakarta.transaction.Transactional;
@@ -63,6 +64,27 @@ public class PlayerStandardService extends AbstractStandardService<PlayerDto, Pl
         UserEntity user = userRepository.findById(userId).orElse(null);
         return playerMapper.mapToDto(playerRepository.findByUser(user));
 
+    }
+
+    @Override
+    public PlayerDto patch(PlayerProfileDto dto, String id) {
+        Objects.requireNonNull(dto);
+
+        PlayerEntity player = playerRepository.findById(id).orElse(null);
+
+        player.setName(dto.getName());
+        player.setSurname(dto.getSurname());
+        player.setAge(dto.getAge());
+        player.setExperience(dto.getExperience());
+        player.setPosition(dto.getPosition());
+        player.setWeight(dto.getWeight());
+        player.setHeight(dto.getHeight());
+        player.setAttackRange(dto.getAttackRange());
+        player.setBlockRange(dto.getBlockRange());
+
+        player = playerRepository.save(player);
+
+        return playerMapper.mapToDto(player);
     }
 
 }
