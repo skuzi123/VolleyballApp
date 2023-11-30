@@ -1,5 +1,5 @@
 export class Report {
-  private _id: string;
+  private _id?: string;
   private _reportName: string;
 
   private _reportText: string;
@@ -7,17 +7,12 @@ export class Report {
   private _createdByUserId: string;
 
 
-  constructor(id: string, reportName: string, reportText: string, createdByUserId: string) {
-    this._id = id;
+  constructor(reportName: string, reportText: string, createdByUserId: string) {
     this._reportName = reportName;
     this._reportText = reportText;
     this._createdByUserId = createdByUserId;
   }
 
-
-  get id(): string {
-    return this._id;
-  }
 
   get reportName(): string {
     return this._reportName;

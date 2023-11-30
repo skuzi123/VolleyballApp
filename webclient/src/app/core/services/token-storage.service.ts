@@ -24,36 +24,12 @@ export class TokenStorageService {
     return window.localStorage.getItem(TOKEN_KEY);
   }
 
-  // public saveUser(user: any): void {
-  //   window.localStorage.removeItem(USER_KEY);
-  //   window.localStorage.setItem(USER_KEY, JSON.stringify(user));
-  // }
-  //
-  // public getUserId(): any {
-  //   const user = window.localStorage.getItem(USER_ID);
-  //   if (user) {
-  //     return user;
-  //   }
-  //
-  //   return {};
-  // }
-  //
-  //
-  //
-  // public getUser(): any {
-  //   const user = window.localStorage.getItem(USER_KEY);
-  //   if (user) {
-  //     return JSON.parse(user);
-  //   }
-  //
-  //   return {};
-  // }
   public saveUser(user: any): void {
     window.localStorage.removeItem(USER_KEY);
     window.localStorage.setItem(USER_KEY, JSON.stringify(user));
   }
 
-  public getUserId(): string  {
+  public getUserId(): string {
     const user = window.localStorage.getItem(USER_KEY);
     return user ? JSON.parse(user).id : null;
   }
@@ -82,6 +58,7 @@ export class TokenStorageService {
     return false;
   }
 }
+
 // getUserId() {
 //   const token = window.localStorage.getItem('auth-user');
 //

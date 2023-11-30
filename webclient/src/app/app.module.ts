@@ -22,13 +22,14 @@ import {SearchBarComponent} from './core/left-panel/search-bar/search-bar.compon
 import {SearchBarTrainerComponent} from './core/left-panel/search-bar-trainer/search-bar-trainer.component';
 import {SearchBarTeamComponent} from './core/left-panel/search-bar-team/search-bar-team.component';
 import {ProfileTeamComponent} from './feature/profile-team/profile-team.component';
-import { UserProfileComponent } from './feature/user-profile/user-profile.component';
-import { MatchCarouselComponent } from './core/match-carousel/match-carousel.component';
+import {UserProfileComponent} from './feature/user-profile/user-profile.component';
+import {MatchCarouselComponent} from './core/match-carousel/match-carousel.component';
 import {MatButtonModule} from "@angular/material/button";
-import { EditProfileDialogComponent } from './feature/edit-profile-dialog/edit-profile-dialog.component';
+import {EditProfileDialogComponent} from './feature/edit-profile-dialog/edit-profile-dialog.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatInputModule} from "@angular/material/input";
+import {ReportComponent} from './feature/main-page/report/report.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import {MatInputModule} from "@angular/material/input";
     ProfileTeamComponent,
     UserProfileComponent,
     MatchCarouselComponent,
-    EditProfileDialogComponent
+    EditProfileDialogComponent,
+    ReportComponent
   ],
   imports: [
     BrowserModule,

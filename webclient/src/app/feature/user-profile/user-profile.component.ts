@@ -85,19 +85,6 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
-  // editProfile() {
-  //   const dialogRef = this.dialog.open(EditProfileDialogComponent, {
-  //     width: '35%',
-  //     height: '70%',
-  //   });
-  //
-  //   dialogRef.componentInstance.userId = this.getUserId();
-  //
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log(`Dialog result: ${result}`);
-  //     window.location.reload();
-  //   });
-  // }
   getUserId() {
     const token = window.localStorage.getItem('auth-user');
 

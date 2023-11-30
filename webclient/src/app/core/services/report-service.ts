@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {Observable} from "rxjs";
-import {HttpClient, HttpResponse} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 import {Report} from "../model/report";
 
 @Injectable({
@@ -29,29 +29,29 @@ export class ReportService {
   }
 
 
-  addReport(report: Report): Observable<HttpResponse<Object>> {
-    let response: Observable<HttpResponse<Object>>;
-    try {
-      response = this.http.post(this.url, report, {
-        observe: 'response'
-      });
-      return response;
-    } catch (error: any) {
-      throw new Error(error.message);
+  addReport(report: Report): Observable<Report> {
+
+    const request = {
+      reportName: report.reportName,
+      reportText: report.reportText,
+      createdByUserId: report.createdByUserId
     }
+    console.log(report);
+    return this.http.post<Report>(this.url, request);
   }
 
-  updateReport(report: Report): Observable<HttpResponse<Object>> {
-    let response: Observable<HttpResponse<Object>>;
-    try {
-      response = this.http.put(this.url + `/${report.id}`, report, {
-        observe: 'response'
-      });
-      return response;
-    } catch (error: any) {
-      throw new Error(error.message);
-    }
-  }
+
+  // updateReport(report: Report): Observable<HttpResponse<Object>> {
+  //   let response: Observable<HttpResponse<Object>>;
+  //   try {
+  //     response = this.http.put(this.url + `/${report.id}`, report, {
+  //       observe: 'response'
+  //     });
+  //     return response;
+  //   } catch (error: any) {
+  //     throw new Error(error.message);
+  //   }
+  // }
 
   deleteById(id: string): Observable<void> {
     return this.http.delete<void>(this.url + `/${id}`);
