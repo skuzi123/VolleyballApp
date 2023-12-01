@@ -14,7 +14,6 @@
         <tbody>
         <tr *ngFor="let team of teams; let i = index">
           <th scope="row">{{i + 1}}</th>
-          <td>{{team.id}}</td>
           <td>{{team.teamName}}</td>
           <!--          <td>{{team.points}}</td>-->
           <!--          <td>{{team.wins}}</td>-->
@@ -24,6 +23,25 @@
       </table>
     </div>
   </div>
+  <div class="w-5/6 flex justify-end" style="margin-left:70%">
+    <button
+      mat-raised-button
+      *ngIf="isAdmin()"
+      (click)="openTableToAddTeam()"
+      type="button"
+    >
+      Add Team
+    </button>
+    <button
+      mat-raised-button
+      *ngIf="isAdmin()"
+      (click)="openTableToDeleteTeam()"
+      type="button"
+    >
+      Delete Team
+    </button>
+  </div>
+
 </div>
 
 

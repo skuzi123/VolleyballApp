@@ -1,5 +1,6 @@
 .match-reports-container {
-  height: calc(90%); /* 120px to przykładowa wysokość nagłówka i marginesów */
+  //height: calc(90%);
+  height: 600px;
   width: 200%;
   background-color: #f7f6e7; /* Dopasowanie do koloru nagłówka */
   padding: 1rem;
@@ -7,12 +8,12 @@
 }
 
 .match-report {
-  background-color: white; /* Biały tło dla raportów */
-  margin-bottom: 1rem; /* Odstęp pomiędzy raportami */
+  background-color: white;
+  margin-bottom: 1rem;
   padding: 0.5rem;
-  border-radius: 10px; /* Zaokrąglone rogi */
-  border: 1px solid #ddd; /* Subtelna obramówka */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Lekki cień dla wyróżnienia */
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .middle-container {
@@ -21,7 +22,7 @@
   overflow-y: scroll;
 }
 
-/* Dodatkowe style dla tekstu raportu */
+
 .match-report p {
   margin: 0;
   font-size: 1rem;

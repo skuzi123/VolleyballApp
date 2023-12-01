@@ -7,12 +7,14 @@
 
 ::ng-deep .col-6.ml-auto {
   width: 65% !important;
+  margin-left: 10%;
 }
 
 
 /* You may also want to adjust the margin between the two containers if they are within the same row */
 .container > .row {
-  margin: 0; /* Remove margin or set to a small value */
+  margin: 0;
+  margin-left: 10%;
 }
 
 /* Rest of the styles */

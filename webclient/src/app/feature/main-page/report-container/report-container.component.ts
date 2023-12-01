@@ -37,7 +37,7 @@ export class ReportContainerComponent implements OnInit {
       console.log(JSON.parse(authUser).roles)
       return JSON.parse(authUser).roles.includes('ADMIN')
     } else {
-      console.log("CHujnia")
+      console.error("Can't read role")
       return false;
     }
 

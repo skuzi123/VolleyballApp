@@ -8,6 +8,8 @@ import com.engineeringthesis.VolleyballApp.logic.service.TeamService;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
+import java.util.Objects;
+
 @Service
 @Transactional
 public class TeamStandardService extends AbstractStandardService<TeamDto, TeamEntity> implements TeamService {
@@ -23,5 +25,13 @@ public class TeamStandardService extends AbstractStandardService<TeamDto, TeamEn
     @Override
     public TeamDto findByTeamName(String teamName) {
         return teamMapper.mapToDto(teamRepository.findByTeamName(teamName));
+    }
+
+    @Override
+    public void deleteByTeamName(String teamName) {
+            Objects.requireNonNull(teamName);
+
+            teamRepository.deleteByTeamName(teamName);
+
     }
 }

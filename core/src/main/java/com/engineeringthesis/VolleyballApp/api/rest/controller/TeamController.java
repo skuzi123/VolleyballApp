@@ -21,4 +21,9 @@ public class TeamController extends AbstractController<TeamDto, TeamEntity> {
     public ResponseEntity<TeamDto> findByTeamName(@PathVariable String teamName) {
         return ResponseEntity.ok(teamService.findByTeamName(teamName));
     }
+
+    @DeleteMapping("/teamName/{teamName}")
+    public ResponseEntity<TeamDto> deleteByTeamName(@PathVariable String teamName){
+        teamService.deleteByTeamName(teamName);
+        return ResponseEntity.noContent().build();}
 }

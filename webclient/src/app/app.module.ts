@@ -30,6 +30,9 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatInputModule} from "@angular/material/input";
 import {ReportComponent} from './feature/main-page/report/report.component';
+import { EditTableLeagueComponent } from './feature/main-page/edit-table-league/edit-table-league.component';
+import { AddTeamProfileComponent } from './feature/main-page/add-team-profile/add-team-profile.component';
+import { DeleteTeamProfileComponent } from './feature/main-page/delete-team-profile/delete-team-profile.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +54,10 @@ import {ReportComponent} from './feature/main-page/report/report.component';
     UserProfileComponent,
     MatchCarouselComponent,
     EditProfileDialogComponent,
-    ReportComponent
+    ReportComponent,
+    EditTableLeagueComponent,
+    AddTeamProfileComponent,
+    DeleteTeamProfileComponent
   ],
   imports: [
     BrowserModule,

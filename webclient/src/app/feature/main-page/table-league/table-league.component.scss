@@ -40,48 +40,39 @@
     color: white;
   }
 
-  /* Ensure the table takes the full width */
+
   .table-responsive {
     display: block;
-    width: 200%; /* Ensures the table is 100% the width of its parent */
-    overflow-x: auto; /* Allows horizontal scrolling if necessary */
+    width: 200%;
+    overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
 
-  /* Adjust the max-height to ensure the full table is visible */
+
   .table {
-    max-height: unset; /* Removes any maximum height restriction */
+    max-height: unset;
     width: 70%;
-    overflow-y: visible; /* Ensures the full table is visible vertically */
+    overflow-y: visible;
   }
 
-  /* If you want the table to be 5px away from another element, add margin */
+
   .container > .row > .col-6.ml-auto {
-    margin-left: 5px; /* Adjust as necessary to create space from the left side */
-    width: calc(100% - 5px); /* Adjust width to account for margin */
+    margin-left: 5px;
+    width: calc(100% - 5px);
   }
 
-  /* Ensure the table is not cut off on smaller screens */
+
   @media screen and (max-width: 768px) {
     .col-6.ml-auto {
-      width: 100%; /* Full width on small screens */
-      margin-left: 0; /* Reset margin on small screens if necessary */
+      width: 100%;
+      margin-left: 0;
     }
 
     .col-6.ml-auto > .table-responsive {
-      overflow-y: visible; /* Ensures the full table is visible */
+      overflow-y: visible;
     }
   }
 
-  /* Add your other styles here */
 
-  //.table{
-  //  max-height: calc(100vh - 120px); /* Zakładając, że tabela ma klasę 'table-responsive' */
-  //  overflow-y: scroll;
-  //}
-  //  .col-6.ml-auto > .table {
-  //    max-height: calc(100vh - 120px);
-  //    overflow-y: scroll;
-  //  }
 
 }

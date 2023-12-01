@@ -20,14 +20,14 @@ export class TeamService {
     return this.http.get<Team[]>(this.url);
   }
 
-  // getById(id: string): Observable<Team> {
-  //   return this.http.get<Team>(this.url + `/${id}`);
-  // }
-  getById(teamId: string): Observable<any> {
-    return this.http.get(`${this.url}/${teamId}`).pipe(
-      map(response => response as any) // Cast the response to any or to a more specific type if you have one
-    );
+  getById(id: string): Observable<Team> {
+    return this.http.get<Team>(this.url + `/${id}`);
   }
+  // getById(teamId: string): Observable<any> {
+  //   return this.http.get(`${this.url}/${teamId}`).pipe(
+  //     map(response => response as any)
+  //   );
+  // }
 
   getByTeamName(teamName: string): Observable<Team> {
     return this.http.get<Team>(this.url + `/teamName/${teamName}`);
@@ -35,32 +35,21 @@ export class TeamService {
 
 
 
-  addTeam(team: Team): Observable<HttpResponse<Object>> {
-    let response: Observable<HttpResponse<Object>>;
-    try {
-      response = this.http.post(this.url, Team, {
-        observe: 'response'
-      });
-      return response;
-    } catch (error: any) {
-      throw new Error(error.message);
+  addTeam(team: Team): Observable<Team> {
+    const request = {
+     teamName: team.teamName
     }
+    return this.http.post<Team>(this.url, request);
   }
 
-  updateTeam(team: Team): Observable<HttpResponse<Object>> {
-    let response: Observable<HttpResponse<Object>>;
-    try {
-      response = this.http.put(this.url + `/${team.id}`, Team, {
-        observe: 'response'
-      });
-      return response;
-    } catch (error: any) {
-      throw new Error(error.message);
-    }
-  }
+
 
   deleteById(id: string): Observable<void> {
     return this.http.delete<void>(this.url + `/${id}`);
+  }
+
+  deleteByTeamName(teamName: string): Observable<void> {
+    return this.http.delete<void>(this.url + `/teamName/${teamName}`);
   }
 
 }

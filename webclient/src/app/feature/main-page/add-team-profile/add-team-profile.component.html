@@ -1,0 +1,19 @@
+<mat-dialog-content class="mat-typography">
+  <h1>Pass data to edit</h1>
+  <form [formGroup]="teamForm">
+    <p>
+      <mat-form-field style="width: 100%" class="example-full-width" appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput
+               type="string"
+               formControlName="teamName">
+      </mat-form-field>
+    </p>
+  </form>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-raised-button mat-dialog-close color="primary" (click)="onSubmit()">Add team</button>
+</mat-dialog-actions>
+
+
