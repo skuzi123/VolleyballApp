@@ -34,7 +34,7 @@ export class ReportContainerComponent implements OnInit {
   isAdmin(): boolean {
     const authUser = localStorage.getItem('auth-user');
     if (authUser) {
-      console.log(JSON.parse(authUser).roles)
+      // console.log(JSON.parse(authUser).roles)
       return JSON.parse(authUser).roles.includes('ADMIN')
     } else {
       console.error("Can't read role")

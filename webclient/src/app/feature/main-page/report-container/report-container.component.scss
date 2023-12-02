@@ -1,12 +1,10 @@
 .match-reports-container {
-  //height: calc(90%);
   height: 600px;
   width: 200%;
-  background-color: #f7f6e7; /* Dopasowanie do koloru nagłówka */
+  background-color: #f7f6e7;
   padding: 1rem;
-  //padding-bottom: 10px;
+  border-radius: 5%;
 
-  /* Włączenie przewijania dla dłuższych list */
 }
 
 .match-report {
@@ -32,7 +30,6 @@
   line-height: 1.5;
 }
 .btn-add {
-  //padding: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
