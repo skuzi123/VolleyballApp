@@ -17,7 +17,8 @@
       <strong>Players:</strong>
       <ul>
         <li *ngFor="let player of players">
-          {{ player.name }} {{ player.surname }} : {{player.starter}}
+          {{ player.name }} {{ player.surname }}
+          <input type="checkbox" *ngIf="isEditingStarterSquad" [checked]="player.starter" (change)="toggleStarterStatus(player)">
         </li>
       </ul>
     </div>
@@ -34,7 +35,5 @@
       </button>
     </div>
   </div>
-
-
 </div>
 

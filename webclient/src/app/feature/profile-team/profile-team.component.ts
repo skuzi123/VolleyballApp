@@ -7,6 +7,7 @@ import {TrainerService} from "../../core/services/trainer-service";
 import {Trainer} from "../../core/model/trainer";
 import {Player} from "../../core/model/player";
 import {MatDialog} from "@angular/material/dialog";
+import {PlayerStarter} from "../../core/model/player-starter";
 
 @Component({
   selector: 'app-profile-team',
@@ -18,6 +19,8 @@ export class ProfileTeamComponent implements OnInit {
   trainers: Trainer[] = [];
   players: Player[] = [];
   trainer?: Trainer;
+  isEditingStarterSquad?: boolean = false;
+
 
 
   constructor(private route: ActivatedRoute
@@ -47,10 +50,7 @@ export class ProfileTeamComponent implements OnInit {
   }
 
   editTeam() {
-
-
-
-
+    this.isEditingStarterSquad = !this.isEditingStarterSquad;
   }
 
   isTrainer() {
@@ -88,5 +88,24 @@ export class ProfileTeamComponent implements OnInit {
 
     });
   }
+
+  toggleStarterStatus(player: Player) {
+    // Przygotowujemy obiekt PlayerStarter z nowym statusem
+    const playerStarterUpdate = new PlayerStarter(!player.starter);
+
+    // Wywołujemy serwis, przekazując utworzony obiekt i id gracza
+    this.playerService.updateStarter(playerStarterUpdate, player.id).subscribe({
+      next: (updatedPlayer) => {
+        player.starter = updatedPlayer.starter;
+      },
+      error: (error) => {
+        console.error('An error occurred while updating the starter status', error);
+        player.starter = !player.starter;
+      }
+    });
+  }
+
+
+
 
 }

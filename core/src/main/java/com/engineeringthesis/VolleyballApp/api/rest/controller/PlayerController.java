@@ -3,7 +3,9 @@ package com.engineeringthesis.VolleyballApp.api.rest.controller;
 import com.engineeringthesis.VolleyballApp.data.model.PlayerEntity;
 import com.engineeringthesis.VolleyballApp.logic.dto.PlayerDto;
 import com.engineeringthesis.VolleyballApp.logic.dto.PlayerProfileDto;
+import com.engineeringthesis.VolleyballApp.logic.dto.PlayerStarterDto;
 import com.engineeringthesis.VolleyballApp.logic.service.PlayerService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,7 +21,10 @@ public class PlayerController extends AbstractController<PlayerDto, PlayerEntity
         super(playerService);
         this.playerService = playerService;
     }
-
+    @PatchMapping("/isStarter/{id}")
+    public ResponseEntity<PlayerDto> patchStarter(@RequestBody final PlayerStarterDto dto, @PathVariable final String id) {
+        return ResponseEntity.ok(playerService.patchStarter(dto, id));
+    }
     @PatchMapping("/{id}")
     public ResponseEntity<PlayerDto> patch(@RequestBody final PlayerProfileDto dto, @PathVariable final String id) {
         return ResponseEntity.ok(playerService.patch(dto, id));

@@ -30,7 +30,7 @@ export class Player {
 
   private _starter: boolean;
 
-  constructor(id: string, userId: string, name: string, surname: string, age: number, experience: number, position: string, weight: number, height: number, attackRange: number, blockRange: number, teamId: string, starter: boolean) {
+  constructor(id: string, userId: string, name: string, surname: string, age: number, experience: number, position: string, weight: number, height: number, attackRange: number, blockRange: number, teamId: string,starter: boolean) {
     this._id = id;
     this._userId = userId;
     this._name = name;
@@ -54,6 +54,8 @@ export class Player {
   set starter(value: boolean) {
     this._starter = value;
   }
+
+
 
   get id(): string {
     return this._id;

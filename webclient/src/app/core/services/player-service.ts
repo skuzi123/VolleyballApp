@@ -3,6 +3,7 @@ import {Observable} from "rxjs";
 import {Player} from "../model/player";
 import {HttpClient} from "@angular/common/http";
 import {PlayerProfile} from "../model/player-profile";
+import {PlayerStarter} from "../model/player-starter";
 
 @Injectable({
   providedIn: 'root'
@@ -72,6 +73,13 @@ export class PlayerService {
     return this.http.patch<Player>(`${this.url}/${id}`, request);
   }
 
+  updateStarter(player: PlayerStarter, id: string): Observable<Player> {
+    const request = {
+      starter: player.starter
+
+    }
+    return this.http.patch<Player>(`${this.url}/isStarter/${id}`, request);
+  }
 
   deleteById(id: string): Observable<void> {
     return this.http.delete<void>(this.url + `/${id}`);

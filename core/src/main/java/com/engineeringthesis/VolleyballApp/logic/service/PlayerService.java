@@ -3,6 +3,7 @@ package com.engineeringthesis.VolleyballApp.logic.service;
 import com.engineeringthesis.VolleyballApp.data.model.PlayerEntity;
 import com.engineeringthesis.VolleyballApp.logic.dto.PlayerDto;
 import com.engineeringthesis.VolleyballApp.logic.dto.PlayerProfileDto;
+import com.engineeringthesis.VolleyballApp.logic.dto.PlayerStarterDto;
 
 import java.util.List;
 
@@ -16,4 +17,7 @@ public interface PlayerService extends AbstractModelService<PlayerDto, PlayerEnt
     PlayerDto findByUser(String userId);
 
     PlayerDto patch(final PlayerProfileDto dto, final String id);
+
+
+    PlayerDto patchStarter(final PlayerStarterDto dto, String id);
 }
