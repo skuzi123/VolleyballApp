@@ -1,14 +1,15 @@
-<div class="container mt-6">
+<div class="container mt-6" >
   <div class="row">
     <div class="col-6 ml-auto">
+      <div class="scrollable-table-container">
       <table class="table">
-        <thead class="custom-header">
+        <thead class="custom-header" >
         <tr>
-          <th scope="col">#</th>
+          <th scope="col" >#</th>
           <th scope="col">Drużyna</th>
           <th scope="col">Punkty</th>
-          <th scope="col">Wygr.</th>
-          <th scope="col">Przegr.</th>
+          <th scope="col">Wygrane</th>
+          <th scope="col">Przegrane</th>
         </tr>
         </thead>
         <tbody>
@@ -23,26 +24,26 @@
       </table>
     </div>
   </div>
-  <div class="w-5/6 flex justify-end" style="margin-left:70%">
-    <button
-      mat-raised-button
-      *ngIf="isAdmin()"
-      (click)="openTableToAddTeam()"
-      type="button"
-    >
-      Add Team
-    </button>
-    <button
-      mat-raised-button
-      *ngIf="isAdmin()"
-      (click)="openTableToDeleteTeam()"
-      type="button"
-    >
-      Delete Team
-    </button>
-  </div>
+
 
 </div>
-
+<div class="button-container" style="">
+  <button
+    class="btn btn-add-delete btn-outline-primary"
+    *ngIf="isAdmin()"
+    (click)="openTableToAddTeam()"
+    type="button"
+  >
+    Add Team
+  </button>
+  <button
+    class="btn btn-add-delete btn-outline-primary"
+    *ngIf="isAdmin()"
+    (click)="openTableToDeleteTeam()"
+    type="button"
+  >
+    Delete Team
+  </button>
+</div>
 
 

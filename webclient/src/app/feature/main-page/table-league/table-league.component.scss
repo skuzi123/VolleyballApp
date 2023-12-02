@@ -38,6 +38,7 @@
   .custom-header th {
     background-color: #F2A154; /* Adjust the color value as needed */
     color: white;
+    position: sticky! important;
   }
 
 
@@ -50,7 +51,7 @@
 
 
   .table {
-    max-height: unset;
+    height: 560px;
     width: 70%;
     overflow-y: visible;
   }
@@ -75,4 +76,42 @@
 
 
 
+}
+.btn-add-delete {
+  //padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 11rem;
+  height: 2rem;
+  font-size: 1.15rem;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  text-align: center;
+  line-height: 1.5;
+  letter-spacing: 0.15em;
+  background-color: #f7f6e7;
+  border: #F2A154 2px solid;
+  border-radius: 2em;
+  color: #314E52;
+}
+
+.btn:hover {
+  background-color: #F2A154;
+  color: black;
+
+}
+.button-container {
+  margin-left:40%;
+  margin-top:7.5%;
+  display: flex;
+  justify-content: space-between; // or 'flex-start' to align them to the left
+  align-items: center; // Aligns buttons vertically in the center
+  gap: 10px; // Adjust the gap between the buttons
+}
+.scrollable-table-container{
+  max-height: 550px; // This sets the maximum height of the table
+  overflow-y: auto; // This makes the table vertically scrollable
+  // Add any additional styling here as needed
 }
