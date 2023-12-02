@@ -10,7 +10,7 @@
   width:50%;
   height: 50%;
   margin: 5% auto;
-  transform: scale(1.05);
+  //transform: scale(1.05);
 }
 
 .profile-team h2 {
@@ -18,15 +18,39 @@
   text-align: center;
 }
 .profile-team:hover{
-  transform: scale(1.08);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  transform: scale(1.01);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 .team-details {
   font-family: Arial, sans-serif;
-  font-size: larger/* Replace with your font choice */
+  font-size: larger
 }
 
 .team-details div {
   margin-bottom: 10px;
 }
 
+.btn-edit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 15rem;
+  height: 2rem;
+  font-size: 1.15rem;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  text-align: center;
+  line-height: 1.5;
+  letter-spacing: 0.15em;
+  background-color: #f7f6e7;
+  border: #F2A154 2px solid;
+  border-radius: 2em;
+  color: #314E52;
+}
+
+.btn:hover {
+  background-color: #F2A154;
+  color: black;
+
+}

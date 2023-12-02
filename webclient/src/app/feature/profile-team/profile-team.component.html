@@ -21,7 +21,20 @@
         </li>
       </ul>
     </div>
-    <!-- Achievement can be similarly conditionally displayed if needed -->
   </div>
+  <div *ngIf="team">
+    <div *ngIf="trainer?.teamId === team?.id">
+      <button
+        *ngIf="isTrainer()"
+        class="btn btn-edit btn-outline-primary"
+        (click)="editTeam()"
+        type="button"
+      >
+        Edit starter squad
+      </button>
+    </div>
+  </div>
+
+
 </div>
 

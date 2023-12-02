@@ -1,6 +1,6 @@
 .profile-player {
   background-color: #fff; /* Replace with the color of your choice */
-  color: #333; /* Replace with the color of your choice */
+  color: #333;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -11,17 +11,17 @@
 }
 
 .profile-player:hover{
-  transform: scale(1.13);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  transform: scale(1.11);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .profile-player h2 {
-  color: #f68b1f; /* Sample color taken from your screenshot */
+  color: #f68b1f;
   text-align: center;
 }
 
 .player-details {
-  font-family: Arial, sans-serif; /* Replace with your font choice */
+  font-family: Arial, sans-serif;
 }
 
 .player-details div {
