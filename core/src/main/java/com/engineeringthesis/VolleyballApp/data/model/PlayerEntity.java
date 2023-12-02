@@ -45,6 +45,8 @@ public class PlayerEntity extends AbstractEntity {
     @JoinColumn(name = "team_id")
     private TeamEntity team;
 
+    @Column(name = "is_starter")
+    private boolean isStarter;
     public void setTeam(String teamId) {
         if (teamId == null) {
             this.team = null;

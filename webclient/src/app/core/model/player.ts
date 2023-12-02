@@ -1,3 +1,6 @@
+
+
+
 export class Player {
   private _id: string;
   private _userId: string;
@@ -25,7 +28,9 @@ export class Player {
 
   private _teamId: string;
 
-  constructor(id: string, userId: string, name: string, surname: string, age: number, experience: number, position: string, weight: number, height: number, attackRange: number, blockRange: number, teamId: string) {
+  private _starter: boolean;
+
+  constructor(id: string, userId: string, name: string, surname: string, age: number, experience: number, position: string, weight: number, height: number, attackRange: number, blockRange: number, teamId: string, starter: boolean) {
     this._id = id;
     this._userId = userId;
     this._name = name;
@@ -38,6 +43,16 @@ export class Player {
     this._attackRange = attackRange;
     this._blockRange = blockRange;
     this._teamId = teamId;
+    this._starter = starter;
+  }
+
+
+  get starter(): boolean {
+    return this._starter;
+  }
+
+  set starter(value: boolean) {
+    this._starter = value;
   }
 
   get id(): string {

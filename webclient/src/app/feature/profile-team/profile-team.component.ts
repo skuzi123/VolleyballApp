@@ -7,7 +7,6 @@ import {TrainerService} from "../../core/services/trainer-service";
 import {Trainer} from "../../core/model/trainer";
 import {Player} from "../../core/model/player";
 import {MatDialog} from "@angular/material/dialog";
-import {EditTeamComponent} from "../edit-team/edit-team.component";
 
 @Component({
   selector: 'app-profile-team',
@@ -49,13 +48,7 @@ export class ProfileTeamComponent implements OnInit {
 
   editTeam() {
 
-    const dialogRef = this.dialog.open(EditTeamComponent);
 
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        this.loadTeams();
-      }
-    });
 
 
   }
@@ -87,6 +80,7 @@ export class ProfileTeamComponent implements OnInit {
 
         this.playerService.findByTeam(this.team.id).subscribe(players => {
           this.players = players;
+          console.log(this.players);
         }, error => {
 
         });

@@ -21,6 +21,7 @@ public class PlayerMapper extends AbstractMapper<PlayerDto, PlayerEntity> {
         dto.setBlockRange(entity.getBlockRange());
         dto.setTeamId(entity.getTeam().getId());
         dto.setUserId(entity.getUser().getId());
+        dto.setStarter(entity.isStarter());
         return dto;
 
 
@@ -41,6 +42,7 @@ public class PlayerMapper extends AbstractMapper<PlayerDto, PlayerEntity> {
         entity.setBlockRange(dto.getBlockRange());
         entity.setTeam(dto.getTeamId());
         entity.setUser(dto.getUserId());
+        entity.setStarter(dto.isStarter());
         return entity;
     }
 }

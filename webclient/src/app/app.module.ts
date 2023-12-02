@@ -33,7 +33,7 @@ import {ReportComponent} from './feature/main-page/report/report.component';
 import { EditTableLeagueComponent } from './feature/main-page/edit-table-league/edit-table-league.component';
 import { AddTeamProfileComponent } from './feature/main-page/add-team-profile/add-team-profile.component';
 import { DeleteTeamProfileComponent } from './feature/main-page/delete-team-profile/delete-team-profile.component';
-import { EditTeamComponent } from './feature/edit-team/edit-team.component';
+
 
 @NgModule({
   declarations: [
@@ -58,8 +58,7 @@ import { EditTeamComponent } from './feature/edit-team/edit-team.component';
     ReportComponent,
     EditTableLeagueComponent,
     AddTeamProfileComponent,
-    DeleteTeamProfileComponent,
-    EditTeamComponent
+    DeleteTeamProfileComponent
   ],
   imports: [
     BrowserModule,
