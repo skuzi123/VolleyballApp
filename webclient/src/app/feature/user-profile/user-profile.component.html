@@ -28,7 +28,7 @@
     <img [src]="trainer?.image">
   </div>
   <div *ngIf="user">
-    <button mat-stroked-button mat-button class="buttons" (click)="openEditProfile(user)">Edytuj dane</button>
+    <button class="btn btn-edit btn-outline-primary"  (click)="openEditProfile(user)">Edit profile</button>
   </div>
 
 </div>
