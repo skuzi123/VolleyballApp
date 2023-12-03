@@ -6,6 +6,7 @@
   padding-bottom: 0;
   border-radius: 5%;
 
+
 }
 
 .match-report {
@@ -13,8 +14,8 @@
   margin-bottom: 1rem;
   padding: 0.5rem;
   border-radius: 10px;
-  border: 1px solid #ddd;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: #F2A154 2px solid;
+  box-shadow: 0 2px 4px rgba(227, 139, 0, 0.2);
 }
 
 .middle-container {
@@ -23,9 +24,6 @@
   overflow-y: scroll;
   margin-bottom: 20px;
 }
-
-
-
 
 .match-report p {
   margin: 0;
