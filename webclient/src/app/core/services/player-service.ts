@@ -51,7 +51,8 @@ export class PlayerService {
       height: player.height,
       weight: player.weight,
       attackRange: player.attackRange,
-      blockRange: player.blockRange
+      blockRange: player.blockRange,
+      image: player.image
 
     }
     return this.http.post<Player>(`${this.url}`, request);
@@ -67,7 +68,8 @@ export class PlayerService {
       height: player.height,
       weight: player.weight,
       attackRange: player.attackRange,
-      blockRange: player.blockRange
+      blockRange: player.blockRange,
+      image: player.image
 
     }
     return this.http.patch<Player>(`${this.url}/${id}`, request);

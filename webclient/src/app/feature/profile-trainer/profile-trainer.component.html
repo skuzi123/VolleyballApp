@@ -6,6 +6,10 @@
     <div><strong>Work history:</strong> {{ trainer?.workHistory }}</div>
     <div *ngIf="team"><strong>Club:</strong> {{ team.teamName}}</div>
     <div><strong>Achievement:</strong> {{ trainer?.achievements}}</div>
+
+  </div>
+  <div class="trainer-image" *ngIf="trainer?.image">
+    <img [src]="trainer?.image"  image>
   </div>
 </div>
 

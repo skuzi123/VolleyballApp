@@ -30,7 +30,8 @@ public class TrainerEntity extends AbstractEntity {
     @Column(name = "achievements"
     )
     private String achievements;
-
+    @Column(name = "image")
+    private String image;
 
     public void setTeam(String teamId) {
         if (teamId == null) {

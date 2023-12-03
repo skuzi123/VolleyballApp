@@ -82,6 +82,7 @@ public class PlayerStandardService extends AbstractStandardService<PlayerDto, Pl
         player.setHeight(dto.getHeight());
         player.setAttackRange(dto.getAttackRange());
         player.setBlockRange(dto.getBlockRange());
+        player.setImage(dto.getImage());
 
         player = playerRepository.save(player);
 

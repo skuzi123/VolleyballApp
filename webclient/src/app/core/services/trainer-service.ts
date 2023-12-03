@@ -49,7 +49,8 @@ export class TrainerService {
       surname: trainer.surname,
       age: trainer.age,
       workHistory: trainer.workHistory,
-      achievements: trainer.achievements
+      achievements: trainer.achievements,
+      image: trainer.image
 
     }
     return this.http.post<Trainer>(`${this.url}`, request);
@@ -61,7 +62,8 @@ export class TrainerService {
       surname: trainer.surname,
       age: trainer.age,
       workHistory: trainer.workHistory,
-      achievements: trainer.achievements
+      achievements: trainer.achievements,
+      image: trainer.image
 
     }
     return this.http.patch<Trainer>(`${this.url}/${id}`, request);

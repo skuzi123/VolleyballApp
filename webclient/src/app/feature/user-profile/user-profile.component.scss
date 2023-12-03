@@ -11,14 +11,22 @@
 }
 
 .profile h2 {
-  color: #f68b1f; /* Sample color taken from your screenshot */
+  color: #f68b1f;
   text-align: center;
 }
 
 .details {
-  font-family: Arial, sans-serif; /* Replace with your font choice */
+  font-family: Arial, sans-serif;
 }
 
 .details div {
   margin-bottom: 10px;
+}
+img{
+  width:40%;
+  margin-left: 50%;
+  margin-top:-90%;
+}
+img:hover{
+  transform: scale(1.02);
 }

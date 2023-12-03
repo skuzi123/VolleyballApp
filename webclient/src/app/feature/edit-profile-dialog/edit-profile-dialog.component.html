@@ -72,8 +72,15 @@
           <mat-label>Block Reach</mat-label>
           <input matInput
                  type="number"
-                 name="blockReach"
                  formControlName="blockRange">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field style="width: 100%" class="example-full-width" appearance="fill">
+          <mat-label>Image Url</mat-label>
+          <input matInput
+                 type="string"
+                 formControlName="image">
         </mat-form-field>
       </p>
     </div>
@@ -117,6 +124,14 @@
         <input matInput
                type="string"
                formControlName="achievements">
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field style="width: 100%" class="example-full-width" appearance="fill">
+        <mat-label>Image Url</mat-label>
+        <input matInput
+               type="string"
+               formControlName="image">
       </mat-form-field>
     </p>
   </form>

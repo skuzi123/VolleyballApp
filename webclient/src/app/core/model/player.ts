@@ -1,3 +1,4 @@
+
 export class Player {
   private _id: string;
   private _userId: string;
@@ -26,8 +27,9 @@ export class Player {
   private _teamId: string;
 
   private _starter: boolean;
+  private _image: string;
 
-  constructor(id: string, userId: string, name: string, surname: string, age: number, experience: number, position: string, weight: number, height: number, attackRange: number, blockRange: number, teamId: string, starter: boolean) {
+  constructor(id: string, userId: string, name: string, surname: string, age: number, experience: number, position: string, weight: number, height: number, attackRange: number, blockRange: number, teamId: string, starter: boolean,image: string) {
     this._id = id;
     this._userId = userId;
     this._name = name;
@@ -41,6 +43,7 @@ export class Player {
     this._blockRange = blockRange;
     this._teamId = teamId;
     this._starter = starter;
+    this._image = image;
   }
 
 
@@ -144,5 +147,14 @@ export class Player {
 
   set teamId(value: string) {
     this._teamId = value;
+  }
+
+
+  get image(): string {
+    return this._image;
+  }
+
+  set image(value: string) {
+    this._image = value;
   }
 }

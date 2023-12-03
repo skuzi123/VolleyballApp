@@ -74,6 +74,7 @@ public class TrainerStandardService extends AbstractStandardService<TrainerDto, 
         trainer.setAge(dto.getAge());
         trainer.setWorkHistory(dto.getWorkHistory());
         trainer.setAchievements(dto.getAchievements());
+        trainer.setImage(dto.getImage());
 
         trainer = trainerRepository.save(trainer);
 

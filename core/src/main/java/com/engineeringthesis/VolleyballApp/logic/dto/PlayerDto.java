@@ -19,5 +19,6 @@ public class PlayerDto extends AbstractDto {
     private Double blockRange;
     private String teamId;
     private boolean isStarter;
+    private String image;
 
 }

@@ -40,6 +40,7 @@ export class EditProfileDialogComponent {
         weight: [this.data.player.weight],
         attackRange: [this.data.player.attackRange],
         blockRange: [this.data.player.blockRange],
+        image: [this.data.player.image]
       })
     } else if (this.data.trainer) {
       this.trainerForm = this.fb.group({
@@ -48,6 +49,7 @@ export class EditProfileDialogComponent {
         age: [this.data.trainer.age],
         workHistory: [this.data.trainer.workHistory],
         achievements: [this.data.trainer.achievements],
+        image: [this.data.trainer.image]
       })
     }
   }
@@ -90,8 +92,6 @@ export class EditProfileDialogComponent {
         }
       });
     }
-
   }
-
 
 }

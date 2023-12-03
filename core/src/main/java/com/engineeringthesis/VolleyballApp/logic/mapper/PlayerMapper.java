@@ -22,9 +22,8 @@ public class PlayerMapper extends AbstractMapper<PlayerDto, PlayerEntity> {
         dto.setTeamId(entity.getTeam().getId());
         dto.setUserId(entity.getUser().getId());
         dto.setStarter(entity.isStarter());
+        dto.setImage(entity.getImage());
         return dto;
-
-
     }
 
     @Override
@@ -43,6 +42,7 @@ public class PlayerMapper extends AbstractMapper<PlayerDto, PlayerEntity> {
         entity.setTeam(dto.getTeamId());
         entity.setUser(dto.getUserId());
         entity.setStarter(dto.isStarter());
+        entity.setImage(dto.getImage());
         return entity;
     }
 }

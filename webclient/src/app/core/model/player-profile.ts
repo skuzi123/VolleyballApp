@@ -1,3 +1,4 @@
+
 export class PlayerProfile {
 
 
@@ -20,9 +21,10 @@ export class PlayerProfile {
   private _attackRange: number;
 
   private _blockRange: number;
+  private _image: string;
 
 
-  constructor(name: string, surname: string, age: number, experience: number, position: string, weight: number, height: number, attackRange: number, blockRange: number) {
+  constructor(name: string, surname: string, age: number, experience: number, position: string, weight: number, height: number, attackRange: number, blockRange: number,image: string) {
     this._name = name;
     this._surname = surname;
     this._age = age;
@@ -32,6 +34,7 @@ export class PlayerProfile {
     this._height = height;
     this._attackRange = attackRange;
     this._blockRange = blockRange;
+    this._image = image;
   }
 
 
@@ -107,4 +110,11 @@ export class PlayerProfile {
     this._blockRange = value;
   }
 
+  get image(): string {
+    return this._image;
+  }
+
+  set image(value: string) {
+    this._image = value;
+  }
 }

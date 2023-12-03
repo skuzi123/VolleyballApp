@@ -21,8 +21,12 @@
     </div>
     <div *ngIf="team"><strong>Club:</strong> {{ team.teamName}}</div>
   </div>
-
-  <!-- Use *ngIf to ensure the button is only rendered when 'user' is defined -->
+  <div class="image" *ngIf="player?.image">
+    <img [src]="player?.image">
+  </div>
+  <div class="image" *ngIf="trainer?.image">
+    <img [src]="trainer?.image">
+  </div>
   <div *ngIf="user">
     <button mat-stroked-button mat-button class="buttons" (click)="openEditProfile(user)">Edytuj dane</button>
   </div>

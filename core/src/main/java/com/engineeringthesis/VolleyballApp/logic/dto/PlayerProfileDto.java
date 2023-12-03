@@ -15,4 +15,5 @@ public class PlayerProfileDto {
     private Double height;
     private Double attackRange;
     private Double blockRange;
+    private String image;
 }

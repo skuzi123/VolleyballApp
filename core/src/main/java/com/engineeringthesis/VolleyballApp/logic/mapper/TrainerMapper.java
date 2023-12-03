@@ -17,6 +17,7 @@ public class TrainerMapper extends AbstractMapper<TrainerDto, TrainerEntity> {
         dto.setAge(entity.getAge());
         dto.setAchievements(entity.getAchievements());
         dto.setWorkHistory(entity.getWorkHistory());
+        dto.setImage(entity.getImage());
         return dto;
     }
 
@@ -31,6 +32,7 @@ public class TrainerMapper extends AbstractMapper<TrainerDto, TrainerEntity> {
         entity.setAge(dto.getAge());
         entity.setAchievements(dto.getAchievements());
         entity.setWorkHistory(dto.getWorkHistory());
+        entity.setImage(dto.getImage());
         return entity;
     }
 }

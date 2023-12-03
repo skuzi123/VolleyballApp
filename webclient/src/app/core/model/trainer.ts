@@ -1,3 +1,4 @@
+
 export class Trainer {
   private _id: string;
   private _userId: string;
@@ -7,8 +8,9 @@ export class Trainer {
   private _age: number;
   private _workHistory: string;
   private _achievements: string;
+  private _image: string;
 
-  constructor(id: string, userId: string, teamId: string, name: string, surname: string, age: number, workHistory: string, achievements: string) {
+  constructor(id: string, userId: string, teamId: string, name: string, surname: string, age: number, workHistory: string, achievements: string, image: string) {
     this._id = id;
     this._userId = userId;
     this._teamId = teamId;
@@ -17,6 +19,7 @@ export class Trainer {
     this._age = age;
     this._workHistory = workHistory;
     this._achievements = achievements;
+    this._image = image;
   }
 
   get id(): string {
@@ -77,5 +80,14 @@ export class Trainer {
 
   set achievements(achievements: string) {
     this._achievements = achievements;
+  }
+
+
+  get image(): string {
+    return this._image;
+  }
+
+  set image(value: string) {
+    this._image = value;
   }
 }
