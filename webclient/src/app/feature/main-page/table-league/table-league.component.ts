@@ -162,7 +162,15 @@ export class TableLeagueComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.loadTeams();
+        Promise.all([
+          this.loadTeams(),
+          this.loadSeasonTeams(),
+          this.loadMatches(),
+          this.loadSets(),
+        ]).then(() => {
+          this.tableLeague = this.calculateTable();
+          this.cdr.detectChanges();
+        });
       }
     });
   }
