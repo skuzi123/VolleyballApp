@@ -8,10 +8,12 @@
 
 .container > .row {
   justify-content: flex-end;
+
 }
 
 .col-6.ml-auto {
   max-width: 100%;
+
 }
 
 .table-striped tbody tr:nth-of-type(odd) {
@@ -50,6 +52,7 @@
   .table {
     height: 560px;
     width: 70%;
+
     //overflow-y: visible;
   }
 
@@ -57,6 +60,7 @@
   .container > .row > .col-6.ml-auto {
     margin-left: 5px;
     width: calc(100% - 5px);
+
   }
 
 
@@ -110,4 +114,5 @@
   border-radius: 5%;
   max-height: 550px;
   overflow-y: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
