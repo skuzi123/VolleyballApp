@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
-import {map, Observable} from "rxjs";
-import {HttpClient, HttpResponse} from "@angular/common/http";
+import {Observable} from "rxjs";
+import {HttpClient} from "@angular/common/http";
 import {Team} from "../model/team";
 
 @Injectable({
@@ -23,6 +23,7 @@ export class TeamService {
   getById(id: string): Observable<Team> {
     return this.http.get<Team>(this.url + `/${id}`);
   }
+
   // getById(teamId: string): Observable<any> {
   //   return this.http.get(`${this.url}/${teamId}`).pipe(
   //     map(response => response as any)
@@ -34,14 +35,13 @@ export class TeamService {
   }
 
 
-
   addTeam(team: Team): Observable<Team> {
     const request = {
-     teamName: team.teamName
+      teamName: team.teamName,
+      image: team.image
     }
     return this.http.post<Team>(this.url, request);
   }
-
 
 
   deleteById(id: string): Observable<void> {

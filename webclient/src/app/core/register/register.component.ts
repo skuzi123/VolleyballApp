@@ -58,10 +58,10 @@ export class RegisterComponent {
     if (role === '') {
       this.registerForm.get('role')?.markAsPristine();
     }
-    if (username !== '' && password !== '' && role !== ''){
+    if (username !== '' && password !== '' && role !== '') {
       const roleEnum: ERole = ERole[role as keyof typeof ERole];
-      this.authService.register(username!,password!,roleEnum!).subscribe({
-        next: data =>{
+      this.authService.register(username!, password!, roleEnum!).subscribe({
+        next: data => {
           this.router
             .navigateByUrl('/login')
             .then(() => (this.authService.redirectUrl = undefined));

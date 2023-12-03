@@ -4,9 +4,7 @@
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  //width: 30rem; /* Adjust based on your layout */
-  //margin-top: 5rem;
-  //margin-left: 40%;
+
   width:50%;
   height: 50%;
   margin: 5% auto;
@@ -23,7 +21,11 @@
 }
 .team-details {
   font-family: Arial, sans-serif;
-  font-size: larger
+  font-size: larger;
+  //display: flex;
+  //align-items: flex-start; // Aligns children to the top
+  //justify-content: space-between;
+
 }
 
 .team-details div {
@@ -53,4 +55,13 @@
   background-color: #F2A154;
   color: black;
 
+}
+
+team-image {
+  margin-left: auto; // Pushes the image to the right
+  img {
+    display: block; // Removes any bottom margin/padding
+    max-width: 100%; // Ensures image responsiveness
+    height: auto;
+  }
 }

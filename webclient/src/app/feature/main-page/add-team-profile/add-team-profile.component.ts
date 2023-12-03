@@ -21,7 +21,8 @@ export class AddTeamProfileComponent{
   onSubmit() {
     if(this.teamForm.valid){
       const team = new Team(
-        this.teamForm.value.teamName
+        this.teamForm.value.teamName,
+        this.teamForm.value.image
       )
 
       this.teamService.addTeam(team).subscribe({
@@ -38,7 +39,8 @@ export class AddTeamProfileComponent{
 
   createForm() {
     this.teamForm = this.fb.group({
-      teamName:['', Validators.required]
+      teamName:['', Validators.required],
+      image:['', Validators.required]
     })
   }
 }

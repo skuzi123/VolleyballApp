@@ -90,10 +90,9 @@ export class ProfileTeamComponent implements OnInit {
   }
 
   toggleStarterStatus(player: Player) {
-    // Przygotowujemy obiekt PlayerStarter z nowym statusem
+
     const playerStarterUpdate = new PlayerStarter(!player.starter);
 
-    // Wywołujemy serwis, przekazując utworzony obiekt i id gracza
     this.playerService.updateStarter(playerStarterUpdate, player.id).subscribe({
       next: (updatedPlayer) => {
         player.starter = updatedPlayer.starter;

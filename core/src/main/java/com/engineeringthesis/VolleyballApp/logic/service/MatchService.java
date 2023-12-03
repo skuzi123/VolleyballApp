@@ -9,4 +9,5 @@ import java.util.List;
 public interface MatchService extends AbstractModelService<MatchDto, MatchEntity> {
     List<MatchDto> findByHostTeamOrGuestTeam(String hostTeamId, String guestTeamId);
 
+
 }

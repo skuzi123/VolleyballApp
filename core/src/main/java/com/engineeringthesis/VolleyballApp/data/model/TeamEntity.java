@@ -18,5 +18,8 @@ public class TeamEntity extends AbstractEntity {
     @Column(name = "team_name"
     )
     private String teamName;
+    @Column(name = "image"
+    )
+    private String image;
 
 }

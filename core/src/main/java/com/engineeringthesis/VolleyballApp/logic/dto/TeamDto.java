@@ -7,4 +7,5 @@ import lombok.Setter;
 @Setter
 public class TeamDto extends AbstractDto {
     private String teamName;
+    private String image;
 }

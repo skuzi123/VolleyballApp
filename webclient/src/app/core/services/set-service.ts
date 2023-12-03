@@ -28,6 +28,7 @@ export class SetService {
       map(response => response as any) // Cast the response to any or to a more specific type if you have one
     );
   }
+
   getByMatchId(matchId: string): Observable<Set> {
     return this.http.get<Set>(`${this.url}/match/{matchId}`);
   }

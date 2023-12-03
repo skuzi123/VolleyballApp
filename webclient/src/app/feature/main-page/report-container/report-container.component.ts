@@ -13,7 +13,7 @@ import {TokenStorageService} from "../../../core/services/token-storage.service"
 export class ReportContainerComponent implements OnInit {
   reports: Report[] = [];
 
-  constructor(private reportService: ReportService, private dialog: MatDialog, private tokenStorageService: TokenStorageService) {
+  constructor(private reportService: ReportService, private dialog: MatDialog) {
   }
 
   ngOnInit(): void {

@@ -11,6 +11,7 @@ public class TeamMapper extends AbstractMapper<TeamDto, TeamEntity> {
         TeamDto dto = new TeamDto();
         super.mapToDto(entity, dto);
         dto.setTeamName(entity.getTeamName());
+        dto.setImage(entity.getImage());
         return dto;
 
     }
@@ -20,6 +21,7 @@ public class TeamMapper extends AbstractMapper<TeamDto, TeamEntity> {
         TeamEntity entity = new TeamEntity();
         super.mapToEntity(dto, entity);
         entity.setTeamName(dto.getTeamName());
+        entity.setImage(dto.getImage());
         return entity;
     }
 }

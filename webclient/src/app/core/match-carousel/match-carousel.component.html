@@ -1,9 +1,9 @@
 <div class="match-carousel">
   <button (click)="previousMatch()">❮</button>
   <div *ngFor="let match of matches | slice:currentIndex:(currentIndex+5)">
-      <div>{{ match.hostTeamName }} vs {{ match.guestTeamName }}</div>
-      <div>Score: {{ match.result }}</div>
-      <!-- Dodaj więcej informacji o meczu zgodnie z potrzebami -->
+    <div>{{ match.hostTeamName }} vs {{ match.guestTeamName }}</div>
+    <div>Score: {{ match.result }}</div>
+    <!-- Dodaj więcej informacji o meczu zgodnie z potrzebami -->
   </div>
   <button (click)="nextMatch()">❯</button>
 </div>

@@ -1,10 +1,11 @@
 export class Team {
   private _id?: string;
   private _teamName: string;
+  private _image: string;
 
-  constructor(teamName: string) {
-    // this._id = id;
+  constructor(teamName: string, image: string) {
     this._teamName = teamName;
+    this._image = image;
   }
 
   get id(): string {
@@ -18,5 +19,14 @@ export class Team {
 
   set teamName(value: string) {
     this._teamName = value;
+  }
+
+
+  get image(): string {
+    return this._image;
+  }
+
+  set image(value: string) {
+    this._image = value;
   }
 }

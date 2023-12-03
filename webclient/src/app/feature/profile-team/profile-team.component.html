@@ -22,7 +22,9 @@
         </li>
       </ul>
     </div>
-  </div>
+    <div *ngIf="team" class="team-image">
+      <img src="{{ team.image }}" alt="Team Image">
+    </div>
   <div *ngIf="team">
     <div *ngIf="trainer?.teamId === team?.id">
       <button
@@ -36,4 +38,4 @@
     </div>
   </div>
 </div>
-
+</div>

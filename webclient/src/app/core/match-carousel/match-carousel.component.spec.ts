@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { MatchCarouselComponent } from './match-carousel.component';
+import {MatchCarouselComponent} from './match-carousel.component';
 
 describe('MatchCarouselComponent', () => {
   let component: MatchCarouselComponent;

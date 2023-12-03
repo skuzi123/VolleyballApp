@@ -27,33 +27,7 @@ export class UserProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const userId = this.tokenStorageService.getUserId();
-    const role = this.tokenStorageService.getRole();
-    console.log(role);
-    const token = this.tokenStorageService.getToken();
-    console.log(token);
-    this.userService.getById(userId).subscribe(user => {
-      this.user = user;
-      console.log(userId);
-
-      if (user.role === "TRAINER") {
-        console.log(userId);
-        this.trainerService.findByUser(userId).subscribe(trainer => {
-          console.log(userId);
-          this.trainer = trainer;
-          console.log(trainer);
-          this.fetchTeamData(trainer.teamId);
-        });
-      }
-      if (user.role === "PLAYER") {
-        this.playerService.getById(userId).subscribe(player => {
-          this.player = player;
-          this.fetchTeamData(player.teamId);
-        });
-      }
-
-    }, error => {
-    });
+    this.loadUserData();
   }
 
   private fetchTeamData(teamId: string) {
@@ -81,6 +55,7 @@ export class UserProfileComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      this.loadUserData();
       console.log('Dialog was closed');
     });
   }
@@ -97,5 +72,34 @@ export class UserProfileComponent implements OnInit {
     return token ? JSON.parse(token).role : [];
   }
 
+ loadUserData() {
+   const userId = this.tokenStorageService.getUserId();
+   const role = this.tokenStorageService.getRole();
+   console.log(role);
+   const token = this.tokenStorageService.getToken();
+   console.log(token);
+   this.userService.getById(userId).subscribe(user => {
+     this.user = user;
+     console.log(userId);
+
+     if (user.role === "TRAINER") {
+       console.log(userId);
+       this.trainerService.findByUser(userId).subscribe(trainer => {
+         console.log(userId);
+         this.trainer = trainer;
+         console.log(trainer);
+         this.fetchTeamData(trainer.teamId);
+       });
+     }
+     if (user.role === "PLAYER") {
+       this.playerService.getById(userId).subscribe(player => {
+         this.player = player;
+         this.fetchTeamData(player.teamId);
+       });
+     }
+
+   }, error => {
+   });
+  }
 }
 

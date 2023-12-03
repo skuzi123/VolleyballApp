@@ -2,7 +2,7 @@ export class PlayerStarter {
   private _starter: boolean;
 
   constructor(starter: boolean) {
-    this._starter =starter;
+    this._starter = starter;
   }
 
   get starter(): boolean {

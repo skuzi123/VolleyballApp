@@ -8,6 +8,16 @@
       My Profile
     </button>
   </div>
+  <div class="d-flex ms-auto gap-3">
+    <button
+      *ngIf="isAdmin()"
+      type="button"
+      class="btn btn-logout btn-outline-primary"
+      (click)="addMatch()"
+    >
+      Add match
+    </button>
+  </div>
   <div class="Search">
     <app-search-bar [placeholder]="'Search player'"></app-search-bar>
 

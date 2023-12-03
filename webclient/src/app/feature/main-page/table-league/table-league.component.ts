@@ -13,7 +13,7 @@ import {MatchService} from "../../../core/services/match-service";
 import {SetService} from "../../../core/services/set-service";
 
 interface LeagueTableRow {
-  team: Team; // Zakładam, że Team jest typem lub interfejsem zdefiniowanym gdzie indziej
+  team: Team;
   wins: number;
   losses: number;
   points: number;
@@ -78,7 +78,6 @@ export class TableLeagueComponent implements OnInit {
       }
     });
 
-    // Konwersja wyników na tablicę i sortowanie
     const leagueTableArray = Object.values(results);
     leagueTableArray.sort((a, b) => b.points - a.points || b.wins - a.wins);
 
@@ -88,7 +87,6 @@ export class TableLeagueComponent implements OnInit {
   getMatchResult(matchId: string): string {
     const match = this.matches.find(m => m.id === matchId);
     if (match) {
-      // console.log(match.result as string);
       return match.result as string;
     } else {
       console.error(`Match with ID ${matchId} not found!`);
@@ -147,7 +145,15 @@ export class TableLeagueComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.loadTeams();
+        Promise.all([
+          this.loadTeams(),
+          this.loadSeasonTeams(),
+          this.loadMatches(),
+          this.loadSets(),
+        ]).then(() => {
+          this.tableLeague = this.calculateTable();
+          this.cdr.detectChanges();
+        });
       }
     });
   }

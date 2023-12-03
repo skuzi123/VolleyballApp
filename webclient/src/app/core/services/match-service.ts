@@ -14,7 +14,7 @@ export class MatchService {
     {}
   );
 
-  constructor(private http: HttpClient,private teamService: TeamService) {
+  constructor(private http: HttpClient, private teamService: TeamService) {
   }
 
   getMatches(): Observable<Match[]> {
@@ -25,16 +25,14 @@ export class MatchService {
     return this.http.get<Match>(this.url + `/${id}`);
   }
 
-  addMatch(match: Match): Observable<HttpResponse<Object>> {
-    let response: Observable<HttpResponse<Object>>;
-    try {
-      response = this.http.post(this.url, match, {
-        observe: 'response'
-      });
-      return response;
-    } catch (error: any) {
-      throw new Error(error.message);
+  addMatch(match: Match): Observable<Match> {
+    const request = {
+      hostTeamId: match.hostTeamId,
+      guestTeamId: match.guestTeamId,
+      matchDate: match.matchDate,
+      result: match.result
     }
+    return this.http.post<Match>(this.url, request);
   }
 
   updateMatch(match: Match): Observable<HttpResponse<Object>> {

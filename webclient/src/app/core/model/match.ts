@@ -1,18 +1,25 @@
-import {Team} from "./team";
-
 export class Match {
-  private _id: string;
+  private _id?: string;
   private _hostTeamId: string;
   private _guestTeamId: string;
+  private _matchDate: Date;
   private _result: string;
 
-  constructor(_id: string, hostTeamId: string, guestTeamId: string, result: string) {
-    this._id = _id;
+  constructor(hostTeamId: string, guestTeamId: string, matchDate: Date, result: string) {
     this._hostTeamId = hostTeamId;
     this._guestTeamId = guestTeamId;
+    this._matchDate = matchDate;
     this._result = result;
   }
 
+
+  get matchDate(): Date {
+    return this._matchDate;
+  }
+
+  set matchDate(value: Date) {
+    this._matchDate = value;
+  }
 
   get result(): string {
     return this._result;
@@ -23,24 +30,9 @@ export class Match {
   }
 
   get id(): string {
-    return this._id;
+    return this._id as string;
   }
 
-  // get hostTeam(): Team {
-  //   return this._hostTeam;
-  // }
-  //
-  // set hostTeam(value: Team) {
-  //   this._hostTeam = value;
-  // }
-  //
-  // get guestTeam(): Team {
-  //   return this._guestTeam;
-  // }
-  //
-  // set guestTeam(value: Team) {
-  //   this._guestTeam = value;
-  // }
   get hostTeamId(): string {
     return this._hostTeamId;
   }

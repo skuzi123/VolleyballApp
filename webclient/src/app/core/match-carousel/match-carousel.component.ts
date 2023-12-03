@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {MatchService} from "../services/match-service";
-import {Match} from "../model/match";
 import {SetService} from "../services/set-service";
 import {TeamService} from "../services/team-service";
 import {Team} from "../model/team";
 import {Set} from "../model/set";
 import {map} from "rxjs";
+
 @Component({
   selector: 'app-match-carousel',
   templateUrl: './match-carousel.component.html',
@@ -23,7 +23,8 @@ export class MatchCarouselComponent implements OnInit {
     private matchService: MatchService,
     private setService: SetService,
     private teamService: TeamService
-  ) {}
+  ) {
+  }
 
   ngOnInit() {
     this.loadMatches();

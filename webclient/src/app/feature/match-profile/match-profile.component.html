@@ -1,0 +1,43 @@
+<mat-dialog-content class="mat-typography">
+  <h1>Pass data to edit</h1>
+  <form [formGroup]="matchForm">
+    <div class="row">
+      <p>
+        <mat-form-field style="width: 100%" class="example-full-width" appearance="fill">
+          <mat-label>Host Team</mat-label>
+          <input matInput
+                 type="string"
+                 formControlName="hostTeam">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field style="width: 100%" class="example-full-width" appearance="fill">
+          <mat-label>Guest Team</mat-label>
+          <input matInput
+                 type="string"
+                 formControlName="guestTeam">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field style="width: 100%" class="example-full-width" appearance="fill">
+          <mat-label>Date</mat-label>
+          <input matInput
+                 type="date"
+                 formControlName="matchDate">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field style="width: 100%" class="example-full-width" appearance="fill">
+          <mat-label>Result</mat-label>
+          <input matInput
+                 type="string"
+                 formControlName="result">
+        </mat-form-field>
+      </p>
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-raised-button mat-dialog-close color="primary" (click)="onSubmit()">Add match</button>
+</mat-dialog-actions>
+
