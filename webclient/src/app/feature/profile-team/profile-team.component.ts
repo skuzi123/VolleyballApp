@@ -10,6 +10,8 @@ import {MatDialog} from "@angular/material/dialog";
 import {PlayerStarter} from "../../core/model/player-starter";
 import {SeasonTeamService} from "../../core/services/seasonteam-service";
 import {SeasonTeam} from "../../core/model/seasonteam";
+import {SeasonService} from "../../core/services/season-service";
+import {Season} from "../../core/model/season";
 
 
 @Component({
@@ -19,6 +21,7 @@ import {SeasonTeam} from "../../core/model/seasonteam";
 })
 export class ProfileTeamComponent implements OnInit {
   team?: Team;
+  season?: Season;
   seasonTeam?: SeasonTeam;
   trainers: Trainer[] = [];
   players: Player[] = [];
@@ -27,7 +30,7 @@ export class ProfileTeamComponent implements OnInit {
   averagePointsPerMatch?: number ;
 
 
-  constructor(private seasonTeamService: SeasonTeamService,
+  constructor(private seasonService: SeasonService,private seasonTeamService: SeasonTeamService,
       private route: ActivatedRoute
     , private playerService: PlayerService
     , private trainerService: TrainerService
@@ -81,8 +84,9 @@ export class ProfileTeamComponent implements OnInit {
         //   console.log(this.seasonTeam);
         // }),
         console.log(this.team.id);
-
-
+        this.seasonService.getById('2').subscribe(season =>{
+          this.season = season;
+        })
        this.seasonTeamService.getBySeasonAndTeam('2',this.team.id).subscribe(seasonTeam => {
          this.seasonTeam = seasonTeam;
          console.log(this.seasonTeam);

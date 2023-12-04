@@ -24,11 +24,12 @@
             <input type="checkbox" *ngIf="isEditingStarterSquad" [checked]="player.starter" (change)="toggleStarterStatus(player)">
           </li>
         </ul>
-        <div class="team-players" *ngIf="seasonTeam">
+        <div class="team-players" *ngIf="seasonTeam && season">
           <h2>Stats</h2>
-          <p>Points: {{seasonTeam.points}} </p>
-          <p>Matches: {{seasonTeam.matches}} </p>
-          <p>Średnia punktów na mecz: {{ averagePointsPerMatch | number:'1.2-2' }}</p>
+          <p><strong>Season:</strong> {{season.seasonName}}</p>
+          <p><strong>Points:</strong> {{seasonTeam.points}} </p>
+          <p><strong>Matches:</strong> {{seasonTeam.matches}} </p>
+          <p><strong>Average points per game:</strong> {{ averagePointsPerMatch | number:'1.2-2' }}</p>
         </div>
       </div>
     </div>
