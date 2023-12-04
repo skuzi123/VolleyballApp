@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Team} from "../../core/model/team";
 import {ActivatedRoute} from "@angular/router";
 import {PlayerService} from "../../core/services/player-service";
@@ -8,6 +8,9 @@ import {Trainer} from "../../core/model/trainer";
 import {Player} from "../../core/model/player";
 import {MatDialog} from "@angular/material/dialog";
 import {PlayerStarter} from "../../core/model/player-starter";
+import {SeasonTeamService} from "../../core/services/seasonteam-service";
+import {SeasonTeam} from "../../core/model/seasonteam";
+
 
 @Component({
   selector: 'app-profile-team',
@@ -16,23 +19,27 @@ import {PlayerStarter} from "../../core/model/player-starter";
 })
 export class ProfileTeamComponent implements OnInit {
   team?: Team;
+  seasonTeam?: SeasonTeam;
   trainers: Trainer[] = [];
   players: Player[] = [];
   trainer?: Trainer;
   isEditingStarterSquad?: boolean = false;
+  averagePointsPerMatch?: number ;
 
 
-
-  constructor(private route: ActivatedRoute
+  constructor(private seasonTeamService: SeasonTeamService,
+      private route: ActivatedRoute
     , private playerService: PlayerService
     , private trainerService: TrainerService
     , private teamService: TeamService,
+
               private dialog: MatDialog) {
   }
 
   ngOnInit(): void {
     this.loadTeams();
     this.loadTrainerData();
+
   }
 
   loadTrainerData() {
@@ -69,9 +76,24 @@ export class ProfileTeamComponent implements OnInit {
       const teamName = params['teamName'];
       this.teamService.getByTeamName(teamName).subscribe(team => {
         this.team = team;
-
+        // this.seasonTeamService.getSeasonTeam("2",this.team.id).subscribe(seasonTeam =>{
+        //   this.seasonTeam = seasonTeam;
+        //   console.log(this.seasonTeam);
+        // }),
         console.log(this.team.id);
 
+
+       this.seasonTeamService.getBySeasonAndTeam('2',this.team.id).subscribe(seasonTeam => {
+         this.seasonTeam = seasonTeam;
+         console.log(this.seasonTeam);
+         if (this.seasonTeam && this.seasonTeam.matches > 0) {
+           this.averagePointsPerMatch = this.seasonTeam.points/this.seasonTeam.matches;
+         } else {
+           this.averagePointsPerMatch = 0;
+         }
+         console.log(this.averagePointsPerMatch);
+       }, error => {
+       });
         this.trainerService.findByTeam(this.team.id).subscribe(trainers => {
           this.trainers = trainers;
         }, error => {
@@ -104,7 +126,7 @@ export class ProfileTeamComponent implements OnInit {
     });
   }
 
-
-
-
+  // private loadSeasonTeams() {
+  //   this.seasonTeamService.getSeasonTeam("2",this.team.id)
+  // }
 }

@@ -24,6 +24,12 @@
             <input type="checkbox" *ngIf="isEditingStarterSquad" [checked]="player.starter" (change)="toggleStarterStatus(player)">
           </li>
         </ul>
+        <div class="team-players" *ngIf="seasonTeam">
+          <h2>Stats</h2>
+          <p>Points: {{seasonTeam.points}} </p>
+          <p>Matches: {{seasonTeam.matches}} </p>
+          <p>Średnia punktów na mecz: {{ averagePointsPerMatch | number:'1.2-2' }}</p>
+        </div>
       </div>
     </div>
     <div class="team-image" *ngIf="team.image">

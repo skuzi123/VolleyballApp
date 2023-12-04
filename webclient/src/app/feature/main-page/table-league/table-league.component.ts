@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Team} from "../../../core/model/team";
 import {Set} from "../../../core/model/set";
 import {TeamService} from "../../../core/services/team-service";
@@ -11,12 +11,14 @@ import {SeasonTeamService} from "../../../core/services/seasonteam-service";
 import {Match} from "../../../core/model/match";
 import {MatchService} from "../../../core/services/match-service";
 import {SetService} from "../../../core/services/set-service";
+import {SeasonTeamId} from "../../../core/model/seasonteamid";
 
-interface LeagueTableRow {
+export interface LeagueTableRow {
   team: Team;
   wins: number;
   losses: number;
   points: number;
+  matches: number;
 }
 @Component({
   selector: 'app-table-league',
@@ -29,6 +31,13 @@ export class TableLeagueComponent implements OnInit {
   sets: Set[] = [];
   seasonTeams: SeasonTeam[] = [];
   tableLeague: LeagueTableRow[] = [];
+
+  @Output() leagueDataEmitter = new EventEmitter<LeagueTableRow[]>();
+
+
+  emitLeagueData() {
+    this.leagueDataEmitter.emit(this.tableLeague);
+  }
   constructor(private teamService: TeamService,
               private seasonTeamService: SeasonTeamService,
               private matchService: MatchService,
@@ -45,15 +54,17 @@ export class TableLeagueComponent implements OnInit {
       this.loadSets(),
     ]).then(() => {
       this.tableLeague = this.calculateTable();
+      this.emitLeagueData();
       this.cdr.detectChanges();
     });
+
   }
   calculateTable(): LeagueTableRow[] {
     const results: { [teamId: string]: LeagueTableRow } = {};
 
     // Inicjalizacja wyników dla każdej drużyny
     this.teams.forEach(team => {
-      results[team.id] = { team: team, wins: 0, losses: 0, points: 0 };
+      results[team.id] = { team: team, wins: 0, losses: 0, points: 0 , matches: 0};
     });
 
     // Przetwarzanie wyników meczów
@@ -77,13 +88,41 @@ export class TableLeagueComponent implements OnInit {
         if (hostScore === 2) hostResult.points += 1; // 1 punkt za przegraną 2:3
       }
     });
+    // Wewnątrz metody calculateTable
+    this.seasonTeams.forEach(seasonTeam => {
+      if (seasonTeam.seasonId === "2") {
+        const teamResult = results[seasonTeam.teamId];
+        if (teamResult) {
+          teamResult.points += seasonTeam.points;
+          teamResult.matches = teamResult.wins + teamResult.losses;
+
+          // Tworzenie obiektu SeasonTeam z zaktualizowanymi danymi
+          const updatedSeasonTeam= new SeasonTeam(
+            seasonTeam.id,
+            "2",
+            seasonTeam.teamId,
+            teamResult.points,
+            teamResult.matches
+          )
+
+          // Zaktualizuj seasonTeam za pomocą seasonTeamService
+          this.updateSeasonTeam(updatedSeasonTeam, seasonTeam.id);
+        }
+      }
+    });
 
     const leagueTableArray = Object.values(results);
     leagueTableArray.sort((a, b) => b.points - a.points || b.wins - a.wins);
 
     return leagueTableArray;
   }
-
+  updateSeasonTeam(updatedSeasonTeam: SeasonTeam, id: string) {
+    this.seasonTeamService.updateSeasonTeam(updatedSeasonTeam, id)
+      .subscribe(
+        response => console.log(`SeasonTeam updated for teamId ${id}: `, response),
+        error => console.error(`Error updating SeasonTeam for teamId ${id}: `, error)
+      );
+  }
   getMatchResult(matchId: string): string {
     const match = this.matches.find(m => m.id === matchId);
     if (match) {

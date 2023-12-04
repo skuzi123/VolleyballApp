@@ -1,22 +1,33 @@
-import {SeasonTeamId} from "./seasonteamid";
+
 
 export class SeasonTeam {
-  private _id: SeasonTeamId;
-  private _points: number;
+  private _id?: string;
   private _seasonId: string;
   private _teamId: string;
+  private _points: number;
+  private _matches: number;
 
 
-  constructor(id: SeasonTeamId, points: number, seasonId: string, teamId: string) {
+  constructor( id: string,seasonId: string, teamId: string,points: number,matches: number) {
     this._id = id;
-    this._points = points;
     this._seasonId = seasonId;
     this._teamId = teamId;
+    this._points = points;
+    this._matches = matches;
+
   }
 
 
-  get id(): SeasonTeamId {
-    return this._id;
+  get matches(): number {
+    return this._matches;
+  }
+
+  set matches(value: number) {
+    this._matches = value;
+  }
+
+  get id(): string {
+    return this._id as string;
   }
 
   get points(): number {

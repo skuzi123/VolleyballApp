@@ -12,22 +12,25 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class SeasonTeamEntity {
+public class SeasonTeamEntity extends AbstractEntity{
 
-    @EmbeddedId
-    private SeasonTeamId id;
-    @Column(name = "points")
-    private Integer points;
-
-    @ManyToOne(cascade = CascadeType.REMOVE)
-    @MapsId("seasonId")
-    @JoinColumn(name = "season_id")
-    private SeasonEntity season;
+//    @EmbeddedId
+//    private SeasonTeamId id;
+@ManyToOne(cascade = CascadeType.REMOVE)
+@MapsId("seasonId")
+@JoinColumn(name = "season_id")
+private SeasonEntity season;
 
     @ManyToOne(cascade = CascadeType.REMOVE)
     @MapsId("teamId")
     @JoinColumn(name = "team_id")
     private TeamEntity team;
+
+    @Column(name = "points")
+    private Integer points;
+
+    @Column(name = "matches")
+    private Integer matches;
 
     public void setSeason(String seasonId) {
         if (seasonId == null) {
