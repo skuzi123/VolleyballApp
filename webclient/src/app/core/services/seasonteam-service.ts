@@ -30,7 +30,7 @@ export class SeasonTeamService {
 
   updateSeasonTeam(seasonTeam: SeasonTeam,id: string): Observable<SeasonTeam> {
     const request = {
-      id: id,
+      // id: id,
       points: seasonTeam.points,
       matches: seasonTeam.matches,
       seasonId: seasonTeam.seasonId,

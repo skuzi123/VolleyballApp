@@ -92,23 +92,32 @@ export class TableLeagueComponent implements OnInit {
     this.seasonTeams.forEach(seasonTeam => {
       if (seasonTeam.seasonId === "2") {
         const teamResult = results[seasonTeam.teamId];
-        if (teamResult) {
-          teamResult.points += seasonTeam.points;
-          teamResult.matches = teamResult.wins + teamResult.losses;
+if(teamResult.points === 0){
+  teamResult.points += seasonTeam.points;
+}
 
-          // Tworzenie obiektu SeasonTeam z zaktualizowanymi danymi
-          const updatedSeasonTeam= new SeasonTeam(
-            seasonTeam.id,
-            "2",
-            seasonTeam.teamId,
-            teamResult.points,
-            teamResult.matches
-          )
+            // teamResult.points += seasonTeam.points;
+            teamResult.matches = teamResult.wins + teamResult.losses;
 
-          // Zaktualizuj seasonTeam za pomocą seasonTeamService
-          this.updateSeasonTeam(updatedSeasonTeam, seasonTeam.id);
-        }
-      }
+            // Tworzenie obiektu SeasonTeam z zaktualizowanymi danymi
+            const updatedSeasonTeam = new SeasonTeam(
+              seasonTeam.id,
+              "2",
+              seasonTeam.teamId,
+              teamResult.points,
+              teamResult.matches
+            )
+            console.log(updatedSeasonTeam.points);
+            console.log(updatedSeasonTeam.matches);
+            this.seasonTeamService.updateSeasonTeam(updatedSeasonTeam, seasonTeam.id)
+              .subscribe(
+                response => console.log(`SeasonTeam updated for teamId ${seasonTeam.id}: `, response),
+                error => console.error(`Error updating SeasonTeam for teamId ${seasonTeam.id}: `, error)
+              );
+            // this.updateSeasonTeam(updatedSeasonTeam, seasonTeam.id);
+          }
+
+
     });
 
     const leagueTableArray = Object.values(results);
@@ -116,13 +125,13 @@ export class TableLeagueComponent implements OnInit {
 
     return leagueTableArray;
   }
-  updateSeasonTeam(updatedSeasonTeam: SeasonTeam, id: string) {
-    this.seasonTeamService.updateSeasonTeam(updatedSeasonTeam, id)
-      .subscribe(
-        response => console.log(`SeasonTeam updated for teamId ${id}: `, response),
-        error => console.error(`Error updating SeasonTeam for teamId ${id}: `, error)
-      );
-  }
+  // updateSeasonTeam(updatedSeasonTeam: SeasonTeam, id: string) {
+  //   this.seasonTeamService.updateSeasonTeam(updatedSeasonTeam, id)
+  //     .subscribe(
+  //       response => console.log(`SeasonTeam updated for teamId ${id}: `, response),
+  //       error => console.error(`Error updating SeasonTeam for teamId ${id}: `, error)
+  //     );
+  // }
   getMatchResult(matchId: string): string {
     const match = this.matches.find(m => m.id === matchId);
     if (match) {
