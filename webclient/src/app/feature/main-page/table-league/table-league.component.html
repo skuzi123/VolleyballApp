@@ -1,30 +1,47 @@
-<div class="container mt-6">
+<div class="container mt-6" >
   <div class="row">
     <div class="col-6 ml-auto">
+      <div class="scrollable-table-container">
       <table class="table">
-        <thead class="custom-header">
+        <thead class="custom-header" >
         <tr>
-          <th scope="col">#</th>
+          <th scope="col" >#</th>
           <th scope="col">Drużyna</th>
           <th scope="col">Punkty</th>
-          <th scope="col">Wygr.</th>
-          <th scope="col">Przegr.</th>
+          <th scope="col">Wygrane</th>
+          <th scope="col">Przegrane</th>
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let team of teams; let i = index">
+        <tr *ngFor="let row of tableLeague; let i = index">
           <th scope="row">{{i + 1}}</th>
-          <td>{{team.id}}</td>
-          <td>{{team.teamName}}</td>
-<!--          <td>{{team.points}}</td>-->
-<!--          <td>{{team.wins}}</td>-->
-<!--          <td>{{team.losses}}</td>-->
+          <td>{{row.team.teamName}}</td>
+          <td>{{row.points}}</td>
+          <td>{{row.wins}}</td>
+          <td>{{row.losses}}</td>
         </tr>
         </tbody>
       </table>
     </div>
   </div>
 </div>
-
+<div class="button-container" style="">
+  <button
+    class="btn btn-add-delete btn-outline-primary"
+    *ngIf="isAdmin()"
+    (click)="openTableToAddTeam()"
+    type="button"
+  >
+    Add Team
+  </button>
+  <button
+    class="btn btn-add-delete btn-outline-primary"
+    *ngIf="isAdmin()"
+    (click)="openTableToDeleteTeam()"
+    type="button"
+  >
+    Delete Team
+  </button>
+</div>
 
 

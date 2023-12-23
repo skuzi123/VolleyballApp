@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {Observable} from "rxjs";
+import {map, Observable} from "rxjs";
 import {HttpClient, HttpResponse} from "@angular/common/http";
 import {Set} from "../model/set";
 
@@ -20,8 +20,13 @@ export class SetService {
     return this.http.get<Set[]>(this.url);
   }
 
-  getById(id: string): Observable<Set> {
-    return this.http.get<Set>(this.url + `/${id}`);
+  // getById(id: string): Observable<Set> {
+  //   return this.http.get<Set>(this.url + `/${id}`);
+  // }
+  getById(setId: string): Observable<any> {
+    return this.http.get(`${this.url}/${setId}`).pipe(
+      map(response => response as any) // Cast the response to any or to a more specific type if you have one
+    );
   }
 
   getByMatchId(matchId: string): Observable<Set> {

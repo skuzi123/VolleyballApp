@@ -1,0 +1,34 @@
+<mat-dialog-content class="mat-typography">
+  <h1>Pass data to add raport</h1>
+  <form [formGroup]="reportForm">
+    <div class="row">
+      <p>
+        <mat-form-field style="width: 100%" class="example-full-width" appearance="fill">
+          <mat-label>Name</mat-label>
+          <input matInput
+                 type="string"
+                 formControlName="reportName">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field style="width: 100%" class="example-full-width" appearance="fill">
+          <mat-label>Text</mat-label>
+          <input matInput
+                 type="string"
+                 formControlName="reportText">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field style="width: 100%" class="example-full-width" appearance="fill">
+          <mat-label>UserId</mat-label>
+          <input matInput
+                 type="string"
+                 formControlName="createdByUserId">
+        </mat-form-field>
+      </p>
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button class="btn btn-edit btn-outline-primary" mat-dialog-close (click)="onSubmit()">Add raport</button>
+</mat-dialog-actions>

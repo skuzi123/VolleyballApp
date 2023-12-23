@@ -1,7 +1,9 @@
 import {Injectable} from "@angular/core";
 import {Observable} from "rxjs";
 import {Player} from "../model/player";
-import {HttpClient, HttpResponse} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
+import {PlayerProfile} from "../model/player-profile";
+import {PlayerStarter} from "../model/player-starter";
 
 @Injectable({
   providedIn: 'root'
@@ -36,28 +38,49 @@ export class PlayerService {
     return this.http.get<Player>(`${this.url}/surname/${surname}`);
   }
 
-  addPlayer(player: Player): Observable<HttpResponse<Object>> {
-    let response: Observable<HttpResponse<Object>>;
-    try {
-      response = this.http.post(this.url, player, {
-        observe: 'response'
-      });
-      return response;
-    } catch (error: any) {
-      throw new Error(error.message);
-    }
+  findByUser(userId: string): Observable<Player> {
+    return this.http.get<Player>(`${this.url}/user/${userId}`);
+
   }
 
-  updatePlayer(player: Player): Observable<HttpResponse<Object>> {
-    let response: Observable<HttpResponse<Object>>;
-    try {
-      response = this.http.put(this.url + `/${player.id}`, player, {
-        observe: 'response'
-      });
-      return response;
-    } catch (error: any) {
-      throw new Error(error.message);
+  addPlayer(player: Player): Observable<Player> {
+    const request = {
+      age: player.age,
+      experience: player.experience,
+      position: player.position,
+      height: player.height,
+      weight: player.weight,
+      attackRange: player.attackRange,
+      blockRange: player.blockRange,
+      image: player.image
+
     }
+    return this.http.post<Player>(`${this.url}`, request);
+  }
+
+  updatePlayer(player: PlayerProfile, id: string): Observable<Player> {
+    const request = {
+      name: player.name,
+      surname: player.surname,
+      age: player.age,
+      experience: player.experience,
+      position: player.position,
+      height: player.height,
+      weight: player.weight,
+      attackRange: player.attackRange,
+      blockRange: player.blockRange,
+      image: player.image
+
+    }
+    return this.http.patch<Player>(`${this.url}/${id}`, request);
+  }
+
+  updateStarter(player: PlayerStarter, id: string): Observable<Player> {
+    const request = {
+      starter: player.starter
+
+    }
+    return this.http.patch<Player>(`${this.url}/isStarter/${id}`, request);
   }
 
   deleteById(id: string): Observable<void> {

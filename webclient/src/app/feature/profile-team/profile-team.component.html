@@ -1,0 +1,46 @@
+<div class="profile-team">
+  <h2>Team Profile</h2>
+  <div *ngIf="team" class="team-content">
+    <div class="team-info">
+      <div><strong>Name:</strong> {{ team.teamName }}</div>
+      <div *ngIf="trainers.length === 1">
+        <strong>Trainer:</strong> {{ trainers[0].name }} {{ trainers[0].surname }}
+      </div>
+      <div *ngIf="trainers.length > 1">
+        <strong>Trainers:</strong>
+        <ul>
+          <li *ngFor="let trainer of trainers">
+            {{ trainer.name }} {{ trainer.surname }}
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="team-players">
+      <div *ngIf="players.length > 1">
+        <strong>Players:</strong>
+        <ul>
+          <li *ngFor="let player of players">
+            {{ player.name }} {{ player.surname }}
+            <input type="checkbox" *ngIf="isEditingStarterSquad" [checked]="player.starter" (change)="toggleStarterStatus(player)">
+          </li>
+        </ul>
+        <div class="team-players" *ngIf="seasonTeam && season">
+          <h2>Stats</h2>
+          <p><strong>Season:</strong> {{season.seasonName}}</p>
+          <p><strong>Points:</strong> {{seasonTeam.points}} </p>
+          <p><strong>Matches:</strong> {{seasonTeam.matches}} </p>
+          <p><strong>Average points per game:</strong> {{ averagePointsPerMatch | number:'1.2-2' }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="team-image" *ngIf="team.image">
+      <img [src]="team.image" alt="{{ team.teamName }} image">
+    </div>
+  </div>
+  <div *ngIf="trainer?.teamId === team?.id" class="team-edit">
+    <button *ngIf="isTrainer()" class="btn btn-edit btn-outline-primary" (click)="editTeam()" type="button">
+      Edit starter squad
+    </button>
+  </div>
+</div>
+

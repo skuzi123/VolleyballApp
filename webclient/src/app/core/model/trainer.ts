@@ -1,28 +1,69 @@
-import {User} from "./user";
 
 export class Trainer {
   private _id: string;
-  private _user: User;
+  private _userId: string;
+  private _teamId: string;
+  private _name: string;
+  private _surname: string;
+  private _age: number;
   private _workHistory: string;
   private _achievements: string;
+  private _image: string;
 
-  constructor(id: string, user: User, workHistory: string, achievements: string) {
+  constructor(id: string, userId: string, teamId: string, name: string, surname: string, age: number, workHistory: string, achievements: string, image: string) {
     this._id = id;
-    this._user = user;
+    this._userId = userId;
+    this._teamId = teamId;
+    this._name = name;
+    this._surname = surname;
+    this._age = age;
     this._workHistory = workHistory;
     this._achievements = achievements;
+    this._image = image;
   }
 
   get id(): string {
     return this._id;
   }
 
-  get user(): User {
-    return this._user;
+  get userId(): string {
+    return this._userId;
   }
 
-  set user(user: User) {
-    this._user = user;
+  set userId(value: string) {
+    this._userId = value;
+  }
+
+  get teamId(): string {
+    return this._teamId;
+  }
+
+  set teamId(value: string) {
+    this._teamId = value;
+  }
+
+  get name(): string {
+    return this._name;
+  }
+
+  set name(value: string) {
+    this._name = value;
+  }
+
+  get surname(): string {
+    return this._surname;
+  }
+
+  set surname(value: string) {
+    this._surname = value;
+  }
+
+  get age(): number {
+    return this._age;
+  }
+
+  set age(value: number) {
+    this._age = value;
   }
 
   get workHistory(): string {
@@ -39,5 +80,14 @@ export class Trainer {
 
   set achievements(achievements: string) {
     this._achievements = achievements;
+  }
+
+
+  get image(): string {
+    return this._image;
+  }
+
+  set image(value: string) {
+    this._image = value;
   }
 }

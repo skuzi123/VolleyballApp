@@ -1,0 +1,56 @@
+.profile{
+  background-color: #fff; /* Replace with the color of your choice */
+  color: #333; /* Replace with the color of your choice */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 30rem; /* Adjust based on your layout */
+  margin-top: 5rem;
+  margin-left: 40%;
+  transform: scale(1.1);
+}
+
+.profile h2 {
+  color: #f68b1f;
+  text-align: center;
+}
+
+.details {
+  font-family: Arial, sans-serif;
+}
+
+.details div {
+  margin-bottom: 10px;
+}
+img{
+  width:40%;
+  margin-left: 50%;
+  margin-top:-90%;
+}
+img:hover{
+  transform: scale(1.02);
+}
+.btn-edit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 12rem;
+  height: 2rem;
+  font-size: 1.15rem;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  text-align: center;
+  line-height: 1.5;
+  letter-spacing: 0.15em;
+  background-color: #f7f6e7;
+  border: #F2A154 2px solid;
+  border-radius: 2em;
+  color: #314E52;
+}
+
+.btn:hover {
+  background-color: #F2A154;
+  color: black;
+
+}

@@ -1,24 +1,33 @@
-import {SeasonTeamId} from "./seasonteamid";
-import {Season} from "./season";
-import {Team} from "./team";
+
 
 export class SeasonTeam {
-  private _id: SeasonTeamId;
+  private _id?: string;
+  private _seasonId: string;
+  private _teamId: string;
   private _points: number;
-  private _season: Season;
-  private _team: Team;
+  private _matches: number;
 
 
-  constructor(id: SeasonTeamId, points: number, season: Season, team: Team) {
+  constructor( id: string,seasonId: string, teamId: string,points: number,matches: number) {
     this._id = id;
+    this._seasonId = seasonId;
+    this._teamId = teamId;
     this._points = points;
-    this._season = season;
-    this._team = team;
+    this._matches = matches;
+
   }
 
 
-  get id(): SeasonTeamId {
-    return this._id;
+  get matches(): number {
+    return this._matches;
+  }
+
+  set matches(value: number) {
+    this._matches = value;
+  }
+
+  get id(): string {
+    return this._id as string;
   }
 
   get points(): number {
@@ -29,19 +38,20 @@ export class SeasonTeam {
     this._points = value;
   }
 
-  get season(): Season {
-    return this._season;
+
+  get seasonId(): string {
+    return this._seasonId;
   }
 
-  set season(value: Season) {
-    this._season = value;
+  set seasonId(value: string) {
+    this._seasonId = value;
   }
 
-  get team(): Team {
-    return this._team;
+  get teamId(): string {
+    return this._teamId;
   }
 
-  set team(value: Team) {
-    this._team = value;
+  set teamId(value: string) {
+    this._teamId = value;
   }
 }

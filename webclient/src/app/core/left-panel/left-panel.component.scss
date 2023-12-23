@@ -1,0 +1,100 @@
+.left-panel {
+  position: absolute;
+  top: 6em;
+  left: 0;
+  width: 12rem;
+  height: 100vh;
+  background-color: #F2A154;
+  overflow-y: auto;
+  z-index: 10000;
+}
+
+.left-panel ul {
+  list-style: none;
+  padding: 0;
+}
+
+.left-panel li {
+  margin-bottom: 0.2em;
+  text-align: center;
+}
+
+.left-panel a {
+  display: block;
+  margin: 1.5em 1em;
+  text-decoration: none;
+  //background-color: #fff;
+  color: #314E52;
+  border: #F7F6E7 0.15em solid;
+  border-radius: 2em;
+}
+
+.left-panel a:hover {
+  color: #314E52;
+  background-color: #F7F6E7;
+  border: #E7E6E1 0.15em solid;
+}
+
+input.add-project {
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #314E52;
+  text-align: center;
+}
+
+input:focus {
+  width: 90%;
+  outline: none;
+  box-sizing: border-box;
+  color: #314E52;
+  background-color: #F7F6E7;
+  border: #E7E6E1 2px solid;
+  border-radius: 2em;
+  transition: 0.3s ease;
+  background-color: #F2A154;
+}
+
+input:empty:not(:focus) {
+  width: 60%;
+  outline: none;
+  box-sizing: border-box;
+  background-color: #F2A154;
+  border: #F7F6E7 2px solid;
+  border-radius: 2em;
+  transition: 0.3s ease;
+}
+
+input:focus::placeholder {
+  color: transparent;
+
+}
+
+.btn-logout {
+  //padding: 20px;
+  margin-left: 1.75rem;
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 8.5rem;
+  height: 2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  text-align: center;
+  line-height: 1.5;
+  letter-spacing: 0.15em;
+  background-color: #f7f6e7;
+  border: #F2A154 2px solid;
+  border-radius: 2em;
+  color: #314E52;
+}
+
+.btn:hover {
+  background-color: #F2A154;
+  color: black;
+
+}

@@ -1,1 +1,18 @@
-<p>profile-player works!</p>
+<div class="profile-player">
+  <h2>Player Profile</h2>
+  <div class="player-details">
+    <div><strong>Name:</strong> {{ player?.name }} {{ player?.surname }}</div>
+    <div><strong>Age:</strong> {{ player?.age }}</div>
+    <div><strong>Experience:</strong> {{ player?.experience }} years</div>
+    <div><strong>Position:</strong> {{ player?.position }}</div>
+    <div><strong>Weight:</strong> {{ player?.weight }} kg</div>
+    <div><strong>Height:</strong> {{ player?.height }} cm</div>
+    <div><strong>Spike Reach:</strong> {{ player?.attackRange}} cm</div>
+    <div><strong>Block Reach:</strong> {{ player?.blockRange}} cm</div>
+    <div *ngIf="team"><strong>Club:</strong> {{ team.teamName}}</div>
+  </div>
+  <div class="player-image" *ngIf="player?.image">
+    <img [src]="player?.image"  image>
+  </div>
+</div>
+

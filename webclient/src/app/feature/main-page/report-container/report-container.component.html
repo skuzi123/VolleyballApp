@@ -1,50 +1,18 @@
 <div class="match-reports-container">
   <div class="middle-container">
-  <div class="match-report">
-    <p>Trefl Gdańsk wygrał ostatni mecz, utrzymując prowadzenie w lidze. Atak z lewego skrzydła był kluczowy do zwycięstwa.</p>
+    <div class="match-report" *ngFor="let report of reports">
+      <p>{{report.reportText}}</p>
+    </div>
+
   </div>
-  <div class="match-report">
-    <p>Projekt Warszawa odnotował kolejne zwycięstwo. Świetna gra obronna i skuteczne ataki przyniosły sukces.</p>
-  </div>
-  <div class="match-report">
-    <p>Jastrzębski Węgiel pokazał klasę, wygrywając bez straty seta. Zespół pokazał, że jest w wysokiej formie.</p>
-  </div>
-  <div class="match-report">
-    <p>Trefl Gdańsk wygrał ostatni mecz, utrzymując prowadzenie w lidze. Atak z lewego skrzydła był kluczowy do zwycięstwa.</p>
-  </div>
-  <div class="match-report">
-    <p>Projekt Warszawa odnotował kolejne zwycięstwo. Świetna gra obronna i skuteczne ataki przyniosły sukces.</p>
-  </div>
-  <div class="match-report">
-    <p>Jastrzębski Węgiel pokazał klasę, wygrywając bez straty seta. Zespół pokazał, że jest w wysokiej formie.</p>
-  </div>
-  <div class="match-report">
-    <p>Trefl Gdańsk wygrał ostatni mecz, utrzymując prowadzenie w lidze. Atak z lewego skrzydła był kluczowy do zwycięstwa.</p>
-  </div>
-  <div class="match-report">
-    <p>Projekt Warszawa odnotował kolejne zwycięstwo. Świetna gra obronna i skuteczne ataki przyniosły sukces.</p>
-  </div>
-  <div class="match-report">
-    <p>Jastrzębski Węgiel pokazał klasę, wygrywając bez straty seta. Zespół pokazał, że jest w wysokiej formie.</p>
-  </div>
-  <div class="match-report">
-    <p>Trefl Gdańsk wygrał ostatni mecz, utrzymując prowadzenie w lidze. Atak z lewego skrzydła był kluczowy do zwycięstwa.</p>
-  </div>
-  <div class="match-report">
-    <p>Projekt Warszawa odnotował kolejne zwycięstwo. Świetna gra obronna i skuteczne ataki przyniosły sukces.</p>
-  </div>
-  <div class="match-report">
-    <p>Jastrzębski Węgiel pokazał klasę, wygrywając bez straty seta. Zespół pokazał, że jest w wysokiej formie.</p>
-  </div>
-  <div class="match-report">
-    <p>Trefl Gdańsk wygrał ostatni mecz, utrzymując prowadzenie w lidze. Atak z lewego skrzydła był kluczowy do zwycięstwa.</p>
-  </div>
-  <div class="match-report">
-    <p>Projekt Warszawa odnotował kolejne zwycięstwo. Świetna gra obronna i skuteczne ataki przyniosły sukces.</p>
-  </div>
-  <div class="match-report">
-    <p>Jastrzębski Węgiel pokazał klasę, wygrywając bez straty seta. Zespół pokazał, że jest w wysokiej formie.</p>
-  </div>
-  </div>
+    <button
+      *ngIf="isAdmin()"
+      class="btn btn-add btn-outline-primary"
+      (click)="openReport()"
+      type="button"
+    >
+      Add raport
+    </button>
+
 </div>
 

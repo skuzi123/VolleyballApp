@@ -3,5 +3,6 @@ export const loginMessages = {
   username: 'Username',
   fieldRequired: 'This field is required.',
   password: 'Password',
-  logIn: 'Log in'
+  logIn: 'Log in',
+  signUp: 'Sign Up'
 }

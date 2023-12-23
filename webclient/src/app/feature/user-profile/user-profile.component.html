@@ -1,0 +1,36 @@
+<div class="profile">
+  <h2>User Profile</h2>
+  <div class="details">
+    <div><strong>Username:</strong> {{ user?.username }}</div>
+    <div><strong>Role:</strong> {{ user?.role }}</div>
+    <div *ngIf="player">
+      <div><strong>Name:</strong> {{ player.name }} {{ player.surname }}</div>
+      <div><strong>Age:</strong> {{ player.age }}</div>
+      <div><strong>Experience:</strong> {{ player.experience }} years</div>
+      <div><strong>Position:</strong> {{ player.position }}</div>
+      <div><strong>Height:</strong> {{ player.height }} kg</div>
+      <div><strong>Weight:</strong> {{ player.weight }} cm</div>
+      <div><strong>Spike Reach:</strong> {{ player.attackRange}} cm</div>
+      <div><strong>Block Reach:</strong> {{ player.blockRange}} cm</div>
+    </div>
+    <div *ngIf="trainer">
+      <div><strong>Name:</strong> {{ trainer.name }} {{ trainer.surname }}</div>
+      <div><strong>Age:</strong> {{ trainer.age }}</div>
+      <div><strong>Work history:</strong> {{ trainer.workHistory }}</div>
+      <div><strong>Achievement:</strong> {{ trainer.achievements}}</div>
+    </div>
+    <div *ngIf="team"><strong>Club:</strong> {{ team.teamName}}</div>
+  </div>
+  <div class="image" *ngIf="player?.image">
+    <img [src]="player?.image">
+  </div>
+  <div class="image" *ngIf="trainer?.image">
+    <img [src]="trainer?.image">
+  </div>
+  <div *ngIf="user">
+    <button class="btn btn-edit btn-outline-primary"  (click)="openEditProfile(user)">Edit profile</button>
+  </div>
+
+</div>
+
+

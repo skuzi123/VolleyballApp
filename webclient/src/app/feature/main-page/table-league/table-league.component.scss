@@ -1,30 +1,30 @@
-/* style.css */
+
 .custom-header th {
-  background-color: #F2A154; /* Green background for headers */
-  color: white; /* White text color */
+  background-color: #F2A154;
+  color: white;
+  z-index:999;
+  position: sticky;
 }
 
-/* Additional styles for table positioning */
 .container > .row {
-  justify-content: flex-end; /* Aligns the row content to the end (right) */
+  justify-content: flex-end;
+
 }
 
 .col-6.ml-auto {
-  /* This class is for the div containing the table, making it take up half the width and auto-margin on the left */
   max-width: 100%;
+
 }
 
-/* Add additional custom styles below */
 .table-striped tbody tr:nth-of-type(odd) {
-  background-color: rgba(0,0,0,.05); /* For striped tables */
+  background-color: rgba(0, 0, 0, .05);
 }
 
-/* Example media query to handle responsive table behaviors */
 @media screen and (max-width: 768px) {
   .table-responsive {
     display: block;
     width: 150%;
-    overflow-x: auto;
+    //overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
 
@@ -34,55 +34,85 @@
   }
 
 
-
-  /* Adjust this to ensure the table header has the correct color */
   .custom-header th {
-    background-color: #F2A154; /* Adjust the color value as needed */
+    background-color: #F2A154;
     color: white;
+    position: absolute! important;
   }
 
-  /* Ensure the table takes the full width */
+
   .table-responsive {
     display: block;
-    width: 200%; /* Ensures the table is 100% the width of its parent */
-    overflow-x: auto; /* Allows horizontal scrolling if necessary */
+    width: 200%;
+    //overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
 
-  /* Adjust the max-height to ensure the full table is visible */
+
   .table {
-    max-height: unset; /* Removes any maximum height restriction */
-    width:70%;
-    overflow-y: visible; /* Ensures the full table is visible vertically */
+    height: 560px;
+    width: 70%;
+
+    //overflow-y: visible;
   }
 
-  /* If you want the table to be 5px away from another element, add margin */
+
   .container > .row > .col-6.ml-auto {
-    margin-left: 5px; /* Adjust as necessary to create space from the left side */
-    width: calc(100% - 5px); /* Adjust width to account for margin */
+    margin-left: 5px;
+    width: calc(100% - 5px);
+
   }
 
-  /* Ensure the table is not cut off on smaller screens */
+
   @media screen and (max-width: 768px) {
     .col-6.ml-auto {
-      width: 100%; /* Full width on small screens */
-      margin-left: 0; /* Reset margin on small screens if necessary */
+      width: 100%;
+      margin-left: 0;
     }
 
     .col-6.ml-auto > .table-responsive {
-      overflow-y: visible; /* Ensures the full table is visible */
+      //overflow-y: visible;
     }
   }
 
-  /* Add your other styles here */
 
-  //.table{
-//  max-height: calc(100vh - 120px); /* Zakładając, że tabela ma klasę 'table-responsive' */
-//  overflow-y: scroll;
-//}
-//  .col-6.ml-auto > .table {
-//    max-height: calc(100vh - 120px);
-//    overflow-y: scroll;
-//  }
 
+}
+.btn-add-delete {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 11rem;
+  height: 2rem;
+  font-size: 1.15rem;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  text-align: center;
+  line-height: 1.5;
+  letter-spacing: 0.15em;
+  background-color: #f7f6e7;
+  border: #F2A154 2px solid;
+  border-radius: 2em;
+  color: #314E52;
+}
+
+.btn:hover {
+  background-color: #F2A154;
+  color: black;
+
+}
+.button-container {
+  margin-left:40%;
+  margin-top:7.5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+.scrollable-table-container{
+  border-radius: 5%;
+  max-height: 550px;
+  overflow-y: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }

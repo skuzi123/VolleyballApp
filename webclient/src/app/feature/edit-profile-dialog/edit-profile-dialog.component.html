@@ -1,0 +1,142 @@
+<mat-dialog-content class="mat-typography">
+  <h1>Pass data to edit</h1>
+  <form [formGroup]="playerForm" *ngIf="isPlayer">
+    <div class="row">
+      <p>
+        <mat-form-field style="width: 100%" class="example-full-width" appearance="fill">
+          <mat-label>Name</mat-label>
+          <input matInput
+                 type="string"
+                 formControlName="name">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field style="width: 100%" class="example-full-width" appearance="fill">
+          <mat-label>Surname</mat-label>
+          <input matInput
+                 type="string"
+                 formControlName="surname">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field style="width: 100%" class="example-full-width" appearance="fill">
+          <mat-label>Age</mat-label>
+          <input matInput
+                 type="number"
+                 formControlName="age"
+          >
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field style="width: 100%" class="example-full-width" appearance="fill">
+          <mat-label>Experience</mat-label>
+          <input matInput
+                 type="string"
+                 formControlName="experience">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field style="width: 100%" class="example-full-width" appearance="fill">
+          <mat-label>Position</mat-label>
+          <input matInput
+                 type="string"
+                 formControlName="position">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field style="width: 100%" class="example-full-width" appearance="fill">
+          <mat-label>Height</mat-label>
+          <input matInput
+                 type="number"
+                 formControlName="height">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field style="width: 100%" class="example-full-width" appearance="fill">
+          <mat-label>Weight</mat-label>
+          <input matInput
+                 type="number"
+                 formControlName="weight">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field style="width: 100%" class="example-full-width" appearance="fill">
+          <mat-label>Spike Reach</mat-label>
+          <input matInput
+                 type="number"
+                 formControlName="attackRange">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field style="width: 100%" class="example-full-width" appearance="fill">
+          <mat-label>Block Reach</mat-label>
+          <input matInput
+                 type="number"
+                 formControlName="blockRange">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field style="width: 100%" class="example-full-width" appearance="fill">
+          <mat-label>Image Url</mat-label>
+          <input matInput
+                 type="string"
+                 formControlName="image">
+        </mat-form-field>
+      </p>
+    </div>
+  </form>
+  <form [formGroup]="trainerForm" *ngIf="isTrainer">
+    <p>
+      <mat-form-field style="width: 100%" class="example-full-width" appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput
+               type="string"
+               formControlName="name">
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field style="width: 100%" class="example-full-width" appearance="fill">
+        <mat-label>Surname</mat-label>
+        <input matInput
+               type="string"
+               formControlName="surname">
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field style="width: 100%" class="example-full-width" appearance="fill">
+        <mat-label>Age</mat-label>
+        <input matInput
+               type="number"
+               formControlName="age">
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field style="width: 100%" class="example-full-width" appearance="fill">
+        <mat-label>Work history</mat-label>
+        <input matInput
+               type="string"
+               formControlName="workHistory">
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field style="width: 100%" class="example-full-width" appearance="fill">
+        <mat-label>Achievements</mat-label>
+        <input matInput
+               type="string"
+               formControlName="achievements">
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field style="width: 100%" class="example-full-width" appearance="fill">
+        <mat-label>Image Url</mat-label>
+        <input matInput
+               type="string"
+               formControlName="image">
+      </mat-form-field>
+    </p>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button class="btn btn-edit btn-outline-primary" mat-dialog-close  (click)="onSubmit()">Save changes</button>
+</mat-dialog-actions>
+

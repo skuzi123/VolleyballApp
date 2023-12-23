@@ -1,27 +1,56 @@
 .match-reports-container {
-  height: calc(70% - 140px); /* 120px to przykładowa wysokość nagłówka i marginesów */
+  height: 560px;
   width: 200%;
-  background-color: #f7f6e7; /* Dopasowanie do koloru nagłówka */
+  background-color: #f7f6e7;
   padding: 1rem;
-  /* Włączenie przewijania dla dłuższych list */
+  padding-bottom: 0;
+  border-radius: 5%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
 }
 
 .match-report {
-  background-color: white; /* Biały tło dla raportów */
-  margin-bottom: 1rem; /* Odstęp pomiędzy raportami */
+  background-color: white;
+  margin-bottom: 1rem;
   padding: 0.5rem;
-  border-radius: 10px; /* Zaokrąglone rogi */
-  border: 1px solid #ddd; /* Subtelna obramówka */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Lekki cień dla wyróżnienia */
+  border-radius: 10px;
+  border: #F2A154 2px solid;
+  box-shadow: 0 2px 4px rgba(227, 139, 0, 0.2);
 }
-.middle-container{
+
+.middle-container {
   width: 100%;
   height: 100%;
-  overflow-y:scroll;
+  overflow-y: scroll;
+  margin-bottom: 20px;
 }
-/* Dodatkowe style dla tekstu raportu */
+
 .match-report p {
   margin: 0;
   font-size: 1rem;
   line-height: 1.5;
+}
+.btn-add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10rem;
+  height: 2rem;
+  font-size: 1.15rem;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  text-align: center;
+  line-height: 1.5;
+  letter-spacing: 0.15em;
+  background-color: #f7f6e7;
+  border: #F2A154 2px solid;
+  border-radius: 2em;
+  color: #314E52;
+}
+
+.btn:hover {
+  background-color: #F2A154;
+  color: black;
+
 }

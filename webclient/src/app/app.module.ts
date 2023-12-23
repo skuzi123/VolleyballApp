@@ -4,7 +4,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './core/app-routing.module';
 import {AppComponent} from './core/app.component';
 import {LoginComponent} from './core/login/login.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HeaderComponent} from './core/header/header.component';
 import {FooterComponent} from './core/footer/footer.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -17,7 +17,24 @@ import {ProfilePlayerComponent} from './feature/profile-player/profile-player.co
 import {ProfileTrainerComponent} from './feature/profile-trainer/profile-trainer.component';
 import {ReportContainerComponent} from './feature/main-page/report-container/report-container.component';
 import {AuthInterceptor} from "./core/_helpers/auth.interceptor";
-import { LeftPanelComponent } from './core/left-panel/left-panel.component';
+import {LeftPanelComponent} from './core/left-panel/left-panel.component';
+import {SearchBarComponent} from './core/left-panel/search-bar/search-bar.component';
+import {SearchBarTrainerComponent} from './core/left-panel/search-bar-trainer/search-bar-trainer.component';
+import {SearchBarTeamComponent} from './core/left-panel/search-bar-team/search-bar-team.component';
+import {ProfileTeamComponent} from './feature/profile-team/profile-team.component';
+import {UserProfileComponent} from './feature/user-profile/user-profile.component';
+import {MatchCarouselComponent} from './core/match-carousel/match-carousel.component';
+import {MatButtonModule} from "@angular/material/button";
+import {EditProfileDialogComponent} from './feature/edit-profile-dialog/edit-profile-dialog.component';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatInputModule} from "@angular/material/input";
+import {ReportComponent} from './feature/main-page/report/report.component';
+import { EditTableLeagueComponent } from './feature/main-page/edit-table-league/edit-table-league.component';
+import { AddTeamProfileComponent } from './feature/main-page/add-team-profile/add-team-profile.component';
+import { DeleteTeamProfileComponent } from './feature/main-page/delete-team-profile/delete-team-profile.component';
+import { MatchProfileComponent } from './feature/match-profile/match-profile.component';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +48,19 @@ import { LeftPanelComponent } from './core/left-panel/left-panel.component';
     ProfilePlayerComponent,
     ProfileTrainerComponent,
     ReportContainerComponent,
-    LeftPanelComponent
+    LeftPanelComponent,
+    SearchBarComponent,
+    SearchBarTrainerComponent,
+    SearchBarTeamComponent,
+    ProfileTeamComponent,
+    UserProfileComponent,
+    MatchCarouselComponent,
+    EditProfileDialogComponent,
+    ReportComponent,
+    EditTableLeagueComponent,
+    AddTeamProfileComponent,
+    DeleteTeamProfileComponent,
+    MatchProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +68,11 @@ import { LeftPanelComponent } from './core/left-panel/left-panel.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    FormsModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatDialogModule,
+    MatInputModule,
   ],
   providers: [JwtHelperService,
     {provide: JWT_OPTIONS, useValue: JWT_OPTIONS},

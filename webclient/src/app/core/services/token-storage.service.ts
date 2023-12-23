@@ -29,22 +29,19 @@ export class TokenStorageService {
     window.localStorage.setItem(USER_KEY, JSON.stringify(user));
   }
 
-  public getUserId(): any {
-    const user = window.localStorage.getItem(USER_ID);
-    if (user) {
-      return user;
-    }
+  public getUserId(): string {
+    const user = window.localStorage.getItem(USER_KEY);
+    return user ? JSON.parse(user).id : null;
+  }
 
-    return {};
+  public getRole(): string {
+    const user = window.localStorage.getItem(USER_KEY);
+    return user ? JSON.parse(user).role : null;
   }
 
   public getUser(): any {
     const user = window.localStorage.getItem(USER_KEY);
-    if (user) {
-      return JSON.parse(user);
-    }
-
-    return {};
+    return user ? JSON.parse(user) : null;
   }
 
   public removeUser(): void {
@@ -61,3 +58,14 @@ export class TokenStorageService {
     return false;
   }
 }
+
+// getUserId() {
+//   const token = window.localStorage.getItem('auth-user');
+//
+//   return token ? JSON.parse(token).id : [];
+// }
+// getRole() {
+//   const token = window.localStorage.getItem('auth-user');
+//
+//   return token ? JSON.parse(token).role : [];
+// }

@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {Observable} from "rxjs";
-import {HttpClient, HttpResponse} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 import {Team} from "../model/team";
 
 @Injectable({
@@ -24,33 +24,32 @@ export class TeamService {
     return this.http.get<Team>(this.url + `/${id}`);
   }
 
+  // getById(teamId: string): Observable<any> {
+  //   return this.http.get(`${this.url}/${teamId}`).pipe(
+  //     map(response => response as any)
+  //   );
+  // }
 
-  addTeam(team: Team): Observable<HttpResponse<Object>> {
-    let response: Observable<HttpResponse<Object>>;
-    try {
-      response = this.http.post(this.url, Team, {
-        observe: 'response'
-      });
-      return response;
-    } catch (error: any) {
-      throw new Error(error.message);
-    }
+  getByTeamName(teamName: string): Observable<Team> {
+    return this.http.get<Team>(this.url + `/teamName/${teamName}`);
   }
 
-  updateTeam(team: Team): Observable<HttpResponse<Object>> {
-    let response: Observable<HttpResponse<Object>>;
-    try {
-      response = this.http.put(this.url + `/${team.id}`, Team, {
-        observe: 'response'
-      });
-      return response;
-    } catch (error: any) {
-      throw new Error(error.message);
+
+  addTeam(team: Team): Observable<Team> {
+    const request = {
+      teamName: team.teamName,
+      image: team.image
     }
+    return this.http.post<Team>(this.url, request);
   }
+
 
   deleteById(id: string): Observable<void> {
     return this.http.delete<void>(this.url + `/${id}`);
+  }
+
+  deleteByTeamName(teamName: string): Observable<void> {
+    return this.http.delete<void>(this.url + `/teamName/${teamName}`);
   }
 
 }
